@@ -1,24 +1,19 @@
 #!/bin/sh
 for file in *; do
-    if [[ $file =~ (sh|dtx|pdf|ins)$ ]]
-    then
-        echo $file
-    else 
+    if [[ ! $file =~ (sh|dtx|ins|pdf)$ &&  -f $file ]]; then 
         # echo "remove $file"
         rm $file
     fi
 done
 
-# latex lintex.ins
+latex lintex.ins
 
-# pdflatex lintex.dtx
+pdflatex lintex.dtx
 
 for file in *; do
-    if [[ $file =~ (sh|dtx|pdf|cls|ins)$ ]]
-    then
-        echo $file
-    else 
+    if [[ ! $file =~ (sh|dtx|ins|pdf|cls)$ &&  -f $file ]]; then 
         # echo "remove $file"
         rm $file
     fi
 done
+
