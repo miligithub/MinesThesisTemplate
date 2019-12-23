@@ -1,0 +1,79 @@
+\begin{theindex}
+
+  \item advisor=\verb
+    \subitem *+\advisor+, 10
+
+  \indexspace
+
+  \item coadvisor=\verb
+    \subitem *+\coadvisor+, 11
+  \item CurrentOption=\verb
+    \subitem *+\CurrentOption+, 2
+
+  \indexspace
+
+  \item DeclareOption=\verb
+    \subitem *+\DeclareOption+, 2
+  \item def=\verb
+    \subitem *+\def+, 8--13
+  \item degree=\verb
+    \subitem *+\degree+, 9
+  \item department=\verb
+    \subitem *+\department+, 12
+  \item departmenthead=\verb
+    \subitem *+\departmenthead+, 13
+
+  \indexspace
+
+  \item fontsize=\verb
+    \subitem *+\fontsize+, 5
+
+  \indexspace
+
+  \item gdef=\verb
+    \subitem *+\gdef+, 8--13
+
+  \indexspace
+
+  \item LoadClass=\verb
+    \subitem *+\LoadClass+, 4
+
+  \indexspace
+
+  \item normalsize=\verb
+    \subitem *+\normalsize+, 5
+
+  \indexspace
+
+  \item pagenumbering=\verb
+    \subitem *+\pagenumbering+, 7
+  \item PassOptionsToClass=\verb
+    \subitem *+\PassOptionsToClass+, 1, 2
+  \item ProcessOptions=\verb
+    \subitem *+\ProcessOptions+, 3
+
+  \indexspace
+
+  \item renewcommand=\verb
+    \subitem *+\renewcommand+, 5
+
+  \indexspace
+
+  \item selectfont=\verb
+    \subitem *+\selectfont+, 5
+  \item setlength=\verb
+    \subitem *+\setlength+, 5, 6
+
+  \indexspace
+
+  \item textheight=\verb
+    \subitem *+\textheight+, 6
+  \item textwidth=\verb
+    \subitem *+\textwidth+, 5
+
+  \indexspace
+
+  \item year=\verb
+    \subitem *+\year+, 8
+
+\end{theindex}

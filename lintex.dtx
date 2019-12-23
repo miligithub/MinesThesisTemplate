@@ -35,16 +35,13 @@
 %
 %^^A Driver code 
 %<*driver>
-
 \documentclass{ltxdoc}
-\usepackage{hyperref}
+\usepackage{array,booktabs,amsmath,graphicx,hyperref}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
 \begin{document}
   \DocInput{lintex.dtx}
-  \PrintChanges
-  \PrintIndex
 \end{document}
 %</driver>
 % \fi
@@ -96,7 +93,8 @@
 %
 % \subsection{Invocation and options}
 % \label{sec:ug_invoke}
-% \DescribeMacro{\documentclass} The \textsf{mines-thesis} class is invoked in the standard fashion. 
+% \DescribeMacro{\documentclass} The \textsf{mines-thesis} class 
+% is invoked in the standard fashion. 
 % \begin{quote}
 %   |\documentclass|\oarg{options}|{mines-thesis}|
 % \end{quote}
@@ -111,102 +109,118 @@
 % \textbf{TODO review? oneside?  onecolumn,draft,openany}
 %
 % \subsection{Preprogrammed Formats}
-% \label{preprog}
+% \label{sec:ug_preprog}
+%
+% \DescribeMacro{\title}
 % 
-% \DescribeMacro{\chapter} 
-% \DescribeMacro{\section}
-% \DescribeMacro{\subsection} 
-% \DescribeMacro{\subsubsection}
-% \DescribeMacro{\paragraph}
-% \DescribeMacro{\title} 
 % \DescribeMacro{\author}
+% 
+% \DescribeMacro{\year}
+% 
+% \DescribeMacro{\degree}
+%  
+% \DescribeMacro{\advisor}
+%  
+% \DescribeMacro{\coadvisor}
+%  
 % \DescribeMacro{\department}
-% \DescribeMacro{\date}  
+% 
+% \DescribeMacro{\departmenthead}
+%
+% \DescribeEnv{abstract} The environment |abstract| must  
+% \emph{precede} the \cs{makefrontmatter} command.  Again, 
+% this is different from the standard \LaTeX. Putting |abstract| 
+% after \cs{makefrontmatter} will trigger an error.
+% \begin{quote}
+%   |\begin{abstract}|\\
+%   \emph{Here goes the abstract...}\\
+%   |\end{abstract}|  
+% \end{quote}
+%
+% \DescribeMacro{\makefrontmatter}  The front matter of a thesis 
+% includes:
+%	\begin{enumerate}
+%   \item Title page (Required)
+%		\item Copyright page
+%		\item Submittal page (Required)
+%		\item Abstract (Required)
+%		\item Table of Contents (Required)
+%		\item Lists (Required if included in thesis)
+%		\begin{enumerate}
+%			\item List of Figures
+%			\item List of Tables
+%			\item List of Equations (optional)
+%			\item List of Plates
+%			\item List of Symbols
+%		\end{enumerate}
+%		\item Acknowledgments
+%	  \item Dedication          
+%	\end{enumerate}
+% Invoking 
+% \begin{quote}
+%   |\makefrontmatter|
+% \end{quote}
+% will generate all components listed above. It can be 
+% commentted out until you need the front matter generated.
+%  
+% \DescribeMacro{\chapter}
+%  
+% \DescribeMacro{\section}
+% 
+% \DescribeMacro{\subsection}
+%  
+% \DescribeMacro{\subsubsection}
+% 
+% \DescribeMacro{\paragraph}
 %
 % \newpage
 %^^A Code and commentary
-% \StopEventually{}
+% \StopEventually{\PrintIndex}
 %
-% \begin{macro}{\makefrontmatter}
-  %     
-  %   What we want is a single macro that will generate all of the
-  %   frontmatter of the document, such as, the title page, abstract,
-  %   authenticity page, table of contents, etc.\@ Each page of the
-  %   frontmatter is created by individual macros. This keeps things
-  %   modular and tidy. Any sections of the frontmatter that are not
-  %   declared are ignored.
-  %
-  % \changes{v1.1}{2002/02/13}{added a TOC entry for the Table of
-  %   Contents}
-  % \changes{v3.6}{2011/06/13}{added code so that fancyhdr package could
-  %   be used}
-  %
-  %    \begin{macrocode}
-  \def\makefrontmatter{%
-    \pagestyle {empty}
-    \pagenumbering {roman}
-    \maketitlepage
-    \pagestyle {empty}  \makecopyrightpage
-    \pagestyle {empty}  \makeauthenticitypage
-    \setcounter {page} {3}
-    \@ifdefined {@abstractfile}{\makeabstract}
-    \pagestyle {fancy}
-    \@ifdefined {@dedicationfile}{\makededication}
-    \@ifdefined {@acknowledgementsfile}{\makeacknowledgements} 
-    \tableofcontents
-    \ifthenelse{\boolean{hastables}}{\listoftables}{}
-    \ifthenelse{\boolean{hasfigures}}{\listoffigures}{}
-    \@ifdefined{@prefacefile}{\makepreface}
-    \@ifdefined{@abbreviationsfile}{\makeabbreviations}
-    \newpage
-    \pagenumbering {arabic}
-    \setcounter {page}{1}}
-  %    \end{macrocode}
-  %
-  % \end{macro}
-  %
-  % \begin{macro}{\maketitlepage}
-  %
-  %   The title page is standard. The guidelines require uppercase
-  %   throughout, so I have forced this wherever necessary.
-  %
-  % \changes{v3.3}{2002/03/07}{removed the tabular environment from
-  % around the title macro. I still have the problem of not being able
-  % to force a line break inside the title macro.}
-  %
-  %    \begin{macrocode}
-  \def\maketitlepage{
-    \vspace*{.85in}
-    \begin{center}
-      \spacing{1}
-      \textbf{\MakeUppercase{\@title}}
-      \hugeskip
-      \hugeskip
-      \hugeskip
-      {\bigskip \MakeUppercase{\@author}}
-    \end{center}
-    \hugeskip \hugeskip \hugeskip \hugeskip \hugeskip \hugeskip
-    {\spacing{1}
-      \begin{center}
-        \ifmasters A THESIS \else A DISSERTATION \fi
-        SUBMITTED TO THE FACULTY OF GRADUATE STUDIES \\
-        IN PARTIAL FULFILMENT OF THE REQUIREMENTS \\
-        FOR THE DEGREE OF \\
-        \hugeskip \hugeskip \hugeskip 
-        \ifmasters \MakeUppercase{\@degreename} OF
-        \MakeUppercase{\@masterof} 
-        \else
-        \MakeUppercase{\@degreename} OF PHILOSOPHY \fi \\
-        \hugeskip \hugeskip
-        GRADUATE PROGRAM IN \MakeUppercase{\@department} \\
-        YORK UNIVERSITY \\
-        TORONTO, ONTARIO \\
-        \MakeUppercase{\@date}
-      \end{center}}
-    \newpage }
-  %    \end{macrocode}
-  % \end{macro}
+% \section{Implementation}
+% \label{sec:imp}
+%
+% \subsection{Declaration of Options}
+% \label{sec:imp_option}
+%
+%    \begin{macrocode}
+\PassOptionsToClass{letterpaper,10pt}{memoir}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}
+%    \end{macrocode}
+%
+% \subsection{Execution of Options}
+% \label{sec:imp_option_exec}
+%
+%    \begin{macrocode}
+\ProcessOptions
+%    \end{macrocode}
+%
+% \subsection{Package Loading}
+% \label{sec:imp_package}
+%
+%    \begin{macrocode}
+\LoadClass{memoir}
+\renewcommand{\normalsize}{\fontsize{10pt}{12pt}\selectfont} \setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8in}
+\pagenumbering{arabic} % needed even though this class will not show page numbers
+%    \end{macrocode}
+%
+% \subsection{Main Code}
+% \label{sec:imp_code}
+% \subsubsection{Commands to define parameters for the front matter}
+%    \begin{macrocode}
+\def\year#1{\gdef\@year{#1}}
+\def\degree#1#2{\gdef\@degreelv{#1}\@degreename{#2}}
+\def\advisor#1{\gdef\@advisor{#1}}
+\def\coadvisor#1{\gdef\@coadvisor{#1}}
+\def\department#1{\gdef\@department{#1}}
+\def\departmenthead#1{\gdef\@departmenthead{#1}}
+%    \end{macrocode}
+%
+% \subsubsection{Front Matter}
+% \label{sec:imp_fm}
+%
 % \Finale
 %^^A
-
+\endinput
 
