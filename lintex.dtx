@@ -192,7 +192,7 @@
 % \label{sec:imp_option_exec}
 %
 %    \begin{macrocode}
-\ProcessOptions
+\ProcessOptions\relax
 %    \end{macrocode}
 %
 % \subsection{Package Loading}
@@ -232,6 +232,31 @@
 %
 % \subsubsection{Front Matter}
 % \label{sec:imp_fm}
+%
+% \begin{macro}{\maketitlepage}
+%
+%   The title page is standard. The guidelines require uppercase
+%   throughout, so I have forced this wherever necessary.
+%
+% \changes{v3.3}{2002/03/07}{removed the tabular environment from
+% around the title macro. I still have the problem of not being able
+% to force a line break inside the title macro.}
+%
+%    \begin{macrocode}
+\def\maketitlepage{
+\clearpage
+\vspace*{\fill}
+\centering
+\begin{minipage}{.6\textwidth}
+  \MakeUppercase{\@title} 
+\end{minipage}
+\vfill % equivalent to \vspace{\fill}
+by\\
+\@author
+\clearpage
+}
+%    \end{macrocode}
+% \end{macro}
 %
 % \Finale
 %^^A

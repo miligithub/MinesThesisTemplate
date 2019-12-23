@@ -28,14 +28,35 @@
 [2020/01/10 v1.0 Colorado School of Mines dissertation/thesis class]
 \PassOptionsToClass{letterpaper,10pt}{memoir}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}
-\ProcessOptions
+\ProcessOptions\relax
 \LoadClass{memoir}
-\renewcommand{\normalsize}{\fontsize{10pt}{12pt}\selectfont} \setlength{\textwidth}{6.5in}
-\setlength{\textheight}{8in}
-\pagenumbering{arabic} % needed even though this class will
-                                % not show page numbers
-
-
+\def\year#1{\gdef\@year{#1}}
+\def\degree#1#2{\gdef\@degreelv{#1}\@degreename{#2}}
+\def\advisor#1{\gdef\@advisor{#1}}
+\def\coadvisor#1{\gdef\@coadvisor{#1}}
+\def\department#1{\gdef\@department{#1}}
+\def\departmenthead#1{\gdef\@departmenthead{#1}}
+\gdef\@author{Your Name}
+\gdef\@title{Title of the Thesis}
+\gdef\@year{\year}
+\gdef\@degreelv{Doctor of Philosophy}
+\gdef\@degreename{Geophysical Engineering}
+\gdef\@advisor{Dr. Main Advisor}
+\gdef\@advisor{Dr. Co Advisor}
+\gdef\@department{Department of Some Name}
+\gdef\@departmenthead{Dr. Department Head}
+\def\maketitlepage{
+\clearpage
+\vspace*{\fill}
+\centering
+\begin{minipage}{.6\textwidth}
+  \MakeUppercase{\@title}
+\end{minipage}
+\vfill % equivalent to \vspace{\fill}
+by\\
+\@author
+\clearpage
+}
 \endinput
 %%
 %% End of file `mines-thesis.cls'.
