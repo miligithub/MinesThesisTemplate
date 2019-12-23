@@ -1,0 +1,9 @@
+This is makeindex, version 2.15 [TeX Live 2019] (kpathsea + Thai support).
+Scanning input file lintex.idx...
+!! Input index error (file = lintex.idx, line = 1):
+   -- Extra `|' at position 32 of first argument.
+!! Input index error (file = lintex.idx, line = 2):
+   -- Extra `|' at position 44 of first argument.
+done (0 entries accepted, 2 rejected).
+Nothing written in lintex.ind.
+Transcript written in lintex.ilg.

@@ -37,15 +37,7 @@
 %<*driver>
 
 \documentclass{ltxdoc}
-  \usepackage{array,booktabs,amsmath,graphicx,fancyvrb,tabularx, longtable}
-  \usepackage[tt=false, type1=true]{libertine}
-  \usepackage[varqu]{zi4}
-  \usepackage[libertine]{newtxmath}
-  \usepackage[tableposition=top]{caption}
-  \usepackage{hypdoc}
-  \usepackage[T1]{fontenc}
-  \usepackage{lmodern}
-  \usepackage{textcomp}     
+\usepackage{hyperref}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
@@ -83,9 +75,9 @@
 %
 %^^A User documentation
 % \title{The \textsf{mines-thesis} class
-% \thanks{This document
-%     corresponds to \textsf{mines-thesis}~\fileversion, dated
-%     \filedate.}}
+% \thanks{This document corresponds to 
+%     \textsf{mines-thesis}~\fileversion, 
+%     dated~\filedate.}}
 % \author{Ming Li\thanks{\href{mailto:mili@mymail.mines.edu}{\texttt{mili@mymail.mines.edu}}},\quad Jian Lin}
 % \maketitle
 % \begin{abstract}
@@ -103,18 +95,25 @@
 % \label{sec:ug_install}
 %
 % \subsection{Invocation and options}
-% \DescribeMacro{\documentclass} Use: |\documentclass| \oarg{options}
-% \{\textsf{mines-thesis}\}
-%
-% The \textsf{mines-thesis} class is invoked in the standard
-% fashion. The default options are
-% \textsf{letterpaper,10pt}. 
-%
+% \DescribeMacro{\myMacro}
+% \label{sec:ug_invoke}
+% \DescribeMacro{\documentclass} The \textsf{mines-thesis} class is invoked in the standard fashion. 
+% \begin{quote}
+%   |\documentclass|\oarg{options}|{mines-thesis}|
+% \end{quote}
+% There are several options corresponding to the type of the 
+% document and its general appearance. They are described below.  
+% Generally speaking, the options have |key=value| forms, 
+% for example,
+% \begin{quote}
+%   |\documentclass[screen=true, review=false]{mines-thesis}|
+% \end{quote}
+% The default options are \textsf{letterpaper,10pt}. 
 % \textbf{TODO review? oneside?  onecolumn,draft,openany}
 %
 % \subsection{Preprogrammed Formats}
 % \label{preprog}
-
+%
 %^^A Package source code
 % \StopEventually{}
 %
