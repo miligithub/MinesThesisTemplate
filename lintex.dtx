@@ -35,7 +35,17 @@
 %
 %^^A Driver code 
 %<*driver>
+
 \documentclass{ltxdoc}
+  \usepackage{array,booktabs,amsmath,graphicx,fancyvrb,tabularx, longtable}
+  \usepackage[tt=false, type1=true]{libertine}
+  \usepackage[varqu]{zi4}
+  \usepackage[libertine]{newtxmath}
+  \usepackage[tableposition=top]{caption}
+  \usepackage{hypdoc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+  \usepackage{textcomp}     
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
@@ -70,6 +80,45 @@
 % \changes{v1.0}{2020/01/10}{Initial version}
 % \GetFileInfo{lintex.dtx}
 % \DoNotIndex{\newcommand,\newenvironment}
+%
+%^^A User documentation
+% \title{The \textsf{mines-thesis} class
+% \thanks{This document
+%     corresponds to \textsf{mines-thesis}~\fileversion, dated
+%     \filedate.}}
+% \author{Ming Li\thanks{\href{mailto:mili@mymail.mines.edu}{\texttt{mili@mymail.mines.edu}}},\quad Jian Lin}
+% \maketitle
+% \begin{abstract}
+%   This package provides a class for graduate students at Colorado
+%   School of Mines to prepare their theses and dissertations.
+% \end{abstract}
+% \tableofcontents
+%
+% \newpage
+%
+% \section{User's guide}
+% \label{sec:ug}
+% 
+% \subsection{Installation}
+% \label{sec:ug_install}
+%
+% \subsection{Invocation and options}
+% \DescribeMacro{\documentclass} Use: |\documentclass| \oarg{options}
+% \{\textsf{mines-thesis}\}
+%
+% The \textsf{mines-thesis} class is invoked in the standard
+% fashion. The default options are
+% \textsf{letterpaper,10pt}. 
+%
+% \textbf{TODO review? oneside?  onecolumn,draft,openany}
+%
+% \subsection{Preprogrammed Formats}
+% \label{preprog}
 
+%^^A Package source code
+% \StopEventually{}
+%
+% \Finale
+%^^A
 
 

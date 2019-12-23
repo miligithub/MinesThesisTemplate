@@ -30,6 +30,7 @@
 \ProvidesClass{mines-thesis}
 [2020/01/10 v1.0 Colorado School of Mines dissertation/thesis class]
 
+
 \endinput
 %%
 %% End of file `mines-thesis.cls'.
