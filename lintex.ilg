@@ -35,27 +35,54 @@ Scanning input file lintex.idx...
 !! Input index error (file = lintex.idx, line = 17):
    -- Extra `|' at position 36 of first argument.
 .
+!! Input index error (file = lintex.idx, line = 27):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 31):
+   -- Illegal null field.
+!! Input index error (file = lintex.idx, line = 32):
+   -- Illegal null field.
+
 !! Input index error (file = lintex.idx, line = 36):
    -- Illegal null field.
 
 !! Input index error (file = lintex.idx, line = 40):
    -- Illegal null field.
-!! Input index error (file = lintex.idx, line = 41):
+
+!! Input index error (file = lintex.idx, line = 44):
    -- Illegal null field.
 
-!! Input index error (file = lintex.idx, line = 45):
+!! Input index error (file = lintex.idx, line = 48):
    -- Illegal null field.
 
-!! Input index error (file = lintex.idx, line = 49):
+!! Input index error (file = lintex.idx, line = 50):
    -- Illegal null field.
 
-!! Input index error (file = lintex.idx, line = 53):
+!! Input index error (file = lintex.idx, line = 52):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 54):
    -- Illegal null field.
 
 !! Input index error (file = lintex.idx, line = 57):
    -- Illegal null field.
-done (33 entries accepted, 24 rejected).
-Sorting entries....done (189 comparisons).
-Generating output file lintex.ind....done (79 lines written, 0 warnings).
+
+!! Input index error (file = lintex.idx, line = 59):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 61):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 63):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 65):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 67):
+   -- Illegal null field.
+done (34 entries accepted, 33 rejected).
+Sorting entries....done (177 comparisons).
+Generating output file lintex.ind....done (48 lines written, 0 warnings).
 Output written in lintex.ind.
 Transcript written in lintex.ilg.
