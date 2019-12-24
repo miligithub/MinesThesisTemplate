@@ -27,6 +27,7 @@
 \ProvidesClass{mines-thesis}
 [2020/01/10 v1.0 Colorado School of Mines dissertation/thesis class]
 \RequirePackage{ifthen}
+\RequirePackage{shapepar}
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
@@ -61,7 +62,7 @@
 \DoubleSpacing
 \checkandfixthelayout
 
-\newcommand{\makefrontmatter}{
+\newcommand\makefrontmatter{
   \pagenumbering{roman}
 \pagestyle{empty}
 \maketitlepage
@@ -72,13 +73,21 @@
 \pagenumbering{arabic}
   \setcounter{page}{1}
 }
-\newcommand{\maketitlepage}{
-\clearpage
+\newcommand\invertedpyramid{%
+{0}             %line center at x=7
+{0}  b{0}\\     % text starts at (0,0)
+{0}  t{-10}{20}\\ % Line at y=0 starts at x=0 with length 14
+{3} t{-5}{10}\\  % Line at y=10 starts at x=0 with length 14
+{3} e{5}       % text ends at (7,15)
+}
+\newcommand\maketitlepage{
+  \clearpage
 \vspace*{\fill}
 \begin{center}
 \begin{minipage}{.8\textwidth}
-\centering
-\MakeUppercase{\@title}
+      \centering
+      \shapepar{\invertedpyramid}
+      \MakeUppercase{\@title}
 \end{minipage}
 \end{center}
   \vspace{\fill}
@@ -88,7 +97,7 @@ by\\
 \end{center}
 \clearpage
 }
-\newcommand{\makecopyrightpage}{
+\newcommand\makecopyrightpage{
   \clearpage
 \vspace*{\fill}
 \begin{center}
