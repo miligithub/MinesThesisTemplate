@@ -41,7 +41,7 @@
 \CodelineIndex
 \RecordChanges
 \begin{document}
-  \DocInput{lintex.dtx}
+\DocInput{lintex.dtx}
 \end{document}
 %</driver>
 % \fi
@@ -185,8 +185,6 @@
 %
 %    \begin{macrocode}
 \RequirePackage{ifthen} 
-\RequirePackage{calc}
-\RequirePackage{makeidx}
 \newboolean{review}
 %    \end{macrocode}
 %
@@ -196,9 +194,9 @@
 %    \begin{macrocode}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
-\PassOptionsToClass{letterpaper,12pt,oneside,onecolumn,openany}{memoir}}
+	\PassOptionsToClass{letterpaper,12pt,oneside,onecolumn,openany}{memoir}}
 \DeclareOption*{
-  \PassOptionsToClass{\CurrentOption}{memoir}
+	\PassOptionsToClass{\CurrentOption}{memoir}
 }
 \ExecuteOptions{draft}
 %    \end{macrocode}
@@ -258,7 +256,19 @@
 %
 % Set margins 
 %    \begin{macrocode}
-\setpagecc{5in}{3in}{*}
+%~~A automatically set by the class option letterpaper
+%^^A \setstocksize{11in}{8.5in}
+%~~A set paper size equal to stock size
+%~~A\settrimmedsize{\stockheight}{\stockwidth}{*}
+%^^A set equal trim at the top and bottom
+%^^A \setlength{\trimtop}{\stockheight} % \trimtop = \stockheight 
+%^^A \addtolength{\trimtop}{-\paperheight} % - \paperheight 
+%^^A \setlength{\trimedge}{\stockwidth} % \trimedge = \stockwidth 
+%^^A \addtolength{\trimedge}{-\paperwidth} % - \paperwidth
+%^^A \settrims{0.5\trimtop}{\trimedge}
+\setpagecc{11in}{8.5in}{*}
+\setulmargins{0in}{*}{*} 
+\setlrmargins{0in}{*}{*}
 %    \end{macrocode}
 % \subsubsection{Front Matter}
 % \label{sec:imp_code_front}
@@ -267,22 +277,22 @@
 %
 %    \begin{macrocode}
 \def\makefrontmatter{
-  \pagestyle {empty}
-  \pagenumbering {roman}
-  \maketitlepage
-  \pagestyle {empty}  
-  \makecopyrightpage
-  \setcounter {page} {3}
-  \makeabstract
-  \pagestyle {fancy}
-  \@ifdefined {@dedication}{\makededication}
-  \@ifdefined {@acknowledgements}{\makeacknowledgements} 
-  \tableofcontents
-  \ifthenelse{\boolean{hastables}}{\listoftables}{}
-  \ifthenelse{\boolean{hasfigures}}{\listoffigures}{}
-  \newpage
-  \pagenumbering {arabic}
-  \setcounter {page}{1}}
+	\pagestyle {empty}
+	\pagenumbering {roman}
+	\maketitlepage
+	\pagestyle {empty}  
+	\makecopyrightpage
+	\setcounter {page} {3}
+	\makeabstract
+	\pagestyle {fancy}
+	\@ifdefined {@dedication}{\makededication}
+	\@ifdefined {@acknowledgements}{\makeacknowledgements} 
+	\tableofcontents
+	\ifthenelse{\boolean{hastables}}{\listoftables}{}
+	\ifthenelse{\boolean{hasfigures}}{\listoffigures}{}
+	\newpage
+	\pagenumbering {arabic}
+	\setcounter {page}{1}}
 %    \end{macrocode}
 %
 % \end{macro}
@@ -296,16 +306,19 @@
 %
 %    \begin{macrocode}
 \def\maketitlepage{
-\clearpage
-\vspace*{\fill}
-\centering
-\begin{minipage}{.6\textwidth}
-  \MakeUppercase{\@title} 
-\end{minipage}
-\vfill % equivalent to \vspace{\fill}
-by\\
-\@author
-\clearpage
+	\clearpage
+	\vspace*{\fill}
+	\centering
+	\begin{center}
+		\begin{minipage}{.8\textwidth}
+			\centering
+			\MakeUppercase{\@title} 
+		\end{minipage}
+	\end{center}
+	\vspace{\fill}
+	by\\
+	\@author
+	\clearpage
 }
 %    \end{macrocode}
 % \end{macro}
@@ -313,4 +326,3 @@ by\\
 % \Finale
 %^^A
 \endinput
-
