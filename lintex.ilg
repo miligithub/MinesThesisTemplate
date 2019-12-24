@@ -1,0 +1,109 @@
+This is makeindex, version 2.15 [TeX Live 2019] (kpathsea + Thai support).
+Scanning input file lintex.idx...
+!! Input index error (file = lintex.idx, line = 1):
+   -- Extra `|' at position 44 of first argument.
+!! Input index error (file = lintex.idx, line = 2):
+   -- Extra `|' at position 28 of first argument.
+!! Input index error (file = lintex.idx, line = 3):
+   -- Extra `|' at position 30 of first argument.
+!! Input index error (file = lintex.idx, line = 4):
+   -- Extra `|' at position 26 of first argument.
+!! Input index error (file = lintex.idx, line = 5):
+   -- Extra `|' at position 30 of first argument.
+!! Input index error (file = lintex.idx, line = 6):
+   -- Extra `|' at position 32 of first argument.
+!! Input index error (file = lintex.idx, line = 7):
+   -- Extra `|' at position 36 of first argument.
+!! Input index error (file = lintex.idx, line = 8):
+   -- Extra `|' at position 38 of first argument.
+!! Input index error (file = lintex.idx, line = 9):
+   -- Extra `|' at position 46 of first argument.
+!! Input index error (file = lintex.idx, line = 10):
+   -- Extra `|' at position 50 of first argument.
+!! Input index error (file = lintex.idx, line = 11):
+   -- Extra `|' at position 50 of first argument.
+!! Input index error (file = lintex.idx, line = 12):
+   -- Extra `|' at position 48 of first argument.
+!! Input index error (file = lintex.idx, line = 13):
+   -- Extra `|' at position 32 of first argument.
+!! Input index error (file = lintex.idx, line = 14):
+   -- Extra `|' at position 32 of first argument.
+!! Input index error (file = lintex.idx, line = 15):
+   -- Extra `|' at position 38 of first argument.
+!! Input index error (file = lintex.idx, line = 16):
+   -- Extra `|' at position 44 of first argument.
+!! Input index error (file = lintex.idx, line = 17):
+   -- Extra `|' at position 36 of first argument.
+.
+!! Input index error (file = lintex.idx, line = 38):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 42):
+   -- Illegal null field.
+!! Input index error (file = lintex.idx, line = 43):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 47):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 51):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 55):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 59):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 61):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 63):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 65):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 68):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 70):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 72):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 74):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 76):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 78):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 117):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 119):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 142):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 147):
+   -- Extra `!' at position 12 of first argument.
+!! Input index error (file = lintex.idx, line = 148):
+   -- Illegal null field.
+
+!! Input index error (file = lintex.idx, line = 161):
+   -- Illegal null field.
+!! Input index error (file = lintex.idx, line = 162):
+   -- Illegal null field.
+!! Input index error (file = lintex.idx, line = 163):
+   -- Extra `!' at position 12 of first argument.
+done (127 entries accepted, 41 rejected).
+Sorting entries....done (997 comparisons).
+Generating output file lintex.ind....done (170 lines written, 0 warnings).
+Output written in lintex.ind.
+Transcript written in lintex.ilg.

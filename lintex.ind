@@ -1,0 +1,170 @@
+\begin{theindex}
+
+  \item addtolength=\verb
+    \subitem *+\addtolength+, 34, 36
+  \item advisor=\verb
+    \subitem *+\advisor+, 15
+
+  \indexspace
+
+  \item baselinestretch=\verb
+    \subitem *+\baselinestretch+, 12
+  \item begin=\verb
+    \subitem *+\begin+, 63, 64, 78, 79
+  \item boolean=\verb
+    \subitem *+\boolean+, 54, 55
+
+  \indexspace
+
+  \item centering=\verb
+    \subitem *+\centering+, 62, 65, 77, 80
+  \item clearpage=\verb
+    \subitem *+\clearpage+, 60, 72, 75, 86
+  \item coadvisor=\verb
+    \subitem *+\coadvisor+, 16
+  \item CurrentOption=\verb
+    \subitem *+\CurrentOption+, 7
+
+  \indexspace
+
+  \item DeclareOption=\verb
+    \subitem *+\DeclareOption+, 3, 4, 6
+  \item def=\verb
+    \subitem *+\def+, 13--18, 42, 59, 74
+  \item degree=\verb
+    \subitem *+\degree+, 14
+  \item department=\verb
+    \subitem *+\department+, 17
+  \item departmenthead=\verb
+    \subitem *+\departmenthead+, 18
+
+  \indexspace
+
+  \item end=\verb
+    \subitem *+\end+, 67, 68, 83, 84
+  \item ExecuteOptions=\verb
+    \subitem *+\ExecuteOptions+, 9
+
+  \indexspace
+
+  \item fill=\verb
+    \subitem *+\fill+, 61, 69, 76, 85
+
+  \indexspace
+
+  \item gdef=\verb
+    \subitem *+\gdef+, 13--27
+
+  \indexspace
+
+  \item ifthenelse=\verb
+    \subitem *+\ifthenelse+, 54, 55
+
+  \indexspace
+
+  \item listoffigures=\verb
+    \subitem *+\listoffigures+, 55
+  \item listoftables=\verb
+    \subitem *+\listoftables+, 54
+  \item LoadClassWithOptions=\verb
+    \subitem *+\LoadClassWithOptions+, 11
+
+  \indexspace
+
+  \item makeabstract=\verb
+    \subitem *+\makeabstract+, 49
+  \item makeacknowledgements=\verb
+    \subitem *+\makeacknowledgements+, 52
+  \item makecopypage=\verb
+    \subitem *+\makecopypage+, 74
+  \item makecopyrightpage=\verb
+    \subitem *+\makecopyrightpage+, 47
+  \item makededication=\verb
+    \subitem *+\makededication+, 51
+  \item makefrontmatter=\verb
+    \subitem *+\makefrontmatter+, \main{42}
+  \item maketitlepage=\verb
+    \subitem *+\maketitlepage+, 45, \main{59}, \main{74}
+  \item MakeUppercase=\verb
+    \subitem *+\MakeUppercase+, 66
+
+  \indexspace
+
+  \item newboolean=\verb
+    \subitem *+\newboolean+, 2
+  \item newpage=\verb
+    \subitem *+\newpage+, 56
+
+  \indexspace
+
+  \item pagenumbering=\verb
+    \subitem *+\pagenumbering+, 44, 57
+  \item pagestyle=\verb
+    \subitem *+\pagestyle+, 43, 46, 50
+  \item paperheight=\verb
+    \subitem *+\paperheight+, 34
+  \item paperwidth=\verb
+    \subitem *+\paperwidth+, 36
+  \item PassOptionsToClass=\verb
+    \subitem *+\PassOptionsToClass+, 5, 7
+  \item ProcessOptions=\verb
+    \subitem *+\ProcessOptions+, 10
+
+  \indexspace
+
+  \item relax=\verb
+    \subitem *+\relax+, 10
+  \item renewcommand=\verb
+    \subitem *+\renewcommand+, 12
+  \item RequirePackage=\verb
+    \subitem *+\RequirePackage+, 1
+
+  \indexspace
+
+  \item setboolean=\verb
+    \subitem *+\setboolean+, 3, 4
+  \item setcounter=\verb
+    \subitem *+\setcounter+, 48, 58
+  \item setlength=\verb
+    \subitem *+\setlength+, 33, 35
+  \item setlrmargins=\verb
+    \subitem *+\setlrmargins+, 40
+  \item setpagecc=\verb
+    \subitem *+\setpagecc+, 38
+  \item setstocksize=\verb
+    \subitem *+\setstocksize+, 29
+  \item settrimmedsize=\verb
+    \subitem *+\settrimmedsize+, 31
+  \item settrims=\verb
+    \subitem *+\settrims+, 37
+  \item setulmargins=\verb
+    \subitem *+\setulmargins+, 39
+  \item spacing=\verb
+    \subitem *+\spacing+, \main{12}
+  \item stockheight=\verb
+    \subitem *+\stockheight+, 31, 33
+  \item stockwidth=\verb
+    \subitem *+\stockwidth+, 31, 35
+
+  \indexspace
+
+  \item tableofcontents=\verb
+    \subitem *+\tableofcontents+, 53
+  \item textwidth=\verb
+    \subitem *+\textwidth+, 64, 79
+  \item trimedge=\verb
+    \subitem *+\trimedge+, 35--37
+  \item trimtop=\verb
+    \subitem *+\trimtop+, 33, 34, 37
+
+  \indexspace
+
+  \item vspace=\verb
+    \subitem *+\vspace+, 61, 69, 76, 85
+
+  \indexspace
+
+  \item year=\verb
+    \subitem *+\year+, 13, 21
+
+\end{theindex}

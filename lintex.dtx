@@ -269,6 +269,7 @@
 \setpagecc{11in}{8.5in}{*}
 \setulmargins{0in}{*}{*} 
 \setlrmargins{0in}{*}{*}
+
 %    \end{macrocode}
 % \subsubsection{Front Matter}
 % \label{sec:imp_code_front}
@@ -323,6 +324,30 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\maketitlepage}
+% The thesis title must be in all upper case letters,
+% be centered on the page both horizontally and vertically,
+% be in an inverted pyramid shape and the font size needs 
+% to be the same size as all other font in the main text
+% (i.e. do not make the font size larger).
+%
+%    \begin{macrocode}
+\def\makecopypage{
+	\clearpage
+	\vspace*{\fill}
+	\centering
+	\begin{center}
+		\begin{minipage}{.8\textwidth}
+			\centering
+      Copyright by \@author \@year\\
+      All Rights Reserved
+		\end{minipage}
+	\end{center}
+	\vspace{\fill}
+	\clearpage
+}
+%    \end{macrocode}
+% \end{macro}
 % \Finale
 %^^A
 \endinput
