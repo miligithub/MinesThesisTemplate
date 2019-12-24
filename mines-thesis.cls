@@ -26,10 +26,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mines-thesis}
 [2020/01/10 v1.0 Colorado School of Mines dissertation/thesis class]
-\PassOptionsToClass{letterpaper,10pt}{memoir}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}
+\DeclareOption*{
+  \PassOptionsToClass{\CurrentOption}{memoir}
+}
 \ProcessOptions\relax
-\LoadClass{memoir}
+\LoadClassWithOptions{memoir}
 \def\year#1{\gdef\@year{#1}}
 \def\degree#1#2{\gdef\@degreelv{#1}\@degreename{#2}}
 \def\advisor#1{\gdef\@advisor{#1}}
@@ -45,6 +46,24 @@
 \gdef\@advisor{Dr. Co Advisor}
 \gdef\@department{Department of Some Name}
 \gdef\@departmenthead{Dr. Department Head}
+\setpagecc{5in}{3in}{*}
+\def\makefrontmatter{
+  \pagestyle {empty}
+  \pagenumbering {roman}
+  \maketitlepage
+  \pagestyle {empty}
+  \makecopyrightpage
+  \setcounter {page} {3}
+  \makeabstract
+  \pagestyle {fancy}
+  \@ifdefined {@dedication}{\makededication}
+  \@ifdefined {@acknowledgements}{\makeacknowledgements}
+  \tableofcontents
+  \ifthenelse{\boolean{hastables}}{\listoftables}{}
+  \ifthenelse{\boolean{hasfigures}}{\listoffigures}{}
+  \newpage
+  \pagenumbering {arabic}
+  \setcounter {page}{1}}
 \def\maketitlepage{
 \clearpage
 \vspace*{\fill}

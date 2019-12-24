@@ -36,7 +36,7 @@
 %^^A Driver code 
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage{array,booktabs,amsmath,graphicx,hyperref}
+\usepackage{hyperref}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
@@ -46,7 +46,7 @@
 %</driver>
 % \fi
 %
-%^^A Code verification 
+%^^A======================= Code verification =======================
 % \CheckSum{0}
 %
 % \CharacterTable
@@ -65,12 +65,12 @@
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %   Right brace   \}     Tilde         \~}
 %
-%^^A Miscellaneous initialization
+%^^A======================= Miscellaneous initialization =======================
 % \changes{v1.0}{2020/01/10}{Initial version}
 % \GetFileInfo{lintex.dtx}
 % \DoNotIndex{\newcommand,\newenvironment}
 %
-%^^A User documentation
+%^^A======================= User documentation =======================
 % \title{The \textsf{mines-thesis} class
 % \thanks{This document corresponds to 
 %     \textsf{mines-thesis}~\fileversion, 
@@ -174,18 +174,33 @@
 % \DescribeMacro{\paragraph}
 %
 % \newpage
-%^^A Code and commentary
+%^^A======================= Code and commentary =======================
 % \StopEventually{\PrintIndex}
 %
 % \section{Implementation}
 % \label{sec:imp}
 %
+% The |review| boolean is defined here for use with the
+% class options.
+%
+%    \begin{macrocode}
+\RequirePackage{ifthen} 
+\RequirePackage{calc}
+\RequirePackage{makeidx}
+\newboolean{review}
+%    \end{macrocode}
+%
 % \subsection{Declaration of Options}
 % \label{sec:imp_option}
 %
 %    \begin{macrocode}
-\PassOptionsToClass{letterpaper,10pt}{memoir}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{memoir}
+\DeclareOption{draft}{\setboolean{review}{true}}
+\DeclareOption{final}{\setboolean{review}{false}
+\PassOptionsToClass{letterpaper,12pt,oneside,onecolumn,openany}{memoir}}
+\DeclareOption*{
+  \PassOptionsToClass{\CurrentOption}{memoir}
+}
+\ExecuteOptions{draft}
 %    \end{macrocode}
 %
 % \subsection{Execution of Options}
@@ -199,12 +214,24 @@
 % \label{sec:imp_package}
 %
 %    \begin{macrocode}
-\LoadClass{memoir}
+\LoadClassWithOptions{memoir}
 %    \end{macrocode}
 %
 % \subsection{Main Code}
 % \label{sec:imp_code}
+%
+% \begin{macro}{\spacing}
+%
+%   Redefine |\baselinestretch| and recompute |\baselineskip|
+%   lateral effect: set typeface to normal size roman
+%
+%    \begin{macrocode}
+\newcommand{\spacing}[1]{\renewcommand{\baselinestretch}{#1}}
+%    \end{macrocode}
+% \end{macro}
+%
 % \subsubsection{Commands to define parameters for the front matter}
+% \label{sec:imp_code_front_param}
 %    \begin{macrocode}
 \def\year#1{\gdef\@year{#1}}
 \def\degree#1#2{\gdef\@degreelv{#1}\@degreename{#2}}
@@ -229,18 +256,43 @@
 \gdef\@departmenthead{Dr. Department Head}
 %    \end{macrocode}
 %
-%
+% Set margins 
+%    \begin{macrocode}
+\setpagecc{5in}{3in}{*}
+%    \end{macrocode}
 % \subsubsection{Front Matter}
-% \label{sec:imp_fm}
+% \label{sec:imp_code_front}
+%
+% \begin{macro}{\makefrontmatter}
+%
+%    \begin{macrocode}
+\def\makefrontmatter{
+  \pagestyle {empty}
+  \pagenumbering {roman}
+  \maketitlepage
+  \pagestyle {empty}  
+  \makecopyrightpage
+  \setcounter {page} {3}
+  \makeabstract
+  \pagestyle {fancy}
+  \@ifdefined {@dedication}{\makededication}
+  \@ifdefined {@acknowledgements}{\makeacknowledgements} 
+  \tableofcontents
+  \ifthenelse{\boolean{hastables}}{\listoftables}{}
+  \ifthenelse{\boolean{hasfigures}}{\listoffigures}{}
+  \newpage
+  \pagenumbering {arabic}
+  \setcounter {page}{1}}
+%    \end{macrocode}
+%
+% \end{macro}
 %
 % \begin{macro}{\maketitlepage}
-%
-%   The title page is standard. The guidelines require uppercase
-%   throughout, so I have forced this wherever necessary.
-%
-% \changes{v3.3}{2002/03/07}{removed the tabular environment from
-% around the title macro. I still have the problem of not being able
-% to force a line break inside the title macro.}
+% The thesis title must be in all upper case letters,
+% be centered on the page both horizontally and vertically,
+% be in an inverted pyramid shape and the font size needs 
+% to be the same size as all other font in the main text
+% (i.e. do not make the font size larger).
 %
 %    \begin{macrocode}
 \def\maketitlepage{

@@ -7,9 +7,7 @@ for file in *; do
 done
 
 latex lintex.ins
-
-makeindex lintex.idx
-
+pdflatex lintex.dtx
 pdflatex lintex.dtx
 
 for file in *; do
