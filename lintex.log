@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  23 DEC 2019 23:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  23 DEC 2019 23:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -274,137 +274,137 @@ Overfull \hbox (125.11354pt too wide) in paragraph at lines 10--12
 
 
 Overfull \hbox (96.91925pt too wide) in paragraph at lines 12--14
-[]\OT1/cmr/m/n/9 begin=[]    \OT1/cmtt/m/n/9 \subitem *+\begin+, 63, 64, 78, 79  
+[]\OT1/cmr/m/n/9 begin=[]    \OT1/cmtt/m/n/9 \subitem *+\begin+, 67, 68, 82, 83  
  []
 
 
 Overfull \hbox (78.07646pt too wide) in paragraph at lines 14--16
-[]\OT1/cmr/m/n/9 boolean=[]    \OT1/cmtt/m/n/9 \subitem *+\boolean+, 54, 55  
+[]\OT1/cmr/m/n/9 boolean=[]    \OT1/cmtt/m/n/9 \subitem *+\boolean+, 58, 59  
  []
 
 
 Overfull \hbox (130.746pt too wide) in paragraph at lines 19--21
-[]\OT1/cmr/m/n/9 centering=[]    \OT1/cmtt/m/n/9 \subitem *+\centering+, 62, 65, 77, 80  
+[]\OT1/cmr/m/n/9 centering=[]    \OT1/cmtt/m/n/9 \subitem *+\centering+, 66, 69, 81, 84  
  []
 
 
-Overfull \hbox (131.51683pt too wide) in paragraph at lines 21--23
-[]\OT1/cmr/m/n/9 clearpage=[]    \OT1/cmtt/m/n/9 \subitem *+\clearpage+, 60, 72, 75, 86  
+Overfull \hbox (173.2777pt too wide) in paragraph at lines 21--23
+[]\OT1/cmr/m/n/9 checkandfixthelayout=[]    \OT1/cmtt/m/n/9 \subitem *+\checkandfixthelayout+, 44  
  []
 
 
-Overfull \hbox (75.1189pt too wide) in paragraph at lines 23--25
+Overfull \hbox (131.51683pt too wide) in paragraph at lines 23--25
+[]\OT1/cmr/m/n/9 clearpage=[]    \OT1/cmtt/m/n/9 \subitem *+\clearpage+, 64, 76, 79, 90  
+ []
+
+
+Overfull \hbox (75.1189pt too wide) in paragraph at lines 25--27
 []\OT1/cmr/m/n/9 coadvisor=[]    \OT1/cmtt/m/n/9 \subitem *+\coadvisor+, 16  
  []
 
 
-Overfull \hbox (111.36371pt too wide) in paragraph at lines 25--27
+Overfull \hbox (111.36371pt too wide) in paragraph at lines 27--29
 []\OT1/cmr/m/n/9 CurrentOption=[]    \OT1/cmtt/m/n/9 \subitem *+\CurrentOption+, 7  
  []
 
 
-Overfull \hbox (138.28212pt too wide) in paragraph at lines 30--32
+Overfull \hbox (138.28212pt too wide) in paragraph at lines 32--34
 []\OT1/cmr/m/n/9 DeclareOption=[]    \OT1/cmtt/m/n/9 \subitem *+\DeclareOption+, 3, 4, 6  
  []
 
 
-Overfull \hbox (96.60532pt too wide) in paragraph at lines 32--34
-[]\OT1/cmr/m/n/9 def=[]    \OT1/cmtt/m/n/9 \subitem *+\def+, 13--18, 42, 59, 74  
+Overfull \hbox (96.60532pt too wide) in paragraph at lines 34--36
+[]\OT1/cmr/m/n/9 def=[]    \OT1/cmtt/m/n/9 \subitem *+\def+, 13--18, 46, 63, 78  
  []
 
 
-Overfull \hbox (48.82675pt too wide) in paragraph at lines 34--36
+Overfull \hbox (48.82675pt too wide) in paragraph at lines 36--38
 []\OT1/cmr/m/n/9 degree=[]    \OT1/cmtt/m/n/9 \subitem *+\degree+, 14  
  []
 
 
-Overfull \hbox (88.53543pt too wide) in paragraph at lines 36--38
+Overfull \hbox (88.53543pt too wide) in paragraph at lines 38--40
 []\OT1/cmr/m/n/9 department=[]    \OT1/cmtt/m/n/9 \subitem *+\department+, 17  
  []
 
 
-Overfull \hbox (126.45244pt too wide) in paragraph at lines 38--40
+Overfull \hbox (126.45244pt too wide) in paragraph at lines 40--42
 []\OT1/cmr/m/n/9 departmenthead=[]    \OT1/cmtt/m/n/9 \subitem *+\departmenthead+, 18  
  []
 
 
-Overfull \hbox (80.01802pt too wide) in paragraph at lines 43--45
-[]\OT1/cmr/m/n/9 end=[]    \OT1/cmtt/m/n/9 \subitem *+\end+, 67, 68, 83, 84  
+Overfull \hbox (80.01802pt too wide) in paragraph at lines 45--47
+[]\OT1/cmr/m/n/9 end=[]    \OT1/cmtt/m/n/9 \subitem *+\end+, 71, 72, 87, 88  
  []
 
 
-Overfull \hbox (120.3407pt too wide) in paragraph at lines 45--47
+Overfull \hbox (120.3407pt too wide) in paragraph at lines 47--49
 []\OT1/cmr/m/n/9 ExecuteOptions=[]    \OT1/cmtt/m/n/9 \subitem *+\ExecuteOptions+, 9  
  []
 
 
-Overfull \hbox (80.62842pt too wide) in paragraph at lines 50--52
-[]\OT1/cmr/m/n/9 fill=[]    \OT1/cmtt/m/n/9 \subitem *+\fill+, 61, 69, 76, 85  
+Overfull \hbox (80.62842pt too wide) in paragraph at lines 52--54
+[]\OT1/cmr/m/n/9 fill=[]    \OT1/cmtt/m/n/9 \subitem *+\fill+, 65, 73, 80, 89  
  []
 
 
-Overfull \hbox (49.25589pt too wide) in paragraph at lines 55--57
+Overfull \hbox (49.25589pt too wide) in paragraph at lines 57--59
 []\OT1/cmr/m/n/9 gdef=[]    \OT1/cmtt/m/n/9 \subitem *+\gdef+, 13--27  
  []
 
 
-Overfull \hbox (98.73318pt too wide) in paragraph at lines 60--62
-[]\OT1/cmr/m/n/9 ifthenelse=[]    \OT1/cmtt/m/n/9 \subitem *+\ifthenelse+, 54, 55  
+Overfull \hbox (98.73318pt too wide) in paragraph at lines 62--64
+[]\OT1/cmr/m/n/9 ifthenelse=[]    \OT1/cmtt/m/n/9 \subitem *+\ifthenelse+, 58, 59  
  []
 
 
-Overfull \hbox (102.03876pt too wide) in paragraph at lines 65--67
-[]\OT1/cmr/m/n/9 listoffigures=[]    \OT1/cmtt/m/n/9 \subitem *+\listoffigures+, 55  
+Overfull \hbox (102.03876pt too wide) in paragraph at lines 67--69
+[]\OT1/cmr/m/n/9 listoffigures=[]    \OT1/cmtt/m/n/9 \subitem *+\listoffigures+, 59  
  []
 
 
-Overfull \hbox (94.9805pt too wide) in paragraph at lines 67--69
-[]\OT1/cmr/m/n/9 listoftables=[]    \OT1/cmtt/m/n/9 \subitem *+\listoftables+, 54  
+Overfull \hbox (94.9805pt too wide) in paragraph at lines 69--71
+[]\OT1/cmr/m/n/9 listoftables=[]    \OT1/cmtt/m/n/9 \subitem *+\listoftables+, 58  
  []
 
 
-Overfull \hbox (183.31512pt too wide) in paragraph at lines 69--71
+Overfull \hbox (183.31512pt too wide) in paragraph at lines 71--73
 []\OT1/cmr/m/n/9 LoadClassWithOptions=[]    \OT1/cmtt/m/n/9 \subitem *+\LoadClassWithOptions+, 11  
  []
 
 
-Overfull \hbox (105.48459pt too wide) in paragraph at lines 74--76
-[]\OT1/cmr/m/n/9 makeabstract=[]    \OT1/cmtt/m/n/9 \subitem *+\makeabstract+, 49  
+Overfull \hbox (105.48459pt too wide) in paragraph at lines 76--78
+[]\OT1/cmr/m/n/9 makeabstract=[]    \OT1/cmtt/m/n/9 \subitem *+\makeabstract+, 53  
  []
 
 
-Overfull \hbox (184.38455pt too wide) in paragraph at lines 76--78
-[]\OT1/cmr/m/n/9 makeacknowledgements=[]    \OT1/cmtt/m/n/9 \subitem *+\makeacknowledgements+, 52  
+Overfull \hbox (184.38455pt too wide) in paragraph at lines 78--80
+[]\OT1/cmr/m/n/9 makeacknowledgements=[]    \OT1/cmtt/m/n/9 \subitem *+\makeacknowledgements+, 56  
  []
 
 
-Overfull \hbox (109.52692pt too wide) in paragraph at lines 78--80
-[]\OT1/cmr/m/n/9 makecopypage=[]    \OT1/cmtt/m/n/9 \subitem *+\makecopypage+, 74  
- []
-
-
-Overfull \hbox (152.44318pt too wide) in paragraph at lines 80--82
-[]\OT1/cmr/m/n/9 makecopyrightpage=[]    \OT1/cmtt/m/n/9 \subitem *+\makecopyrightpage+, 47  
+Overfull \hbox (204.41757pt too wide) in paragraph at lines 80--82
+[]\OT1/cmr/m/n/9 makecopyrightpage=[]    \OT1/cmtt/m/n/9 \subitem *+\makecopyrightpage+, 51, \main{78}  
  []
 
 
 Overfull \hbox (123.60178pt too wide) in paragraph at lines 82--84
-[]\OT1/cmr/m/n/9 makededication=[]    \OT1/cmtt/m/n/9 \subitem *+\makededication+, 51  
+[]\OT1/cmr/m/n/9 makededication=[]    \OT1/cmtt/m/n/9 \subitem *+\makededication+, 55  
  []
 
 
 Overfull \hbox (166.58185pt too wide) in paragraph at lines 84--86
-[]\OT1/cmr/m/n/9 makefrontmatter=[]    \OT1/cmtt/m/n/9 \subitem *+\makefrontmatter+, \main{42}  
+[]\OT1/cmr/m/n/9 makefrontmatter=[]    \OT1/cmtt/m/n/9 \subitem *+\makefrontmatter+, \main{46}  
  []
 
 
-Overfull \hbox (216.14857pt too wide) in paragraph at lines 86--88
-[]\OT1/cmr/m/n/9 maketitlepage=[]    \OT1/cmtt/m/n/9 \subitem *+\maketitlepage+, 45, \main{59}, \main{74}  
+Overfull \hbox (164.17418pt too wide) in paragraph at lines 86--88
+[]\OT1/cmr/m/n/9 maketitlepage=[]    \OT1/cmtt/m/n/9 \subitem *+\maketitlepage+, 49, \main{63}  
  []
 
 
 Overfull \hbox (119.72054pt too wide) in paragraph at lines 88--90
-[]\OT1/cmr/m/n/9 MakeUppercase=[]    \OT1/cmtt/m/n/9 \subitem *+\MakeUppercase+, 66  
+[]\OT1/cmr/m/n/9 MakeUppercase=[]    \OT1/cmtt/m/n/9 \subitem *+\MakeUppercase+, 70  
  []
 
 
@@ -414,148 +414,168 @@ Overfull \hbox (84.56049pt too wide) in paragraph at lines 93--95
 
 
 Overfull \hbox (62.26346pt too wide) in paragraph at lines 95--97
-[]\OT1/cmr/m/n/9 newpage=[]    \OT1/cmtt/m/n/9 \subitem *+\newpage+, 56  
+[]\OT1/cmr/m/n/9 newpage=[]    \OT1/cmtt/m/n/9 \subitem *+\newpage+, 60  
  []
 
 
-Overfull \hbox (136.51273pt too wide) in paragraph at lines 100--102
-[]\OT1/cmr/m/n/9 pagenumbering=[]    \OT1/cmtt/m/n/9 \subitem *+\pagenumbering+, 44, 57  
+Overfull \hbox (110.13518pt too wide) in paragraph at lines 100--102
+[]\OT1/cmr/m/n/9 onelineskip=[]    \OT1/cmtt/m/n/9 \subitem *+\onelineskip+, 42, 43  
  []
 
 
-Overfull \hbox (112.13373pt too wide) in paragraph at lines 102--104
-[]\OT1/cmr/m/n/9 pagestyle=[]    \OT1/cmtt/m/n/9 \subitem *+\pagestyle+, 43, 46, 50  
+Overfull \hbox (136.51273pt too wide) in paragraph at lines 105--107
+[]\OT1/cmr/m/n/9 pagenumbering=[]    \OT1/cmtt/m/n/9 \subitem *+\pagenumbering+, 48, 61  
  []
 
 
-Overfull \hbox (94.54509pt too wide) in paragraph at lines 104--106
-[]\OT1/cmr/m/n/9 paperheight=[]    \OT1/cmtt/m/n/9 \subitem *+\paperheight+, 34  
+Overfull \hbox (112.13373pt too wide) in paragraph at lines 107--109
+[]\OT1/cmr/m/n/9 pagestyle=[]    \OT1/cmtt/m/n/9 \subitem *+\pagestyle+, 47, 50, 54  
  []
 
 
-Overfull \hbox (88.01808pt too wide) in paragraph at lines 106--108
-[]\OT1/cmr/m/n/9 paperwidth=[]    \OT1/cmtt/m/n/9 \subitem *+\paperwidth+, 36  
+Overfull \hbox (113.44487pt too wide) in paragraph at lines 109--111
+[]\OT1/cmr/m/n/9 paperheight=[]    \OT1/cmtt/m/n/9 \subitem *+\paperheight+, 34, 39  
  []
 
 
-Overfull \hbox (170.82912pt too wide) in paragraph at lines 108--110
+Overfull \hbox (106.91786pt too wide) in paragraph at lines 111--113
+[]\OT1/cmr/m/n/9 paperwidth=[]    \OT1/cmtt/m/n/9 \subitem *+\paperwidth+, 36, 39  
+ []
+
+
+Overfull \hbox (170.82912pt too wide) in paragraph at lines 113--115
 []\OT1/cmr/m/n/9 PassOptionsToClass=[]    \OT1/cmtt/m/n/9 \subitem *+\PassOptionsToClass+, 5, 7  
  []
 
 
-Overfull \hbox (123.13025pt too wide) in paragraph at lines 110--112
+Overfull \hbox (123.13025pt too wide) in paragraph at lines 115--117
 []\OT1/cmr/m/n/9 ProcessOptions=[]    \OT1/cmtt/m/n/9 \subitem *+\ProcessOptions+, 10  
  []
 
-
-Overfull \hbox (38.1852pt too wide) in paragraph at lines 115--117
+[6]
+Overfull \hbox (38.1852pt too wide) in paragraph at lines 120--122
 []\OT1/cmr/m/n/9 relax=[]    \OT1/cmtt/m/n/9 \subitem *+\relax+, 10  
  []
 
 
-Overfull \hbox (113.91577pt too wide) in paragraph at lines 117--119
+Overfull \hbox (113.91577pt too wide) in paragraph at lines 122--124
 []\OT1/cmr/m/n/9 renewcommand=[]    \OT1/cmtt/m/n/9 \subitem *+\renewcommand+, 12  
  []
 
 
-Overfull \hbox (119.67053pt too wide) in paragraph at lines 119--121
+Overfull \hbox (119.67053pt too wide) in paragraph at lines 124--126
 []\OT1/cmr/m/n/9 RequirePackage=[]    \OT1/cmtt/m/n/9 \subitem *+\RequirePackage+, 1  
  []
 
 
-Overfull \hbox (94.16174pt too wide) in paragraph at lines 124--126
+Overfull \hbox (94.16174pt too wide) in paragraph at lines 129--131
 []\OT1/cmr/m/n/9 setboolean=[]    \OT1/cmtt/m/n/9 \subitem *+\setboolean+, 3, 4  
  []
 
 
-Overfull \hbox (102.34775pt too wide) in paragraph at lines 126--128
-[]\OT1/cmr/m/n/9 setcounter=[]    \OT1/cmtt/m/n/9 \subitem *+\setcounter+, 48, 58  
+Overfull \hbox (102.34775pt too wide) in paragraph at lines 131--133
+[]\OT1/cmr/m/n/9 setcounter=[]    \OT1/cmtt/m/n/9 \subitem *+\setcounter+, 52, 62  
  []
 
 
-Overfull \hbox (92.72006pt too wide) in paragraph at lines 128--130
+Overfull \hbox (129.02254pt too wide) in paragraph at lines 133--135
+[]\OT1/cmr/m/n/9 setheaderspaces=[]    \OT1/cmtt/m/n/9 \subitem *+\setheaderspaces+, 43  
+ []
+
+
+Overfull \hbox (93.034pt too wide) in paragraph at lines 135--137
+[]\OT1/cmr/m/n/9 setheadfoot=[]    \OT1/cmtt/m/n/9 \subitem *+\setheadfoot+, 42  
+ []
+
+
+Overfull \hbox (92.72006pt too wide) in paragraph at lines 137--139
 []\OT1/cmr/m/n/9 setlength=[]    \OT1/cmtt/m/n/9 \subitem *+\setlength+, 33, 35  
  []
 
 
-Overfull \hbox (100.93184pt too wide) in paragraph at lines 130--132
-[]\OT1/cmr/m/n/9 setlrmargins=[]    \OT1/cmtt/m/n/9 \subitem *+\setlrmargins+, 40  
+Overfull \hbox (174.96033pt too wide) in paragraph at lines 139--141
+[]\OT1/cmr/m/n/9 setlrmarginsandblock=[]    \OT1/cmtt/m/n/9 \subitem *+\setlrmarginsandblock+, 40  
  []
 
 
-Overfull \hbox (75.36194pt too wide) in paragraph at lines 132--134
+Overfull \hbox (75.36194pt too wide) in paragraph at lines 141--143
 []\OT1/cmr/m/n/9 setpagecc=[]    \OT1/cmtt/m/n/9 \subitem *+\setpagecc+, 38  
  []
 
 
-Overfull \hbox (98.11867pt too wide) in paragraph at lines 134--136
+Overfull \hbox (98.11867pt too wide) in paragraph at lines 143--145
 []\OT1/cmr/m/n/9 setstocksize=[]    \OT1/cmtt/m/n/9 \subitem *+\setstocksize+, 29  
  []
 
 
-Overfull \hbox (121.15942pt too wide) in paragraph at lines 136--138
+Overfull \hbox (121.15942pt too wide) in paragraph at lines 145--147
 []\OT1/cmr/m/n/9 settrimmedsize=[]    \OT1/cmtt/m/n/9 \subitem *+\settrimmedsize+, 31  
  []
 
 
-Overfull \hbox (65.05301pt too wide) in paragraph at lines 138--140
+Overfull \hbox (65.05301pt too wide) in paragraph at lines 147--149
 []\OT1/cmr/m/n/9 settrims=[]    \OT1/cmtt/m/n/9 \subitem *+\settrims+, 37  
  []
 
 
-Overfull \hbox (102.45267pt too wide) in paragraph at lines 140--142
-[]\OT1/cmr/m/n/9 setulmargins=[]    \OT1/cmtt/m/n/9 \subitem *+\setulmargins+, 39  
+Overfull \hbox (135.21346pt too wide) in paragraph at lines 149--151
+[]\OT1/cmr/m/n/9 settypeblocksize=[]    \OT1/cmtt/m/n/9 \subitem *+\settypeblocksize+, 39  
  []
 
-[6]
-Overfull \hbox (90.75757pt too wide) in paragraph at lines 142--144
+
+Overfull \hbox (176.48116pt too wide) in paragraph at lines 151--153
+[]\OT1/cmr/m/n/9 setulmarginsandblock=[]    \OT1/cmtt/m/n/9 \subitem *+\setulmarginsandblock+, 41  
+ []
+
+
+Overfull \hbox (90.75757pt too wide) in paragraph at lines 153--155
 []\OT1/cmr/m/n/9 spacing=[]    \OT1/cmtt/m/n/9 \subitem *+\spacing+, \main{12}  
  []
 
 
-Overfull \hbox (111.41643pt too wide) in paragraph at lines 144--146
+Overfull \hbox (111.41643pt too wide) in paragraph at lines 155--157
 []\OT1/cmr/m/n/9 stockheight=[]    \OT1/cmtt/m/n/9 \subitem *+\stockheight+, 31, 33  
  []
 
 
-Overfull \hbox (104.88942pt too wide) in paragraph at lines 146--148
+Overfull \hbox (104.88942pt too wide) in paragraph at lines 157--159
 []\OT1/cmr/m/n/9 stockwidth=[]    \OT1/cmtt/m/n/9 \subitem *+\stockwidth+, 31, 35  
  []
 
 
-Overfull \hbox (126.57951pt too wide) in paragraph at lines 151--153
-[]\OT1/cmr/m/n/9 tableofcontents=[]    \OT1/cmtt/m/n/9 \subitem *+\tableofcontents+, 53  
+Overfull \hbox (126.57951pt too wide) in paragraph at lines 162--164
+[]\OT1/cmr/m/n/9 tableofcontents=[]    \OT1/cmtt/m/n/9 \subitem *+\tableofcontents+, 57  
  []
 
 
-Overfull \hbox (95.23463pt too wide) in paragraph at lines 153--155
-[]\OT1/cmr/m/n/9 textwidth=[]    \OT1/cmtt/m/n/9 \subitem *+\textwidth+, 64, 79  
+Overfull \hbox (95.23463pt too wide) in paragraph at lines 164--166
+[]\OT1/cmr/m/n/9 textwidth=[]    \OT1/cmtt/m/n/9 \subitem *+\textwidth+, 68, 83  
  []
 
 
-Overfull \hbox (86.93678pt too wide) in paragraph at lines 155--157
+Overfull \hbox (86.93678pt too wide) in paragraph at lines 166--168
 []\OT1/cmr/m/n/9 trimedge=[]    \OT1/cmtt/m/n/9 \subitem *+\trimedge+, 35--37  
  []
 
 
-Overfull \hbox (96.22278pt too wide) in paragraph at lines 157--159
+Overfull \hbox (96.22278pt too wide) in paragraph at lines 168--170
 []\OT1/cmr/m/n/9 trimtop=[]    \OT1/cmtt/m/n/9 \subitem *+\trimtop+, 33, 34, 37  
  []
 
 
-Overfull \hbox (106.32056pt too wide) in paragraph at lines 162--164
-[]\OT1/cmr/m/n/9 vspace=[]    \OT1/cmtt/m/n/9 \subitem *+\vspace+, 61, 69, 76, 85  
+Overfull \hbox (106.32056pt too wide) in paragraph at lines 173--175
+[]\OT1/cmr/m/n/9 vspace=[]    \OT1/cmtt/m/n/9 \subitem *+\vspace+, 65, 73, 80, 89  
  []
 
 
-Overfull \hbox (49.53366pt too wide) in paragraph at lines 167--169
-[]\OT1/cmr/m/n/9 year=[]    \OT1/cmtt/m/n/9 \subitem *+\year+, 13, 21  
+Overfull \hbox (30.63388pt too wide) in paragraph at lines 178--180
+[]\OT1/cmr/m/n/9 year=[]    \OT1/cmtt/m/n/9 \subitem *+\year+, 13  
  []
 
 )
 **********************************
 * This macro file has no checksum!
-* The checksum should be 153!
+* The checksum should be 161!
 **********************************
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 45.
@@ -575,9 +595,9 @@ Here is how much of TeX's memory you used:
  8543 multiletter control sequences out of 15000+600000
  10877 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,9n,29p,257b,532s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,9n,29p,257b,530s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on /Users/mili/Desktop/LinTex/lintex.pdf (7 pages, 219146 bytes).
+Output written on /Users/mili/Desktop/LinTex/lintex.pdf (7 pages, 219377 bytes).
 PDF statistics:
  194 PDF objects out of 1000 (max. 8388607)
  164 compressed objects within 2 object streams

@@ -46,7 +46,7 @@
 \def\departmenthead#1{\gdef\@departmenthead{#1}}
 \gdef\@author{Your Name}
 \gdef\@title{Title of the Thesis}
-\gdef\@year{\year}
+\gdef\@year{2020}
 \gdef\@degreelv{Doctor of Philosophy}
 \gdef\@degreename{Geophysical Engineering}
 \gdef\@advisor{Dr. Main Advisor}
@@ -54,8 +54,11 @@
 \gdef\@department{Department of Some Name}
 \gdef\@departmenthead{Dr. Department Head}
 \setpagecc{11in}{8.5in}{*}
-\setulmargins{0in}{*}{*}
-\setlrmargins{0in}{*}{*}
+\settypeblocksize{\paperheight}{\paperwidth}{*}
+\setlrmarginsandblock{1in}{*}{*}
+\setulmarginsandblock{1in}{*}{*}
+\checkandfixthelayout
+
 \def\makefrontmatter{
 \pagestyle {empty}
 \pagenumbering {roman}
@@ -86,6 +89,20 @@
 \vspace{\fill}
 by\\
 \@author
+\clearpage
+}
+\def\makecopyrightpage{
+\clearpage
+\vspace*{\fill}
+\centering
+\begin{center}
+\begin{minipage}{.8\textwidth}
+\centering
+      Copyright~by~\@author~\@year\\
+      All~Rights~Reserved
+\end{minipage}
+\end{center}
+\vspace{\fill}
 \clearpage
 }
 \endinput

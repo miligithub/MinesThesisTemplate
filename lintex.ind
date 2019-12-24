@@ -10,16 +10,18 @@
   \item baselinestretch=\verb
     \subitem *+\baselinestretch+, 12
   \item begin=\verb
-    \subitem *+\begin+, 63, 64, 78, 79
+    \subitem *+\begin+, 67, 68, 82, 83
   \item boolean=\verb
-    \subitem *+\boolean+, 54, 55
+    \subitem *+\boolean+, 58, 59
 
   \indexspace
 
   \item centering=\verb
-    \subitem *+\centering+, 62, 65, 77, 80
+    \subitem *+\centering+, 66, 69, 81, 84
+  \item checkandfixthelayout=\verb
+    \subitem *+\checkandfixthelayout+, 44
   \item clearpage=\verb
-    \subitem *+\clearpage+, 60, 72, 75, 86
+    \subitem *+\clearpage+, 64, 76, 79, 90
   \item coadvisor=\verb
     \subitem *+\coadvisor+, 16
   \item CurrentOption=\verb
@@ -30,7 +32,7 @@
   \item DeclareOption=\verb
     \subitem *+\DeclareOption+, 3, 4, 6
   \item def=\verb
-    \subitem *+\def+, 13--18, 42, 59, 74
+    \subitem *+\def+, 13--18, 46, 63, 78
   \item degree=\verb
     \subitem *+\degree+, 14
   \item department=\verb
@@ -41,14 +43,14 @@
   \indexspace
 
   \item end=\verb
-    \subitem *+\end+, 67, 68, 83, 84
+    \subitem *+\end+, 71, 72, 87, 88
   \item ExecuteOptions=\verb
     \subitem *+\ExecuteOptions+, 9
 
   \indexspace
 
   \item fill=\verb
-    \subitem *+\fill+, 61, 69, 76, 85
+    \subitem *+\fill+, 65, 73, 80, 89
 
   \indexspace
 
@@ -58,53 +60,56 @@
   \indexspace
 
   \item ifthenelse=\verb
-    \subitem *+\ifthenelse+, 54, 55
+    \subitem *+\ifthenelse+, 58, 59
 
   \indexspace
 
   \item listoffigures=\verb
-    \subitem *+\listoffigures+, 55
+    \subitem *+\listoffigures+, 59
   \item listoftables=\verb
-    \subitem *+\listoftables+, 54
+    \subitem *+\listoftables+, 58
   \item LoadClassWithOptions=\verb
     \subitem *+\LoadClassWithOptions+, 11
 
   \indexspace
 
   \item makeabstract=\verb
-    \subitem *+\makeabstract+, 49
+    \subitem *+\makeabstract+, 53
   \item makeacknowledgements=\verb
-    \subitem *+\makeacknowledgements+, 52
-  \item makecopypage=\verb
-    \subitem *+\makecopypage+, 74
+    \subitem *+\makeacknowledgements+, 56
   \item makecopyrightpage=\verb
-    \subitem *+\makecopyrightpage+, 47
+    \subitem *+\makecopyrightpage+, 51, \main{78}
   \item makededication=\verb
-    \subitem *+\makededication+, 51
+    \subitem *+\makededication+, 55
   \item makefrontmatter=\verb
-    \subitem *+\makefrontmatter+, \main{42}
+    \subitem *+\makefrontmatter+, \main{46}
   \item maketitlepage=\verb
-    \subitem *+\maketitlepage+, 45, \main{59}, \main{74}
+    \subitem *+\maketitlepage+, 49, \main{63}
   \item MakeUppercase=\verb
-    \subitem *+\MakeUppercase+, 66
+    \subitem *+\MakeUppercase+, 70
 
   \indexspace
 
   \item newboolean=\verb
     \subitem *+\newboolean+, 2
   \item newpage=\verb
-    \subitem *+\newpage+, 56
+    \subitem *+\newpage+, 60
+
+  \indexspace
+
+  \item onelineskip=\verb
+    \subitem *+\onelineskip+, 42, 43
 
   \indexspace
 
   \item pagenumbering=\verb
-    \subitem *+\pagenumbering+, 44, 57
+    \subitem *+\pagenumbering+, 48, 61
   \item pagestyle=\verb
-    \subitem *+\pagestyle+, 43, 46, 50
+    \subitem *+\pagestyle+, 47, 50, 54
   \item paperheight=\verb
-    \subitem *+\paperheight+, 34
+    \subitem *+\paperheight+, 34, 39
   \item paperwidth=\verb
-    \subitem *+\paperwidth+, 36
+    \subitem *+\paperwidth+, 36, 39
   \item PassOptionsToClass=\verb
     \subitem *+\PassOptionsToClass+, 5, 7
   \item ProcessOptions=\verb
@@ -124,11 +129,15 @@
   \item setboolean=\verb
     \subitem *+\setboolean+, 3, 4
   \item setcounter=\verb
-    \subitem *+\setcounter+, 48, 58
+    \subitem *+\setcounter+, 52, 62
+  \item setheaderspaces=\verb
+    \subitem *+\setheaderspaces+, 43
+  \item setheadfoot=\verb
+    \subitem *+\setheadfoot+, 42
   \item setlength=\verb
     \subitem *+\setlength+, 33, 35
-  \item setlrmargins=\verb
-    \subitem *+\setlrmargins+, 40
+  \item setlrmarginsandblock=\verb
+    \subitem *+\setlrmarginsandblock+, 40
   \item setpagecc=\verb
     \subitem *+\setpagecc+, 38
   \item setstocksize=\verb
@@ -137,8 +146,10 @@
     \subitem *+\settrimmedsize+, 31
   \item settrims=\verb
     \subitem *+\settrims+, 37
-  \item setulmargins=\verb
-    \subitem *+\setulmargins+, 39
+  \item settypeblocksize=\verb
+    \subitem *+\settypeblocksize+, 39
+  \item setulmarginsandblock=\verb
+    \subitem *+\setulmarginsandblock+, 41
   \item spacing=\verb
     \subitem *+\spacing+, \main{12}
   \item stockheight=\verb
@@ -149,9 +160,9 @@
   \indexspace
 
   \item tableofcontents=\verb
-    \subitem *+\tableofcontents+, 53
+    \subitem *+\tableofcontents+, 57
   \item textwidth=\verb
-    \subitem *+\textwidth+, 64, 79
+    \subitem *+\textwidth+, 68, 83
   \item trimedge=\verb
     \subitem *+\trimedge+, 35--37
   \item trimtop=\verb
@@ -160,11 +171,11 @@
   \indexspace
 
   \item vspace=\verb
-    \subitem *+\vspace+, 61, 69, 76, 85
+    \subitem *+\vspace+, 65, 73, 80, 89
 
   \indexspace
 
   \item year=\verb
-    \subitem *+\year+, 13, 21
+    \subitem *+\year+, 13
 
 \end{theindex}

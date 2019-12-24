@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  23 DEC 2019 22:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  23 DEC 2019 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -347,8 +347,28 @@ Package tocloft [2008/07/23] emulated by memoir.
 Package tocvsec2 [2008/07/23] emulated by memoir.
 Package verbatim [2008/07/23] emulated by memoir.
 Package verse [2008/07/23] emulated by memoir.
-))
-(/usr/local/texlive/2019/texmf-dist/tex/latex/fonttable/fonttable.sty
+)
+
+******************************************************
+Stock height and width: 794.96999pt by 614.295pt
+Top and edge trims: 0pt and 0pt
+Page height and width: 794.96999pt by 614.295pt
+Text height and width: 650pt by 469pt
+Spine and edge margins: 72.26999pt and 72.26999pt
+Upper and lower margins: 72.26999pt and 72.7pt
+Headheight and headsep: 14.5pt and 19.8738pt
+Footskip: 30pt
+Columnsep and columnseprule: 10pt and 0pt
+Marginparsep and marginparwidth: 7pt and 58.26999pt
+Sidecapsep and sidecapwidth: 7pt and 50pt
+Sidebarhsep and sidebarwidth: 7pt and 50pt
+Sidebarvsep and sidebartopsep: 14.5pt and 0pt
+Sidebarheight: 546.64995pt
+Sidefoothsep and sidefootwidth: 7pt and 50pt
+Sidefootvsep and sidefootheight: 14.5pt and 546.64995pt
+******************************************************
+
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/fonttable/fonttable.sty
 Package: fonttable 2017/06/06 v1.6c displays a font
 \f@tm=\count138
 \f@tn=\count139
@@ -383,12 +403,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ] [2
 
-] [3] (./mines-thesis-template.aux) ) 
+
+] [3
+
+] [4] (./mines-thesis-template.aux) ) 
 Here is how much of TeX's memory you used:
- 3743 strings out of 492616
- 50251 string characters out of 6129482
- 144598 words of memory out of 5000000
- 7698 multiletter control sequences out of 15000+600000
+ 3745 strings out of 492616
+ 50311 string characters out of 6129482
+ 144729 words of memory out of 5000000
+ 7700 multiletter control sequences out of 15000+600000
  7028 words of font info for 25 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,10n,26p,412b,218s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -397,10 +420,10 @@ type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr8.pfb>
-Output written on mines-thesis-template.pdf (3 pages, 43180 bytes).
+Output written on mines-thesis-template.pdf (4 pages, 43662 bytes).
 PDF statistics:
- 30 PDF objects out of 1000 (max. 8388607)
- 20 compressed objects within 1 object stream
+ 33 PDF objects out of 1000 (max. 8388607)
+ 22 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

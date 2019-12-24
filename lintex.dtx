@@ -245,7 +245,7 @@
 %    \begin{macrocode}
 \gdef\@author{Your Name} 
 \gdef\@title{Title of the Thesis} 
-\gdef\@year{\year} 
+\gdef\@year{2020} 
 \gdef\@degreelv{Doctor of Philosophy}
 \gdef\@degreename{Geophysical Engineering}
 \gdef\@advisor{Dr. Main Advisor}
@@ -267,8 +267,12 @@
 %^^A \addtolength{\trimedge}{-\paperwidth} % - \paperwidth
 %^^A \settrims{0.5\trimtop}{\trimedge}
 \setpagecc{11in}{8.5in}{*}
-\setulmargins{0in}{*}{*} 
-\setlrmargins{0in}{*}{*}
+%^^A \settypeblocksize{\paperheight}{\paperwidth}{*}
+\setlrmarginsandblock{1in}{*}{*}
+\setulmarginsandblock{1in}{*}{*}
+%^^A \setheadfoot{\onelineskip}{2\onelineskip}
+%^^A \setheaderspaces{*}{2\onelineskip}{*}
+\checkandfixthelayout
 
 %    \end{macrocode}
 % \subsubsection{Front Matter}
@@ -324,7 +328,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\maketitlepage}
+% \begin{macro}{\makecopyrightpage}
 % The thesis title must be in all upper case letters,
 % be centered on the page both horizontally and vertically,
 % be in an inverted pyramid shape and the font size needs 
@@ -332,15 +336,15 @@
 % (i.e. do not make the font size larger).
 %
 %    \begin{macrocode}
-\def\makecopypage{
+\def\makecopyrightpage{
 	\clearpage
 	\vspace*{\fill}
 	\centering
 	\begin{center}
 		\begin{minipage}{.8\textwidth}
 			\centering
-      Copyright by \@author \@year\\
-      All Rights Reserved
+      Copyright~by~\@author~\@year\\
+      All~Rights~Reserved
 		\end{minipage}
 	\end{center}
 	\vspace{\fill}
