@@ -23,7 +23,7 @@
 % \fi
 %
 % \iffalse
-%^^A Package identification
+% ^^A Package identification
 %<*driver>
 \ProvidesFile{lintex.dtx}
 %</driver>
@@ -33,7 +33,7 @@
 [2020/01/10 v1.0 Colorado School of Mines dissertation/thesis class]
 %</class>
 %
-%^^A Driver code 
+% ^^A Driver code 
 %<*driver>
 \documentclass{ltxdoc}
 \usepackage{hyperref}
@@ -46,7 +46,7 @@
 %</driver>
 % \fi
 %
-%^^A======================= Code verification =======================
+% ^^A======================= Code verification =======================
 % \CheckSum{0}
 %
 % \CharacterTable
@@ -65,12 +65,11 @@
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %   Right brace   \}     Tilde         \~}
 %
-%^^A======================= Miscellaneous initialization =======================
+% ^^A======================= Miscellaneous initialization =======================
 % \changes{v1.0}{2020/01/10}{Initial version}
 % \GetFileInfo{lintex.dtx}
-% \DoNotIndex{\newcommand,\newenvironment}
 %
-%^^A======================= User documentation =======================
+% ^^A======================= User documentation =======================
 % \title{The \textsf{mines-thesis} class
 % \thanks{This document corresponds to 
 %     \textsf{mines-thesis}~\fileversion, 
@@ -173,8 +172,9 @@
 % 
 % \DescribeMacro{\paragraph}
 %
+%
 % \newpage
-%^^A======================= Code and commentary =======================
+% ^^A======================= Code and commentary =======================
 % \StopEventually{\PrintIndex}
 %
 % \section{Implementation}
@@ -194,11 +194,11 @@
 %    \begin{macrocode}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
-	\PassOptionsToClass{letterpaper,12pt,oneside,onecolumn,openany}{memoir}}
+\PassOptionsToClass{letterpaper,12pt,oneside,onecolumn,final,openany}{report}}
 \DeclareOption*{
 	\PassOptionsToClass{\CurrentOption}{memoir}
 }
-\ExecuteOptions{draft}
+\ExecuteOptions{draft,letterpaper,12pt}
 %    \end{macrocode}
 %
 % \subsection{Execution of Options}
@@ -218,15 +218,7 @@
 % \subsection{Main Code}
 % \label{sec:imp_code}
 %
-% \begin{macro}{\spacing}
-%
-%   Redefine |\baselinestretch| and recompute |\baselineskip|
-%   lateral effect: set typeface to normal size roman
-%
-%    \begin{macrocode}
-\newcommand{\spacing}[1]{\renewcommand{\baselinestretch}{#1}}
-%    \end{macrocode}
-% \end{macro}
+
 %
 % \subsubsection{Commands to define parameters for the front matter}
 % \label{sec:imp_code_front_param}
@@ -256,22 +248,23 @@
 %
 % Set margins 
 %    \begin{macrocode}
-%~~A automatically set by the class option letterpaper
-%^^A \setstocksize{11in}{8.5in}
-%~~A set paper size equal to stock size
-%~~A\settrimmedsize{\stockheight}{\stockwidth}{*}
-%^^A set equal trim at the top and bottom
-%^^A \setlength{\trimtop}{\stockheight} % \trimtop = \stockheight 
-%^^A \addtolength{\trimtop}{-\paperheight} % - \paperheight 
-%^^A \setlength{\trimedge}{\stockwidth} % \trimedge = \stockwidth 
-%^^A \addtolength{\trimedge}{-\paperwidth} % - \paperwidth
-%^^A \settrims{0.5\trimtop}{\trimedge}
+% ^^A automatically set by the class option letterpaper
+% ^^A \setstocksize{11in}{8.5in}
+% ^^A set paper size equal to stock size
+% ^^A\settrimmedsize{\stockheight}{\stockwidth}{*}
+% ^^A set equal trim at the top and bottom
+% ^^A \setlength{\trimtop}{\stockheight} % \trimtop = \stockheight 
+% ^^A \addtolength{\trimtop}{-\paperheight} % - \paperheight 
+% ^^A \setlength{\trimedge}{\stockwidth} % \trimedge = \stockwidth 
+% ^^A \addtolength{\trimedge}{-\paperwidth} % - \paperwidth
+% ^^A \settrims{0.5\trimtop}{\trimedge}
 \setpagecc{11in}{8.5in}{*}
-%^^A \settypeblocksize{\paperheight}{\paperwidth}{*}
+% ^^A \settypeblocksize{\paperheight}{\paperwidth}{*}
 \setlrmarginsandblock{1in}{*}{*}
 \setulmarginsandblock{1in}{*}{*}
-%^^A \setheadfoot{\onelineskip}{2\onelineskip}
-%^^A \setheaderspaces{*}{2\onelineskip}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\setheaderspaces{*}{2\onelineskip}{*}
+\DoubleSpacing
 \checkandfixthelayout
 
 %    \end{macrocode}
@@ -281,23 +274,17 @@
 % \begin{macro}{\makefrontmatter}
 %
 %    \begin{macrocode}
-\def\makefrontmatter{
-	\pagestyle {empty}
-	\pagenumbering {roman}
+\newcommand{\makefrontmatter}{
+  \pagenumbering{roman}
+	\pagestyle{empty}
 	\maketitlepage
-	\pagestyle {empty}  
+	\pagestyle{empty}  
 	\makecopyrightpage
-	\setcounter {page} {3}
-	\makeabstract
-	\pagestyle {fancy}
-	\@ifdefined {@dedication}{\makededication}
-	\@ifdefined {@acknowledgements}{\makeacknowledgements} 
-	\tableofcontents
-	\ifthenelse{\boolean{hastables}}{\listoftables}{}
-	\ifthenelse{\boolean{hasfigures}}{\listoffigures}{}
+	\pagestyle{plain}
 	\newpage
-	\pagenumbering {arabic}
-	\setcounter {page}{1}}
+	\pagenumbering{arabic}
+  \setcounter{page}{1}
+}
 %    \end{macrocode}
 %
 % \end{macro}
@@ -310,19 +297,20 @@
 % (i.e. do not make the font size larger).
 %
 %    \begin{macrocode}
-\def\maketitlepage{
+\newcommand{\maketitlepage}{
 	\clearpage
 	\vspace*{\fill}
-	\centering
 	\begin{center}
 		\begin{minipage}{.8\textwidth}
 			\centering
 			\MakeUppercase{\@title} 
 		\end{minipage}
 	\end{center}
-	\vspace{\fill}
-	by\\
-	\@author
+  \vspace{\fill}
+  \begin{center}
+		by\\
+    \@author
+	\end{center}
 	\clearpage
 }
 %    \end{macrocode}
@@ -336,10 +324,9 @@
 % (i.e. do not make the font size larger).
 %
 %    \begin{macrocode}
-\def\makecopyrightpage{
-	\clearpage
+\newcommand{\makecopyrightpage}{
+  \clearpage
 	\vspace*{\fill}
-	\centering
 	\begin{center}
 		\begin{minipage}{.8\textwidth}
 			\centering
@@ -353,5 +340,5 @@
 %    \end{macrocode}
 % \end{macro}
 % \Finale
-%^^A
+% ^^A
 \endinput

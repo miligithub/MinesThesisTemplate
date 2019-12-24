@@ -30,14 +30,14 @@
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
-\PassOptionsToClass{letterpaper,12pt,oneside,onecolumn,openany}{memoir}}
+\PassOptionsToClass{letterpaper,12pt,oneside,onecolumn,final,openany}{report}}
 \DeclareOption*{
 \PassOptionsToClass{\CurrentOption}{memoir}
 }
-\ExecuteOptions{draft}
+\ExecuteOptions{draft,letterpaper,12pt}
 \ProcessOptions\relax
 \LoadClassWithOptions{memoir}
-\newcommand{\spacing}[1]{\renewcommand{\baselinestretch}{#1}}
+
 \def\year#1{\gdef\@year{#1}}
 \def\degree#1#2{\gdef\@degreelv{#1}\@degreename{#2}}
 \def\advisor#1{\gdef\@advisor{#1}}
@@ -54,47 +54,43 @@
 \gdef\@department{Department of Some Name}
 \gdef\@departmenthead{Dr. Department Head}
 \setpagecc{11in}{8.5in}{*}
-\settypeblocksize{\paperheight}{\paperwidth}{*}
 \setlrmarginsandblock{1in}{*}{*}
 \setulmarginsandblock{1in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\setheaderspaces{*}{2\onelineskip}{*}
+\DoubleSpacing
 \checkandfixthelayout
 
-\def\makefrontmatter{
-\pagestyle {empty}
-\pagenumbering {roman}
+\newcommand{\makefrontmatter}{
+  \pagenumbering{roman}
+\pagestyle{empty}
 \maketitlepage
-\pagestyle {empty}
+\pagestyle{empty}
 \makecopyrightpage
-\setcounter {page} {3}
-\makeabstract
-\pagestyle {fancy}
-\@ifdefined {@dedication}{\makededication}
-\@ifdefined {@acknowledgements}{\makeacknowledgements}
-\tableofcontents
-\ifthenelse{\boolean{hastables}}{\listoftables}{}
-\ifthenelse{\boolean{hasfigures}}{\listoffigures}{}
+\pagestyle{plain}
 \newpage
-\pagenumbering {arabic}
-\setcounter {page}{1}}
-\def\maketitlepage{
+\pagenumbering{arabic}
+  \setcounter{page}{1}
+}
+\newcommand{\maketitlepage}{
 \clearpage
 \vspace*{\fill}
-\centering
 \begin{center}
 \begin{minipage}{.8\textwidth}
 \centering
 \MakeUppercase{\@title}
 \end{minipage}
 \end{center}
-\vspace{\fill}
+  \vspace{\fill}
+  \begin{center}
 by\\
-\@author
+    \@author
+\end{center}
 \clearpage
 }
-\def\makecopyrightpage{
-\clearpage
+\newcommand{\makecopyrightpage}{
+  \clearpage
 \vspace*{\fill}
-\centering
 \begin{center}
 \begin{minipage}{.8\textwidth}
 \centering

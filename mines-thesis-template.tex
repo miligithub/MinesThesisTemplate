@@ -1,9 +1,12 @@
-\documentclass[12pt,oneside,showtrims]{mines-thesis}
+\documentclass[letterpaper,12pt]{mines-thesis}
 %========================================
 %                              Set-up                              
 %========================================
-\spacing{1.5}
-
+% Text will be double spaced or 1.5 spaced.
+%\OnehalfSpacing 
+%\OnehalfSpacing*
+%\DoubleSpacing
+%\DoubleSpacing*
 
 %========================================
 %                            Front Matter                              
@@ -58,11 +61,12 @@
 %\usepackage{titlepages}  % code of the example titlepages
 %\usepackage{memlays}     % extra layout diagrams
 %\usepackage{dpfloat}     % floats on facing pages
-\usepackage{fonttable}[2009/04/01]   % font tables
+%\usepackage{fonttable}[2009/04/01]   % font tables
 
 \begin{document}
-	\maketitlepage
-	\makecopyrightpage
+%	\maketitlepage
+%	\makecopyrightpage
+	\makefrontmatter
 %	\year
 %========================================
 %                              Main Body                              
@@ -129,3 +133,15 @@ Convolution is a mathematical operation that can be used to describe how a linea
 %========================================
 
 \end{document}
+% \DescribeMacro{\spacing}
+% Double spacing or 1.5 spacing
+% \begin{macro}{\spacing}
+%
+%   Redefine |\baselinestretch| to |\spacing|, 
+%
+%    \begin{macrocode}
+\newcommand{\spacing}[1]{\setstretch{#1}}
+%    \end{macrocode}
+% \end{macro}
+
+\spacing{1.5}
