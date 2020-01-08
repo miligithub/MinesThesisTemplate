@@ -1,20 +1,31 @@
-\documentclass[letterpaper,12pt]{mines-thesis}
+\documentclass[12pt]{mines-thesis}
+% Font Size: 10-12 point type
+
 %========================================
 %                              Set-up                              
 %========================================
-% Text will be double spaced or 1.5 spaced.
 %\OnehalfSpacing 
 %\OnehalfSpacing*
-%\DoubleSpacing
+\DoubleSpacing
 %\DoubleSpacing*
+% Text will be double spaced or 1.5 spaced. 
+% Sometimes it is also required to make page notes and floats (including captions) in ‘double’ spacing. The starred version of the two macros above takes care of this. 
+
+
 
 %========================================
 %                            Front Matter                              
 %========================================
-%\autopyramid %
-\title{Thesis title centered on the page vertically\\ and horizontally,\\
-	in all upper case letters and in an inverted\\ pyramid shape $\frac{2^{15}}{\pi}$
+\autopyramid
+\title{Thesis title centered on the page vertically and horizontally,\protect\\
+%	
+	 	in all upper case letters and in an inverted 
+	
+		pyramid shape. Math mode: $\frac{2^{15}}{\pi}$
  }         % this is the full title of your work
+%\title{This is a medium medium medium medium medium medium medium title $\frac{2^{15}}{\pi}$ for testing} 
+
+%\title{This is a short title $\frac{2^{15}}{\pi}$ for testing} 
 
 \author{Author's Name}  % this is your name exactly as you want it
 \year{2020}     % this is the year of defence
@@ -77,6 +88,13 @@
 %========================================
 %                              Main Body                              
 %========================================
+
+\invpyr{Thesis title centered on the page vertically and horizontally,\\
+	%	
+	in all upper case letters and in an inverted 
+	
+	pyramid shape. Math mode: $\frac{2^{15}}{\pi}$
+}  
 alibrating the response of a GPR system is essential for making measurements of subsurface materials properties. Duke (1990) calibrated the overall response of a GPR system by making measurements of the . . .
 1.1 Background and Previous Work
 This chapter describes the methodology that has been used to determine the response of an impulse GPR. The characterization includes a response function for the receiving electronics, simulations . . .

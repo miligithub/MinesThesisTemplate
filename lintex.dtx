@@ -243,7 +243,7 @@
 %
 %    \begin{macrocode}
 \gdef\@author{Your Name} 
-\gdef\@title{Title of the Thesis} 
+\long\gdef\@title{Title of the Thesis} 
 \gdef\@year{2020} 
 \gdef\@degreelv{Doctor of Philosophy}
 \gdef\@degreename{Geophysical Engineering}
@@ -304,13 +304,13 @@
 % (i.e. do not make the font size larger).
 %
 %    \begin{macrocode}
-\newcommand{\invpyr}[1]{
-\vbox{
-    \hsize=\textwidth
+\DeclareRobustCommand{\invpyr}[1]{
+	\vbox{
+		\hsize=\textwidth
     \parindent=0pt
     \emergencystretch=1in
     \parshape 6
-    0.05\textwidth .9\textwidth
+    0.01\textwidth .98\textwidth
     0.1\textwidth .8\textwidth
     0.15\textwidth .7\textwidth
     0.2\textwidth .6\textwidth
@@ -320,7 +320,8 @@
     \rightskip=0pt plus -1fil
     \parfillskip=0pt plus 2fil
     #1\par
-    }
+	}
+    
 }
 \newcommand{\autopyramid}{\setboolean{auto}{true}}
 \newcommand{\maketitlepage}{
@@ -328,8 +329,7 @@
 	\vspace*{\fill}
 	\begin{center}
 		\begin{minipage}{\textwidth}
-			\centering
-			\ifthenelse{\boolean{auto}}{hello}{\MakeUppercase{\@title}}
+			\ifthenelse{\boolean{auto}}{\invpyr{\MakeUppercase{\@title}}}{\MakeUppercase{\@title}}
 		\end{minipage}
 	\end{center}
   \vspace{\fill}

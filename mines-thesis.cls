@@ -47,7 +47,7 @@
 \def\department#1{\gdef\@department{#1}}
 \def\departmenthead#1{\gdef\@departmenthead{#1}}
 \gdef\@author{Your Name}
-\gdef\@title{Title of the Thesis}
+\long\gdef\@title{Title of the Thesis}
 \gdef\@year{2020}
 \gdef\@degreelv{Doctor of Philosophy}
 \gdef\@degreename{Geophysical Engineering}
@@ -74,20 +74,13 @@
 \pagenumbering{arabic}
   \setcounter{page}{1}
 }
-\newcommand{\invertedpyramid}{%
-{0}             %line center at x=7
-{0}  b{0}\\     % text starts at (0,0)
-{0}  t{-10}{20}\\ % Line at y=0 starts at x=0 with length 14
-{3} t{-5}{10}\\  % Line at y=10 starts at x=0 with length 14
-{3} e{5}       % text ends at (7,15)
-}
-\newcommand{\invpyr}[1]{
+\DeclareRobustCommand{\invpyr}[1]{
 \vbox{
-    \hsize=\textwidth
+\hsize=\textwidth
     \parindent=0pt
     \emergencystretch=1in
     \parshape 6
-    0.05\textwidth .9\textwidth
+    0.01\textwidth .98\textwidth
     0.1\textwidth .8\textwidth
     0.15\textwidth .7\textwidth
     0.2\textwidth .6\textwidth
@@ -97,7 +90,8 @@
     \rightskip=0pt plus -1fil
     \parfillskip=0pt plus 2fil
     #1\par
-    }
+}
+
 }
 \newcommand{\autopyramid}{\setboolean{auto}{true}}
 \newcommand{\maketitlepage}{
@@ -105,9 +99,7 @@
 \vspace*{\fill}
 \begin{center}
 \begin{minipage}{\textwidth}
-\centering
-\MakeUppercase{Thesis title centered on the page vertically\\ and horizontally,\\
-in all upper case letters and in an inverted\\ pyramid shape $\frac{2^{15}}{\pi}$}
+\ifthenelse{\boolean{auto}}{\invpyr{\MakeUppercase{\@title}}}{\MakeUppercase{\@title}}
 \end{minipage}
 \end{center}
   \vspace{\fill}
