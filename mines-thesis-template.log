@@ -1,0 +1,430 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  7 JAN 2020 18:31
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**mines-thesis-template.tex
+(./mines-thesis-template.tex
+LaTeX2e <2018-12-01>
+(./mines-thesis.cls
+Document Class: mines-thesis 2020/01/10 v1.0 Colorado School of Mines dissertat
+ion/thesis class
+(/usr/local/texlive/2019/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/shapepar/shapepar.sty
+\cutoutsep=\skip41
+Package: shapepar 2013/03/26 v 2.2x, Shaped paragraphs
+\SH@scale=\dimen102
+\SH@boxb=\box27
+\SH@ntries=\count80
+\spec@bot=\dimen103
+\sqrtcount=\count81
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/memoir/memoir.cls
+Document Class: memoir 2018/12/12 v3.7h configurable book, report, article docu
+ment class
+\onelineskip=\skip42
+\lxvchars=\skip43
+\xlvchars=\skip44
+\@memcnta=\count82
+\c@@memmarkcntra=\count83
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/ifetex/ifetex.sty
+Package: ifetex 2018/03/31 v1.2a ifetex
+
+(/usr/local/texlive/2019/texmf-dist/tex/plain/ifetex/ifetex.tex))
+(/usr/local/texlive/2019/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+\stockheight=\skip45
+\stockwidth=\skip46
+\trimtop=\skip47
+\trimedge=\skip48
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/memoir/mem12.clo
+File: mem12.clo 2010/10/19 v0.4b memoir class 12pt size option
+)
+\binding=\skip49
+\spinemargin=\skip50
+\foremargin=\skip51
+\uppermargin=\skip52
+\lowermargin=\skip53
+\headdrop=\skip54
+\normalrulethickness=\skip55
+\mem@maxheadheight=\skip56
+\mem@maxfootheight=\skip57
+\headwidth=\skip58
+\c@storedpagenumber=\count84
+\memPD=\dimen104
+\m@mabparskip=\skip59
+\thanksmarkwidth=\skip60
+\thanksmarksep=\skip61
+\droptitle=\skip62
+\c@book=\count85
+\c@part=\count86
+\c@chapter=\count87
+\c@section=\count88
+\c@subsection=\count89
+\c@subsubsection=\count90
+\c@paragraph=\count91
+\c@subparagraph=\count92
+\beforechapskip=\skip63
+\midchapskip=\skip64
+\afterchapskip=\skip65
+\chapindent=\skip66
+\bottomsectionskip=\skip67
+\secindent=\skip68
+\beforesecskip=\skip69
+\aftersecskip=\skip70
+\subsecindent=\skip71
+\beforesubsecskip=\skip72
+\aftersubsecskip=\skip73
+\subsubsecindent=\skip74
+\beforesubsubsecskip=\skip75
+\aftersubsubsecskip=\skip76
+\paraindent=\skip77
+\beforeparaskip=\skip78
+\afterparaskip=\skip79
+\subparaindent=\skip80
+\beforesubparaskip=\skip81
+\aftersubparaskip=\skip82
+\pfbreakskip=\skip83
+\c@@ppsavesec=\count93
+\c@@ppsaveapp=\count94
+\ragrparindent=\dimen105
+\everylistparindent=\dimen106
+\parsepi=\skip84
+\topsepi=\skip85
+\itemsepi=\skip86
+\parsepii=\skip87
+\topsepii=\skip88
+\topsepiii=\skip89
+\itemsepii=\skip90
+\itemsepiii=\skip91
+\partopsepii=\skip92
+\partopsepiii=\skip93
+\m@msavetopsep=\skip94
+\m@msavepartopsep=\skip95
+\@enLab=\toks14
+\abstitleskip=\skip96
+\absleftindent=\skip97
+\abs@leftindent=\dimen107
+\absrightindent=\skip98
+\absparindent=\skip99
+\absparsep=\skip100
+\c@vslineno=\count95
+\c@poemline=\count96
+\c@modulo@vs=\count97
+\c@memfvsline=\count98
+\vleftskip=\skip101
+\vrightskip=\skip102
+\stanzaskip=\skip103
+\versewidth=\skip104
+\vgap=\skip105
+\vindent=\skip106
+\vleftmargin=\dimen108
+\c@verse=\count99
+\c@chrsinstr=\count100
+\beforepoemtitleskip=\skip107
+\afterpoemtitleskip=\skip108
+\c@poem=\count101
+\beforePoemTitleskip=\skip109
+\midPoemTitleskip=\skip110
+\afterPoemTitleskip=\skip111
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/array.sty
+Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
+\col@sep=\dimen109
+\ar@mcellbox=\box28
+\extrarowheight=\dimen110
+\NC@list=\toks15
+\extratabsurround=\skip112
+\backup@length=\skip113
+\ar@cellbox=\box29
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/delarray.sty
+Package: delarray 2014/10/28 v1.01 array delimiter package (DPC)
+)
+(/usr/local/texlive/2019/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
+\TX@col@width=\dimen111
+\TX@old@table=\dimen112
+\TX@old@col=\dimen113
+\TX@target=\dimen114
+\TX@delta=\dimen115
+\TX@cols=\count102
+\TX@ftn=\toks16
+)
+\heavyrulewidth=\dimen116
+\lightrulewidth=\dimen117
+\cmidrulewidth=\dimen118
+\belowrulesep=\dimen119
+\belowbottomsep=\dimen120
+\aboverulesep=\dimen121
+\abovetopsep=\dimen122
+\cmidrulesep=\dimen123
+\cmidrulekern=\dimen124
+\defaultaddspace=\dimen125
+\@cmidla=\count103
+\@cmidlb=\count104
+\@aboverulesep=\dimen126
+\@belowrulesep=\dimen127
+\@thisruleclass=\count105
+\@lastruleclass=\count106
+\@thisrulewidth=\dimen128
+\ctableftskip=\skip114
+\ctabrightskip=\skip115
+\abovecolumnspenalty=\count107
+\@linestogo=\count108
+\@cellstogo=\count109
+\@cellsincolumn=\count110
+\crtok=\toks17
+\@mincolumnwidth=\dimen129
+\c@newflo@tctr=\count111
+\mem@margin@floatbox=\box30
+\@contcwidth=\skip116
+\@contindw=\skip117
+\abovecaptionskip=\skip118
+\belowcaptionskip=\skip119
+\subfloattopskip=\skip120
+\subfloatcapskip=\skip121
+\subfloatcaptopadj=\skip122
+\subfloatbottomskip=\skip123
+\subfloatlabelskip=\skip124
+\subfloatcapmargin=\dimen130
+\c@@contsubnum=\count112
+\m@mscap@capbox=\box31
+\m@mscap@fbox=\box32
+\sidecapsep=\dimen131
+\sidecapwidth=\dimen132
+\m@m@tempdima=\dimen133
+\m@mscapraise=\dimen134
+\sidecapraise=\dimen135
+\m@mscapmainwidth=\dimen136
+\m@mscaplkern=\dimen137
+\beforeepigraphskip=\skip125
+\afterepigraphskip=\skip126
+\epigraphwidth=\skip127
+\epigraphrule=\skip128
+LaTeX Info: Redefining \em on input line 7592.
+LaTeX Info: Redefining \emph on input line 7600.
+\tocentryskip=\skip129
+\tocbaseline=\skip130
+\cftparskip=\skip131
+\cftbeforebookskip=\skip132
+\cftbookindent=\dimen138
+\cftbooknumwidth=\dimen139
+\cftbeforepartskip=\skip133
+\cftpartindent=\skip134
+\cftpartnumwidth=\skip135
+\cftbeforechapterskip=\skip136
+\cftchapterindent=\skip137
+\cftchapternumwidth=\skip138
+\cftbeforesectionskip=\skip139
+\cftsectionindent=\skip140
+\cftsectionnumwidth=\skip141
+\cftbeforesubsectionskip=\skip142
+\cftsubsectionindent=\skip143
+\cftsubsectionnumwidth=\skip144
+\cftbeforesubsubsectionskip=\skip145
+\cftsubsubsectionindent=\skip146
+\cftsubsubsectionnumwidth=\skip147
+\cftbeforeparagraphskip=\skip148
+\cftparagraphindent=\skip149
+\cftparagraphnumwidth=\skip150
+\cftbeforesubparagraphskip=\skip151
+\cftsubparagraphindent=\skip152
+\cftsubparagraphnumwidth=\skip153
+\prechapterprecisshift=\dimen140
+\c@maxsecnumdepth=\count113
+\bibindent=\dimen141
+\bibitemsep=\skip154
+\indexcolsep=\skip155
+\indexrule=\skip156
+\indexmarkstyle=\toks18
+\@indexbox=\insert199
+\glossarycolsep=\dimen142
+\glossaryrule=\dimen143
+\sideparvshift=\skip157
+\sideins=\insert198
+\sidebartopsep=\skip158
+\sidebarhsep=\skip159
+\sidebarvsep=\skip160
+\sidebarwidth=\skip161
+\footmarkwidth=\skip162
+\footmarksep=\skip163
+\footparindent=\skip164
+\footinsdim=\skip165
+\footinsv@r=\insert197
+\@mpfootinsv@r=\insert196
+\m@m@k=\count114
+\m@m@h=\dimen144
+\m@mipn@skip=\skip166
+\sidefootins=\insert195
+\sidefootadjust=\skip167
+\sidefootheight=\skip168
+\sidefoothsep=\skip169
+\sidefootvsep=\skip170
+\sidefootwidth=\skip171
+\m@mdownsf=\skip172
+\c@sidefootnote=\count115
+\sidefootmarkwidth=\skip173
+\sidefootmarksep=\skip174
+\sidefootparindent=\skip175
+\c@pagenote=\count116
+\c@pagenoteshadow=\count117
+\mem@pn@lastkern=\skip176
+\every@verbatim=\toks19
+\afterevery@verbatim=\toks20
+\verbatim@line=\toks21
+\tab@position=\count118
+\verbatim@in@stream=\read1
+\verbatimindent=\skip177
+\verbatim@out=\write3
+\bvboxsep=\skip178
+\c@memfbvline=\count119
+\c@bvlinectr=\count120
+\bvnumlength=\skip179
+\fb@frw=\dimen145
+\fb@frh=\dimen146
+\FrameRule=\dimen147
+\FrameSep=\dimen148
+\c@cp@cntr=\count121
+LaTeX Info: Redefining \: on input line 12114.
+LaTeX Info: Redefining \! on input line 12116.
+\c@ism@mctr=\count122
+\c@xsm@mctr=\count123
+\c@csm@mctr=\count124
+\c@ksm@mctr=\count125
+\c@xksm@mctr=\count126
+\c@cksm@mctr=\count127
+\c@msm@mctr=\count128
+\c@xmsm@mctr=\count129
+\c@cmsm@mctr=\count130
+\c@bsm@mctr=\count131
+\c@workm@mctr=\count132
+\c@sheetsequence=\count133
+\c@lastsheet=\count134
+\c@lastpage=\count135
+\c@figure=\count136
+\c@lofdepth=\count137
+\cftbeforefigureskip=\skip180
+\cftfigureindent=\skip181
+\cftfigurenumwidth=\skip182
+\c@table=\count138
+\c@lotdepth=\count139
+\cftbeforetableskip=\skip183
+\cfttableindent=\skip184
+\cfttablenumwidth=\skip185
+Package abstract [2008/07/23] emulated by memoir.
+Package appendix [2008/07/23] emulated by memoir.
+Package booktabs [2016/05/16] emulated by memoir.
+Package ccaption [2008/07/23] emulated by memoir.
+Package changepage [2008/07/23] emulated by memoir.
+Package chngcntr [2008/07/23] emulated by memoir.
+Package chngpage [2008/07/23] emulated by memoir.
+Package crop emulated by memoir.
+Package enumerate [2008/07/23] emulated by memoir.
+Package epigraph [2008/07/23] emulated by memoir.
+Package ifmtarg [2008/07/23] emulated by memoir.
+Package index [2008/07/23] emulated by memoir.
+Package makeidx [2008/07/23] emulated by memoir.
+Package moreverb [2008/07/23] emulated by memoir.
+Package mparhack [2008/07/23] emulated by memoir.
+Package needspace [2008/07/23] emulated by memoir.
+Package newfile [2008/07/23] emulated by memoir.
+Package nextpage [2008/07/23] emulated by memoir.
+Package pagenote [2008/07/23] emulated by memoir.
+Package parskip [2008/07/23] emulated by memoir.
+Package patchcmd [2008/07/23] emulated by memoir.
+Package setspace [2008/07/23] emulated by memoir.
+Package shortvrb [2008/07/23] emulated by memoir.
+Package showidx [2008/07/23] emulated by memoir.
+Package titleref [2008/07/23] emulated by memoir.
+Package titling [2008/07/23] emulated by memoir.
+Package tocbibind [2008/07/23] emulated by memoir.
+Package tocloft [2008/07/23] emulated by memoir.
+Package tocvsec2 [2008/07/23] emulated by memoir.
+Package verbatim [2008/07/23] emulated by memoir.
+Package verse [2008/07/23] emulated by memoir.
+)
+
+******************************************************
+Stock height and width: 794.96999pt by 614.295pt
+Top and edge trims: 0pt and 0pt
+Page height and width: 794.96999pt by 614.295pt
+Text height and width: 659.93202pt by 469pt
+Spine and edge margins: 72.26999pt and 72.26999pt
+Upper and lower margins: 72.26999pt and 62.76797pt
+Headheight and headsep: 14.5pt and 29pt
+Footskip: 29pt
+Columnsep and columnseprule: 10pt and 0pt
+Marginparsep and marginparwidth: 7pt and 58.26999pt
+Sidecapsep and sidecapwidth: 7pt and 102pt
+Sidebarhsep and sidebarwidth: 7pt and 102pt
+Sidebarvsep and sidebartopsep: 14.5pt and 0pt
+Sidebarheight: 546.64995pt
+Sidefoothsep and sidefootwidth: 7pt and 102pt
+Sidefootvsep and sidefootheight: 14.5pt and 546.64995pt
+******************************************************
+
+) (./mines-thesis-template.aux)
+\openout1 = `mines-thesis-template.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+
+! Use of \@icentercr doesn't match its definition.
+<argument> \def 
+                
+l.75 	\makefrontmatter
+                      
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
+
+)
+! Incomplete \iffalse; all text was ignored after line 75.
+<inserted text> 
+                \fi 
+<*> mines-thesis-template.tex
+                             
+The file ended while I was skipping conditional text.
+This kind of error happens when you say `\if...' and forget
+the matching `\fi'. I've inserted a `\fi'; this might work.
+
+! Emergency stop.
+<*> mines-thesis-template.tex
+                             
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 3758 strings out of 492616
+ 50297 string characters out of 6129482
+ 143755 words of memory out of 5000000
+ 7725 multiletter control sequences out of 15000+600000
+ 4238 words of font info for 16 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 30i,1n,26p,412b,158s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

@@ -29,6 +29,7 @@
 \RequirePackage{ifthen}
 \RequirePackage{shapepar}
 \newboolean{review}
+\newboolean{auto} % for auto pyramid
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
 \PassOptionsToClass{letterpaper,12pt,oneside,onecolumn,final,openany}{report}}
@@ -80,13 +81,14 @@
 {3} t{-5}{10}\\  % Line at y=10 starts at x=0 with length 14
 {3} e{5}       % text ends at (7,15)
 }
+\newcommand\autopyramid{\setboolean{auto}{true}}
 \newcommand\maketitlepage{
   \clearpage
 \vspace*{\fill}
 \begin{center}
 \begin{minipage}{.8\textwidth}
-      \centering
-      \shapepar{\invertedpyramid}
+\centering
+\ifthenelse{\boolean{auto}}{\shapepar{\invertedpyramid}}{}
       \MakeUppercase{\@title}
 \end{minipage}
 \end{center}
