@@ -81,15 +81,33 @@
 {3} t{-5}{10}\\  % Line at y=10 starts at x=0 with length 14
 {3} e{5}       % text ends at (7,15)
 }
+\newcommand{\invpyr}[1]{
+\vbox{
+    \hsize=\textwidth
+    \parindent=0pt
+    \emergencystretch=1in
+    \parshape 6
+    0.05\textwidth .9\textwidth
+    0.1\textwidth .8\textwidth
+    0.15\textwidth .7\textwidth
+    0.2\textwidth .6\textwidth
+    0.25\textwidth .5\textwidth
+    0.3\textwidth .4\textwidth
+    \leftskip=0pt plus 1fil
+    \rightskip=0pt plus -1fil
+    \parfillskip=0pt plus 2fil
+    #1\par
+    }
+}
 \newcommand{\autopyramid}{\setboolean{auto}{true}}
 \newcommand{\maketitlepage}{
   \clearpage
 \vspace*{\fill}
 \begin{center}
-\begin{minipage}{.8\textwidth}
+\begin{minipage}{\textwidth}
 \centering
-\ifthenelse{\boolean{auto}}{\shapepar{\invertedpyramid}}{hello}
-      \MakeUppercase{\@title}
+\MakeUppercase{Thesis title centered on the page vertically\\ and horizontally,\\
+in all upper case letters and in an inverted\\ pyramid shape $\frac{2^{15}}{\pi}$}
 \end{minipage}
 \end{center}
   \vspace{\fill}

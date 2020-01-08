@@ -304,22 +304,32 @@
 % (i.e. do not make the font size larger).
 %
 %    \begin{macrocode}
-\newcommand{\invertedpyramid}{% 
-{0}             %line center at x=7
-{0}  b{0}\\     % text starts at (0,0)
-{0}  t{-10}{20}\\ % Line at y=0 starts at x=0 with length 14
-{3} t{-5}{10}\\  % Line at y=10 starts at x=0 with length 14
-{3} e{5}       % text ends at (7,15)
+\newcommand{\invpyr}[1]{
+\vbox{
+    \hsize=\textwidth
+    \parindent=0pt
+    \emergencystretch=1in
+    \parshape 6
+    0.05\textwidth .9\textwidth
+    0.1\textwidth .8\textwidth
+    0.15\textwidth .7\textwidth
+    0.2\textwidth .6\textwidth
+    0.25\textwidth .5\textwidth
+    0.3\textwidth .4\textwidth
+    \leftskip=0pt plus 1fil
+    \rightskip=0pt plus -1fil
+    \parfillskip=0pt plus 2fil
+    #1\par
+    }
 }
 \newcommand{\autopyramid}{\setboolean{auto}{true}}
 \newcommand{\maketitlepage}{
   \clearpage
 	\vspace*{\fill}
 	\begin{center}
-		\begin{minipage}{.8\textwidth}
+		\begin{minipage}{\textwidth}
 			\centering
-			\ifthenelse{\boolean{auto}}{\shapepar{\invertedpyramid}}{hello}
-      \MakeUppercase{\@title}
+			\ifthenelse{\boolean{auto}}{hello}{\MakeUppercase{\@title}}
 		\end{minipage}
 	\end{center}
   \vspace{\fill}

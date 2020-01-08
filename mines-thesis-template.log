@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 JAN 2020 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 JAN 2020 15:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -368,7 +368,8 @@ Sidefoothsep and sidefootwidth: 7pt and 102pt
 Sidefootvsep and sidefootheight: 14.5pt and 546.64995pt
 ******************************************************
 
-) (./mines-thesis-template.aux)
+)
+No file mines-thesis-template.aux.
 \openout1 = `mines-thesis-template.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
@@ -383,38 +384,38 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
 LaTeX Font Info:    ... okay on input line 70.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
 LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 75.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 75.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 75.
- [1
+! Use of \@icentercr doesn't match its definition.
+<argument> \def 
+                
+l.75 	\makefrontmatter
+                      
+If you say, e.g., `\def\a1{...}', then you must always
+put `1' after `\a', since control sequence names are
+made up of letters only. The macro here has not been
+followed by the required stuff, so I'm ignoring it.
 
+)
+! Incomplete \iffalse; all text was ignored after line 75.
+<inserted text> 
+                \fi 
+<*> mines-thesis-template.tex
+                             
+The file ended while I was skipping conditional text.
+This kind of error happens when you say `\if...' and forget
+the matching `\fi'. I've inserted a `\fi'; this might work.
 
-{/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+! Emergency stop.
+<*> mines-thesis-template.tex
+                             
+*** (job aborted, no legal \end found)
 
-
-] [1
-
-] [2] (./mines-thesis-template.aux) ) 
+ 
 Here is how much of TeX's memory you used:
- 3640 strings out of 492616
- 49046 string characters out of 6129482
- 140008 words of memory out of 5000000
- 7600 multiletter control sequences out of 15000+600000
- 6676 words of font info for 24 fonts, out of 8000000 for 9000
+ 3612 strings out of 492616
+ 48662 string characters out of 6129482
+ 138008 words of memory out of 5000000
+ 7585 multiletter control sequences out of 15000+600000
+ 4238 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,10n,26p,412b,217s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2019/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb>
-Output written on mines-thesis-template.pdf (4 pages, 42963 bytes).
-PDF statistics:
- 33 PDF objects out of 1000 (max. 8388607)
- 22 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 30i,1n,26p,412b,143s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
