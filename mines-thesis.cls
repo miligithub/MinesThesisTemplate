@@ -27,9 +27,7 @@
 \ProvidesClass{mines-thesis}
 [2020/01/10 v1.0 Colorado School of Mines dissertation/thesis class]
 \RequirePackage{ifthen}
-\RequirePackage{shapepar}
 \newboolean{review}
-\newboolean{auto} % for auto pyramid
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
 \PassOptionsToClass{letterpaper,12pt,oneside,onecolumn,final,openany}{report}}
@@ -40,6 +38,8 @@
 \ProcessOptions\relax
 \LoadClassWithOptions{memoir}
 
+\newboolean{auto} % for auto pyramid
+\setboolean{auto}{false}
 \def\year#1{\gdef\@year{#1}}
 \def\degree#1#2{\gdef\@degreelv{#1}\@degreename{#2}}
 \def\advisor#1{\gdef\@advisor{#1}}
@@ -63,7 +63,7 @@
 \DoubleSpacing
 \checkandfixthelayout
 
-\newcommand\makefrontmatter{
+\newcommand{\makefrontmatter}{
   \pagenumbering{roman}
 \pagestyle{empty}
 \maketitlepage
@@ -74,21 +74,21 @@
 \pagenumbering{arabic}
   \setcounter{page}{1}
 }
-\newcommand\invertedpyramid{%
+\newcommand{\invertedpyramid}{%
 {0}             %line center at x=7
 {0}  b{0}\\     % text starts at (0,0)
 {0}  t{-10}{20}\\ % Line at y=0 starts at x=0 with length 14
 {3} t{-5}{10}\\  % Line at y=10 starts at x=0 with length 14
 {3} e{5}       % text ends at (7,15)
 }
-\newcommand\autopyramid{\setboolean{auto}{true}}
-\newcommand\maketitlepage{
+\newcommand{\autopyramid}{\setboolean{auto}{true}}
+\newcommand{\maketitlepage}{
   \clearpage
 \vspace*{\fill}
 \begin{center}
 \begin{minipage}{.8\textwidth}
 \centering
-\ifthenelse{\boolean{auto}}{\shapepar{\invertedpyramid}}{}
+\ifthenelse{\boolean{auto}}{\shapepar{\invertedpyramid}}{hello}
       \MakeUppercase{\@title}
 \end{minipage}
 \end{center}
@@ -99,7 +99,7 @@ by\\
 \end{center}
 \clearpage
 }
-\newcommand\makecopyrightpage{
+\newcommand{\makecopyrightpage}{
   \clearpage
 \vspace*{\fill}
 \begin{center}

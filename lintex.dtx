@@ -179,15 +179,15 @@
 %
 % \section{Implementation}
 % \label{sec:imp}
+%    \begin{macrocode}
+\RequirePackage{ifthen} 
+%    \end{macrocode}
 %
 % The |review| boolean is defined here for use with the
 % class options.
 %
 %    \begin{macrocode}
-\RequirePackage{ifthen}
-\RequirePackage{shapepar}  
 \newboolean{review}
-\newboolean{auto} % for auto pyramid
 %    \end{macrocode}
 %
 % \subsection{Declaration of Options}
@@ -224,6 +224,11 @@
 %
 % \subsubsection{Commands to define parameters for the front matter}
 % \label{sec:imp_code_front_param}
+%    \begin{macrocode}
+\newboolean{auto} % for auto pyramid
+\setboolean{auto}{false}
+%    \end{macrocode}
+%
 %    \begin{macrocode}
 \def\year#1{\gdef\@year{#1}}
 \def\degree#1#2{\gdef\@degreelv{#1}\@degreename{#2}}
@@ -276,7 +281,7 @@
 % \begin{macro}{\makefrontmatter}
 %
 %    \begin{macrocode}
-\newcommand\makefrontmatter{
+\newcommand{\makefrontmatter}{
   \pagenumbering{roman}
 	\pagestyle{empty}
 	\maketitlepage
@@ -299,21 +304,21 @@
 % (i.e. do not make the font size larger).
 %
 %    \begin{macrocode}
-\newcommand\invertedpyramid{% 
+\newcommand{\invertedpyramid}{% 
 {0}             %line center at x=7
 {0}  b{0}\\     % text starts at (0,0)
 {0}  t{-10}{20}\\ % Line at y=0 starts at x=0 with length 14
 {3} t{-5}{10}\\  % Line at y=10 starts at x=0 with length 14
 {3} e{5}       % text ends at (7,15)
 }
-\newcommand\autopyramid{\setboolean{auto}{true}}
-\newcommand\maketitlepage{
+\newcommand{\autopyramid}{\setboolean{auto}{true}}
+\newcommand{\maketitlepage}{
   \clearpage
 	\vspace*{\fill}
 	\begin{center}
 		\begin{minipage}{.8\textwidth}
 			\centering
-			\ifthenelse{\boolean{auto}}{\shapepar{\invertedpyramid}}{}
+			\ifthenelse{\boolean{auto}}{\shapepar{\invertedpyramid}}{hello}
       \MakeUppercase{\@title}
 		\end{minipage}
 	\end{center}
@@ -335,7 +340,7 @@
 % (i.e. do not make the font size larger).
 %
 %    \begin{macrocode}
-\newcommand\makecopyrightpage{
+\newcommand{\makecopyrightpage}{
   \clearpage
 	\vspace*{\fill}
 	\begin{center}
