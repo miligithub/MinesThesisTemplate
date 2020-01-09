@@ -172,6 +172,16 @@
 % 
 % \DescribeMacro{\paragraph}
 %
+% ========================================
+%                              Set-up                              
+% ========================================
+% \cs{OnehalfSpacing} 
+% \cs{OnehalfSpacing*}
+% \cs{DoubleSpacing}
+% \cs{DoubleSpacing*}
+% Text will be double spaced or 1.5 spaced. 
+% Sometimes it is also required to make page notes and floats (including captions) in ‘double’ spacing. The starred version of the two macros above takes care of this. 
+
 %
 % \newpage
 % ^^A======================= Code and commentary =======================
@@ -226,7 +236,11 @@
 % \subsection{Main Code}
 % \label{sec:imp_code}
 %
-
+% Prevent LaTeX from hyphenating the entire document
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
 %
 % \subsubsection{Commands to define parameters for the front matter}
 % \label{sec:imp_code_front_param}

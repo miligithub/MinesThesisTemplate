@@ -26,6 +26,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mines-thesis}
 [2020/01/10 v1.0 Colorado School of Mines dissertation/thesis class]
+
 \RequirePackage{ifthen}
 
 \RequirePackage{environ}
@@ -39,7 +40,10 @@
 \ExecuteOptions{draft,letterpaper,12pt}
 \ProcessOptions\relax
 \LoadClassWithOptions{memoir}
-
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
 \newboolean{auto} % for auto pyramid
 \setboolean{auto}{false}
 \def\year#1{\gdef\@year{#1}}
