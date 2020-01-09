@@ -163,6 +163,7 @@
 % commentted out until you need the front matter generated.
 %  
 % \DescribeMacro{\chapter}
+
 %  
 % \DescribeMacro{\section}
 % 
@@ -192,7 +193,7 @@
 %    \begin{macrocode}
 \RequirePackage{ifthen} 
 %    \end{macrocode}
-
+%
 % The \cs{collect@body} macro in |amsmath| is defined using \cs{def}.  We load
 % |environ| to access the \cs{long} version of this command
 %    \begin{macrocode}
@@ -241,6 +242,23 @@
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
+
+%\begin{macro}{\if@afterindent}
+%	\LaTeX\ uses the switch |\if@afterindent| to decide whether to indent
+%	after a section heading. We just need to make sure that this is always
+%	true.
+%    \begin{macrocode}
+%
+%<*class>		
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+%</class>		
+%		
+%    \end{macrocode}
+%\end{macro}
+
+%
+
 %
 % \subsubsection{Commands to define parameters for the front matter}
 % \label{sec:imp_code_front_param}
@@ -311,7 +329,7 @@ this is the second line}
 	\setcounter {page} {2}
 	\makesubmittalpage
 	\makeabstractpage
-	\clearpage
+	\maketoc
 	\pagenumbering{arabic}
   \setcounter{page}{1}
 }
@@ -451,13 +469,6 @@ this is the second line}
 %    \end{macrocode}
 % \end{macro}
 %
-%
-% \begin{macro}{\makeabstractpage}
-% ABSTRACT (title) is centered horizontally, 
-% 1 keyboard return below 1 inch top margin and
-% in ALL UPPER CASE LETTERS. 
-% Each paragraph should be indented.
-%
 % \begin{macro}{abstract}
 %  We redifine the |abstract| enviroment.
 %  First, we need to save the text
@@ -476,11 +487,14 @@ this is the second line}
 %    \end{macrocode}
 %
 % \end{macro}
-
+%
+% \begin{macro}{\makeabstractpage}
+% ABSTRACT (title) is centered horizontally, 
+% 1 keyboard return below 1 inch top margin and
+% in ALL UPPER CASE LETTERS. 
+% Each paragraph should be indented.
 %
 %    \begin{macrocode}
-
-
 \newcommand{\makeabstractpage}{
 	\clearpage	
 	{\centering
@@ -490,8 +504,84 @@ this is the second line}
 	\clearpage
 }
 %    \end{macrocode}
-% \end{macro}%
+% \end{macro}
 %
+% We rename the headings for the toc, lof, and the references.
+%
+%    \begin{macrocode}
+\renewcommand\contentsname{Table of Contents}
+\renewcommand\listfigurename{List of Figures}
+\renewcommand\listtablename{List of Tables}
+%    \end{macrocode}
+%    \begin{macrocode}
+\newcommand{\contentsheader}[2] { \addtocontents{#1} {
+    \centerline{\underline{#2}\protect\hfill%
+      \underline{Page}}}}
+\renewcommand\tableofcontents { \chapter*{\contentsname}
+  \addcontentsline{toc}{chapter}{Table of Contents}
+  \@starttoc{toc}} 
+\renewcommand\listoffigures { \chapter*{\listfigurename}
+  \addcontentsline{toc}{chapter}{List of Figures}
+  \@starttoc{lof}} 
+\renewcommand\listoftables { \chapter*{\listtablename}
+  \addcontentsline{toc}{chapter}{List of Tables}
+  \@starttoc{lot}}
+%    \end{macrocode}
+%
+% \begin{macro}{\maketoc}
+% TABLE OF CONTENTS (Title) is centered horizontally, 
+% 1 keyboard return below 1 inch top margin and
+% in ALL UPPER CASE LETTERS
+%
+%    \begin{macrocode}
+\newcommand{\maketoc}{
+		\clearpage
+		\tableofcontents
+		\clearpage
+	}
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+\makechapterstyle{mineschapter}{%
+	\chapterstyle{default}
+	\setlength{\midchapskip}{5pt}
+	\setlength{\afterchapskip}{5pt}
+	\renewcommand*{\chapterheadstart}{}
+	\renewcommand*{\printchaptername}{%
+		\centerline{\chapnumfont{\@chapapp\ \thechapter}}}
+	\renewcommand*{\chapternamenum}{}
+	\renewcommand*{\chapnumfont}{\normalfont\MakeUppercase}
+	\renewcommand*{\printchapternum}{}
+	\renewcommand*{\printchapternonum}{%
+		\vphantom{\chapnumfont \@chapapp 1}\par 
+		\parbox{0.5in}{}\par}
+	\renewcommand*{\chaptitlefont}{\normalfont}
+	\renewcommand*{\printchaptertitle}[1]{%
+		\centering \chaptitlefont\invpyr{\MakeUppercase{##1}}}
+}
+\chapterstyle{mineschapter}
+%    \end{macrocode}
+%
+% \begin{macro}{\section}
+%
+%  This section of code re-defines some standard stuff for sanity.
+%
+%    \begin{macrocode}
+\renewcommand{\section}{\@startsection {section}{1}{\z@}%
+                                 {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                 {2.3ex \@plus.2ex}%
+                                 {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsection}{\@startsection {subsection}{1}{\z@}%
+                                 {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                 {2.3ex \@plus.2ex}%
+                                 {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection {subsubsection}{1}{\z@}%
+                                 {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                 {2.3ex \@plus.2ex}%
+                                 {\normalfont\normalsize\bfseries}}
+%    \end{macrocode}
+% \end{macro}
 %
 %
 %

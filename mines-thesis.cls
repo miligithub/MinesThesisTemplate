@@ -27,8 +27,8 @@
 \ProvidesClass{mines-thesis}
 [2020/01/10 v1.0 Colorado School of Mines dissertation/thesis class]
 
-\RequirePackage{ifthen}
 
+\RequirePackage{ifthen}
 \RequirePackage{environ}
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
@@ -44,6 +44,11 @@
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
+
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+
+
 \newboolean{auto} % for auto pyramid
 \setboolean{auto}{false}
 \def\year#1{\gdef\@year{#1}}
@@ -78,7 +83,7 @@ this is the second line}
 \setcounter {page} {2}
 \makesubmittalpage
 \makeabstractpage
-\clearpage
+\maketoc
 \pagenumbering{arabic}
   \setcounter{page}{1}
 }
@@ -186,8 +191,6 @@ Professor and Head\\
 \newcommand{\@saveabstract}[1]{
 \long\gdef\@abstract{#1}
 }
-
-
 \newcommand{\makeabstractpage}{
 \clearpage 
 {\centering
@@ -196,6 +199,56 @@ ABSTRACT\\
 \@abstract
 \clearpage
 }
+\renewcommand\contentsname{Table of Contents}
+\renewcommand\listfigurename{List of Figures}
+\renewcommand\listtablename{List of Tables}
+\newcommand{\contentsheader}[2] { \addtocontents{#1} {
+    \centerline{\underline{#2}\protect\hfill%
+      \underline{Page}}}}
+\renewcommand\tableofcontents { \chapter*{\contentsname}
+  \addcontentsline{toc}{chapter}{Table of Contents}
+  \@starttoc{toc}}
+\renewcommand\listoffigures { \chapter*{\listfigurename}
+  \addcontentsline{toc}{chapter}{List of Figures}
+  \@starttoc{lof}}
+\renewcommand\listoftables { \chapter*{\listtablename}
+  \addcontentsline{toc}{chapter}{List of Tables}
+  \@starttoc{lot}}
+\newcommand{\maketoc}{
+\clearpage
+\tableofcontents
+\clearpage
+}
+\makechapterstyle{mineschapter}{%
+\chapterstyle{default}
+\setlength{\midchapskip}{5pt}
+\setlength{\afterchapskip}{5pt}
+\renewcommand*{\chapterheadstart}{}
+\renewcommand*{\printchaptername}{%
+\centerline{\chapnumfont{\@chapapp\ \thechapter}}}
+\renewcommand*{\chapternamenum}{}
+\renewcommand*{\chapnumfont}{\normalfont\MakeUppercase}
+\renewcommand*{\printchapternum}{}
+\renewcommand*{\printchapternonum}{%
+\vphantom{\chapnumfont \@chapapp 1}\par
+\parbox{0.5in}{}\par}
+\renewcommand*{\chaptitlefont}{\normalfont}
+\renewcommand*{\printchaptertitle}[1]{%
+\centering \chaptitlefont\invpyr{\MakeUppercase{##1}}}
+}
+\chapterstyle{mineschapter}
+\renewcommand{\section}{\@startsection {section}{1}{\z@}%
+                                 {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                 {2.3ex \@plus.2ex}%
+                                 {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsection}{\@startsection {subsection}{1}{\z@}%
+                                 {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                 {2.3ex \@plus.2ex}%
+                                 {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection {subsubsection}{1}{\z@}%
+                                 {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                 {2.3ex \@plus.2ex}%
+                                 {\normalfont\normalsize\bfseries}}
 
 \endinput
 %%
