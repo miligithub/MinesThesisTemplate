@@ -53,7 +53,6 @@ this is the second line}
 \gdef\@degreelv{Doctor of Philosophy}
 \gdef\@degreename{Computer Science}
 \gdef\@advisor{Dr. Main Advisor}
-\gdef\@coadvisor{Dr. Co Advisor}
 \gdef\@department{Department of Some Name}
 \gdef\@departmenthead{Dr. Department Head}
 \setpagecc{11in}{8.5in}{*}
@@ -95,7 +94,7 @@ this is the second line}
     #1\par
 }
 }
-\newcommand{\autopyramid}{\setboolean{auto}{true}}
+\newcommand{\autotitle}{\setboolean{auto}{true}}
 \newcommand{\maketitlepage}{
 \clearpage
 \begin{vplace}
@@ -127,7 +126,7 @@ Trustees of the Colorado School of Mines in partial
 fulfillment of the requirements for the degree of
 {\@degreelv} ({\@degreename}).
 
-\vspace{1em}
+\vspace{2em}
 \begin{flushleft}
 Golden, Colorado\\[.5em] 
 Date \underline{\hspace{2in}}
@@ -136,16 +135,26 @@ Date \underline{\hspace{2in}}
 \vspace{.5em}
 \begin{flushright}
 Signed: \underline{\hspace{2in}}\\
-{\@author}\\
-Student Name\\[1em]
+{\@author}\\[1em]
 
 Signed: \underline{\hspace{2in}}\\
+\begin{SingleSpace}
 {\@advisor}\\
 Thesis Advisor\\[1em]
+\end{SingleSpace}
 
+\@ifundefined{@coadvisor}
+{
+\vspace{2.5em}
+}
+   {
 Signed: \underline{\hspace{2in}}\\
+\begin{SingleSpace}
 {\@coadvisor}\\
 Thesis Advisor 
+\end{SingleSpace}
+   }
+
 \end{flushright}
 
 \begin{flushleft}
@@ -154,11 +163,15 @@ Date \underline{\hspace{2in}}
 \end{flushleft}
 
 \vspace{.5em}
-\begin{flushright} 
+\begin{flushright}
 Signed: \underline{\hspace{2in}}\\
+
+\begin{SingleSpace}
 {\@departmenthead}\\ 
 Professor and Head\\
 {\@department} 
+\end{SingleSpace}
+
 \end{flushright}
 
 \clearpage
