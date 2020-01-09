@@ -351,7 +351,7 @@ this is the second line}
 %    \begin{macrocode}
 \newcommand{\makecopyrightpage}{
 	\clearpage
-	\begin{vplace}
+	\begin{vplace}[0.8]
 		\centering
 		Copyright~by~\@author~\@year\\
 		All~Rights~Reserved
@@ -386,12 +386,12 @@ this is the second line}
 	\vspace{.5em}
 	\begin{flushright}
 		Signed: \underline{\hspace{2in}}\\
-		{\@author}\\[1em]
+		{\@author}\\[2em]
 		
 		Signed: \underline{\hspace{2in}}\\
 		\begin{SingleSpace}
 			{\@advisor}\\
-			Thesis Advisor\\[1em]
+			Thesis Advisor\\[2em]
 		\end{SingleSpace}
 		
 		
@@ -430,7 +430,27 @@ this is the second line}
 }
 %    \end{macrocode}
 % \end{macro}
-
+%
+%
+% \begin{macro}{\makeabstractpage}
+% ABSTRACT (title) is centered horizontally, 
+% 1 keyboard return below 1 inch top margin and
+% in ALL UPPER CASE LETTERS. 
+% Each paragraph should be indented.
+%
+%    \begin{macrocode}
+\newcommand{\makeabstractpage}{
+	\clearpage
+	
+	\clearpage
+}
+%    \end{macrocode}
+% \end{macro}%
+%
+%
+%
+%
+%
 
 % \Finale
 % ^^A

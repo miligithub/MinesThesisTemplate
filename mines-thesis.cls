@@ -111,7 +111,7 @@ by\\
 }
 \newcommand{\makecopyrightpage}{
 \clearpage
-\begin{vplace}
+\begin{vplace}[0.8]
 \centering
 Copyright~by~\@author~\@year\\
 All~Rights~Reserved
@@ -135,12 +135,12 @@ Date \underline{\hspace{2in}}
 \vspace{.5em}
 \begin{flushright}
 Signed: \underline{\hspace{2in}}\\
-{\@author}\\[1em]
+{\@author}\\[2em]
 
 Signed: \underline{\hspace{2in}}\\
 \begin{SingleSpace}
 {\@advisor}\\
-Thesis Advisor\\[1em]
+Thesis Advisor\\[2em]
 \end{SingleSpace}
 
 \@ifundefined{@coadvisor}
@@ -173,6 +173,11 @@ Professor and Head\\
 \end{SingleSpace}
 
 \end{flushright}
+
+\clearpage
+}
+\newcommand{\makeabstractpage}{
+\clearpage
 
 \clearpage
 }
