@@ -213,11 +213,11 @@
 %    \begin{macrocode}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
-\PassOptionsToClass{final}{memoir}}
+\PassOptionsToClass{final,12pt,onecolumn,openany}{memoir}}
 \DeclareOption*{
 	\PassOptionsToClass{\CurrentOption}{memoir}
 }
-\ExecuteOptions{}
+\ExecuteOptions{final}
 %    \end{macrocode}
 %
 % \subsection{Execution of Options}

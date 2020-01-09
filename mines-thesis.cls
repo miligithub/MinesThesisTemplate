@@ -33,11 +33,11 @@
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
-\PassOptionsToClass{final}{memoir}}
+\PassOptionsToClass{final,12pt,onecolumn,openany}{memoir}}
 \DeclareOption*{
 \PassOptionsToClass{\CurrentOption}{memoir}
 }
-\ExecuteOptions{}
+\ExecuteOptions{final}
 \ProcessOptions\relax
 \LoadClass[oneside,letterpaper]{memoir}
 \tolerance=1
