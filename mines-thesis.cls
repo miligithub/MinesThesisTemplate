@@ -47,7 +47,8 @@
 \def\department#1{\gdef\@department{#1}}
 \def\departmenthead#1{\gdef\@departmenthead{#1}}
 \gdef\@author{Your Name}
-\long\gdef\@title{Title of the Thesis}
+\gdef\@title{This is the first line of a  medium length title,
+this is the second line}
 \gdef\@year{2020}
 \gdef\@degreelv{Doctor of Philosophy}
 \gdef\@degreename{Geophysical Engineering}
@@ -91,7 +92,6 @@
     \parfillskip=0pt plus 2fil
     #1\par
 }
-
 }
 \newcommand{\autopyramid}{\setboolean{auto}{true}}
 \newcommand{\maketitlepage}{
@@ -99,7 +99,10 @@
 \vspace*{\fill}
 \begin{center}
 \begin{minipage}{\textwidth}
-\ifthenelse{\boolean{auto}}{\invpyr{\MakeUppercase{\@title}}}{\MakeUppercase{\@title}}
+\centering
+\ifthenelse{\boolean{auto}}
+{\invpyr{\MakeUppercase{\@title}}}
+{\@title}
 \end{minipage}
 \end{center}
   \vspace{\fill}
