@@ -1,5 +1,4 @@
 \documentclass[12pt]{mines-thesis}
-\usepackage{ragged2e}
 % Font Size: 10-12 point type
 
 %========================================
@@ -18,15 +17,23 @@
 %                            Front Matter                              
 %========================================
 \autopyramid
-\title{
-	Thesis title centered on the page vertically and horizontally,
+\title{Thesis title centered on the page vertically and horizontally, in all upper case letters
+	 and in an inverted pyramid shape. Math mode: $\frac{2^{15}}{\pi}$
 }
+% If you want to break the title by yourself, you must use \protect \\  or add an empty line.
+%\title{
+%	Thesis title centered on the page vertically and horizontally, \protect\\
+%	%	
+%	in all upper case letters and in an inverted 
+%	
+%	pyramid shape. Math mode: $\frac{2^{15}}{\pi}$
+%}
 
 
 
 \author{Author's Name}  % this is your name exactly as you want it
 \year{2020}     % this is the year of defence
-%\degree{Doctor of Philosophy}{Geophysical Engineering} %
+\degree{Doctor of Philosophy}{Computer Science} %
 %\advisor{Dr. Thesis Advisor}
 %\coadvisor{Dr. Co-Advisor}
 %\department{Department of XXX}
@@ -198,15 +205,3 @@ Convolution is a mathematical operation that can be used to describe how a linea
 %========================================
 
 \end{document}
-% \DescribeMacro{\spacing}
-% Double spacing or 1.5 spacing
-% \begin{macro}{\spacing}
-%
-%   Redefine |\baselinestretch| to |\spacing|, 
-%
-%    \begin{macrocode}
-\newcommand{\spacing}[1]{\setstretch{#1}}
-%    \end{macrocode}
-% \end{macro}
-
-\spacing{1.5}

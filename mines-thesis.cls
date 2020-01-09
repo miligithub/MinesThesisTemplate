@@ -41,7 +41,7 @@
 \newboolean{auto} % for auto pyramid
 \setboolean{auto}{false}
 \def\year#1{\gdef\@year{#1}}
-\def\degree#1#2{\gdef\@degreelv{#1}\@degreename{#2}}
+\newcommand{\degree}[2]{\gdef\@degreelv{#1}\gdef\@degreename{#2}}
 \def\advisor#1{\gdef\@advisor{#1}}
 \def\coadvisor#1{\gdef\@coadvisor{#1}}
 \def\department#1{\gdef\@department{#1}}
@@ -51,9 +51,9 @@
 this is the second line}
 \gdef\@year{2020}
 \gdef\@degreelv{Doctor of Philosophy}
-\gdef\@degreename{Geophysical Engineering}
+\gdef\@degreename{Computer Science}
 \gdef\@advisor{Dr. Main Advisor}
-\gdef\@advisor{Dr. Co Advisor}
+\gdef\@coadvisor{Dr. Co Advisor}
 \gdef\@department{Department of Some Name}
 \gdef\@departmenthead{Dr. Department Head}
 \setpagecc{11in}{8.5in}{*}
@@ -71,7 +71,9 @@ this is the second line}
 \pagestyle{empty}
 \makecopyrightpage
 \pagestyle{plain}
-\newpage
+\setcounter {page} {2}
+\makesubmittalpage
+\clearpage
 \pagenumbering{arabic}
   \setcounter{page}{1}
 }
@@ -95,17 +97,13 @@ this is the second line}
 }
 \newcommand{\autopyramid}{\setboolean{auto}{true}}
 \newcommand{\maketitlepage}{
-  \clearpage
-\vspace*{\fill}
-\begin{center}
-\begin{minipage}{\textwidth}
+\clearpage
+\begin{vplace}
 \centering
 \ifthenelse{\boolean{auto}}
 {\invpyr{\MakeUppercase{\@title}}}
 {\@title}
-\end{minipage}
-\end{center}
-  \vspace{\fill}
+\end{vplace}
   \begin{center}
 by\\
     \@author
@@ -113,18 +111,59 @@ by\\
 \clearpage
 }
 \newcommand{\makecopyrightpage}{
-  \clearpage
-\vspace*{\fill}
-\begin{center}
-\begin{minipage}{.8\textwidth}
+\clearpage
+\begin{vplace}
 \centering
-      Copyright~by~\@author~\@year\\
-      All~Rights~Reserved
-\end{minipage}
-\end{center}
-\vspace{\fill}
+Copyright~by~\@author~\@year\\
+All~Rights~Reserved
+\end{vplace}
 \clearpage
 }
+
+\newcommand{\makesubmittalpage}{
+\clearpage
+A thesis submitted to the Faculty and the Board of
+Trustees of the Colorado School of Mines in partial
+fulfillment of the requirements for the degree of
+{\@degreelv} ({\@degreename}).
+
+\vspace{1em}
+\begin{flushleft}
+Golden, Colorado\\[.5em] 
+Date \underline{\hspace{2in}}
+\end{flushleft}
+
+\vspace{.5em}
+\begin{flushright}
+Signed: \underline{\hspace{2in}}\\
+{\@author}\\
+Student Name\\[1em]
+
+Signed: \underline{\hspace{2in}}\\
+{\@advisor}\\
+Thesis Advisor\\[1em]
+
+Signed: \underline{\hspace{2in}}\\
+{\@coadvisor}\\
+Thesis Advisor 
+\end{flushright}
+
+\begin{flushleft}
+Golden, Colorado\\[.5em] 
+Date \underline{\hspace{2in}}
+\end{flushleft}
+
+\vspace{.5em}
+\begin{flushright} 
+Signed: \underline{\hspace{2in}}\\
+{\@departmenthead}\\ 
+Professor and Head\\
+{\@department} 
+\end{flushright}
+
+\clearpage
+}
+
 \endinput
 %%
 %% End of file `mines-thesis.cls'.
