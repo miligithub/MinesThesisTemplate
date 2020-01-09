@@ -33,13 +33,13 @@
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
-\PassOptionsToClass{letterpaper,12pt,oneside,onecolumn,final,openany}{report}}
+\PassOptionsToClass{final}{memoir}}
 \DeclareOption*{
 \PassOptionsToClass{\CurrentOption}{memoir}
 }
-\ExecuteOptions{draft,letterpaper,12pt}
+\ExecuteOptions{}
 \ProcessOptions\relax
-\LoadClassWithOptions{memoir}
+\LoadClass[oneside,letterpaper]{memoir}
 \tolerance=1
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
@@ -221,9 +221,7 @@ Professor and Head\\
 \renewcommand{\printchaptername}{%
 \centerline{\chapnumfont\MakeUppercase{\@chapapp\ \thechapter}}}
 \renewcommand{\printchaptertitle}[1]{%
-%%%\begin{SingleSpace}
 \centering \vbox{\chaptitlefont\invpyr{\MakeUppercase{##1}}}
-%%%\end{SingleSpace}
 }
 }
 \chapterstyle{mineschapter}
