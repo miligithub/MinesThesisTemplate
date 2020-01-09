@@ -182,6 +182,12 @@
 %    \begin{macrocode}
 \RequirePackage{ifthen} 
 %    \end{macrocode}
+
+% The \cs{collect@body} macro in |amsmath| is defined using \cs{def}.  We load
+% |environ| to access the \cs{long} version of this command
+%    \begin{macrocode}
+\RequirePackage{environ}
+%    \end{macrocode}
 %
 % The |review| boolean is defined here for use with the
 % class options.
@@ -285,12 +291,12 @@ this is the second line}
 \newcommand{\makefrontmatter}{
   \pagenumbering{roman}
 	\pagestyle{empty}
-	\maketitlepage
-	\pagestyle{empty}  
+	\maketitlepage 
 	\makecopyrightpage
 	\pagestyle{plain}
 	\setcounter {page} {2}
 	\makesubmittalpage
+	\makeabstractpage
 	\clearpage
 	\pagenumbering{arabic}
   \setcounter{page}{1}
@@ -438,10 +444,35 @@ this is the second line}
 % in ALL UPPER CASE LETTERS. 
 % Each paragraph should be indented.
 %
+% \begin{macro}{abstract}
+%  We redifine the |abstract| enviroment.
+%  First, we need to save the text
 %    \begin{macrocode}
+\renewenvironment{abstract}{\Collect@Body\@saveabstract}{}
+%    \end{macrocode}
+%
+% \end{macro}
+%
+% \begin{macro}{\@saveabstract}
+%   And saving the abstract
+%    \begin{macrocode}
+\newcommand{\@saveabstract}[1]{
+	\long\gdef\@abstract{#1}
+}
+%    \end{macrocode}
+%
+% \end{macro}
+
+%
+%    \begin{macrocode}
+
+
 \newcommand{\makeabstractpage}{
-	\clearpage
-	
+	\clearpage	
+	{\centering
+	ABSTRACT\\
+	}
+	\@abstract
 	\clearpage
 }
 %    \end{macrocode}

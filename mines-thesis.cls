@@ -27,6 +27,8 @@
 \ProvidesClass{mines-thesis}
 [2020/01/10 v1.0 Colorado School of Mines dissertation/thesis class]
 \RequirePackage{ifthen}
+
+\RequirePackage{environ}
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
@@ -67,11 +69,11 @@ this is the second line}
   \pagenumbering{roman}
 \pagestyle{empty}
 \maketitlepage
-\pagestyle{empty}
 \makecopyrightpage
 \pagestyle{plain}
 \setcounter {page} {2}
 \makesubmittalpage
+\makeabstractpage
 \clearpage
 \pagenumbering{arabic}
   \setcounter{page}{1}
@@ -176,9 +178,18 @@ Professor and Head\\
 
 \clearpage
 }
-\newcommand{\makeabstractpage}{
-\clearpage
+\renewenvironment{abstract}{\Collect@Body\@saveabstract}{}
+\newcommand{\@saveabstract}[1]{
+\long\gdef\@abstract{#1}
+}
 
+
+\newcommand{\makeabstractpage}{
+\clearpage 
+{\centering
+ABSTRACT\\
+}
+\@abstract
 \clearpage
 }
 
