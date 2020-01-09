@@ -45,9 +45,6 @@
 \hyphenpenalty=10000
 \hbadness=10000
 
-\let\@afterindentfalse\@afterindenttrue
-\@afterindenttrue
-
 
 \newboolean{auto} % for auto pyramid
 \setboolean{auto}{false}
@@ -89,6 +86,7 @@ this is the second line}
 }
 \DeclareRobustCommand{\invpyr}[1]{
 \vbox{
+\vspace{10pt}
 \hsize=\textwidth
     \parindent=0pt
     \emergencystretch=1in
@@ -195,46 +193,41 @@ Professor and Head\\
 \clearpage 
 \chapter*{Abstract}
 \@abstract
+\addcontentsline{toc}{chapter}{Abstract}
 \clearpage
 }
 \renewcommand\contentsname{Table of Contents}
 \renewcommand\listfigurename{List of Figures}
 \renewcommand\listtablename{List of Tables}
-\newcommand{\contentsheader}[2] { \addtocontents{#1} {
-    \centerline{\underline{#2}\protect\hfill%
-      \underline{Page}}}}
-\renewcommand\tableofcontents { \chapter*{\contentsname}
-  \addcontentsline{toc}{chapter}{Table of Contents}
-  \@starttoc{toc}}
-\renewcommand\listoffigures { \chapter*{\listfigurename}
-  \addcontentsline{toc}{chapter}{List of Figures}
-  \@starttoc{lof}}
-\renewcommand\listoftables { \chapter*{\listtablename}
-  \addcontentsline{toc}{chapter}{List of Tables}
-  \@starttoc{lot}}
+\renewcommand{\cftdotsep}{1}
+\renewcommand{\cftchapterdotsep}{\cftdotsep} 
+\renewcommand{\cftchapterfont}{\chaptitlefont\MakeUppercase}
+\renewcommand{\cftchapterpagefont}{\chaptitlefont}
+\renewcommand{\cftchapterpresnum}{hello}
+%%% no extra space before the entry, or in the LoF/LoT
+\setlength{\cftbeforechapterskip}{0pt plus 0pt}
+\renewcommand{\insertchapterspace}{}
 \newcommand{\maketoc}{
-\clearpage
-\tableofcontents
-\clearpage
+\tableofcontents*
 }
 \makechapterstyle{mineschapter}{%
-\chapterstyle{default}
 \setlength{\midchapskip}{5pt}
 \setlength{\afterchapskip}{5pt}
+\renewcommand{\chapnumfont}{\normalfont}
+\renewcommand{\chaptitlefont}{\normalfont}
 \renewcommand*{\chapterheadstart}{}
-\renewcommand*{\printchaptername}{%
-\centerline{\chapnumfont{\@chapapp\ \thechapter}}}
-\renewcommand*{\chapternamenum}{}
-\renewcommand*{\chapnumfont}{\normalfont\MakeUppercase}
-\renewcommand*{\printchapternum}{}
-\renewcommand*{\printchapternonum}{%
-\vphantom{\chapnumfont \@chapapp 1}\par
-\parbox{0.5in}{}\par}
-\renewcommand*{\chaptitlefont}{\normalfont}
-\renewcommand*{\printchaptertitle}[1]{%
-\centering \chaptitlefont\invpyr{\MakeUppercase{##1}}}
+\renewcommand{\printchapternum}{}
+\renewcommand{\printchapternonum}{}
+\renewcommand{\printchaptername}{%
+\centerline{\chapnumfont\MakeUppercase{\@chapapp\ \thechapter}}}
+\renewcommand{\printchaptertitle}[1]{%
+%%%\begin{SingleSpace}
+\centering \vbox{\chaptitlefont\invpyr{\MakeUppercase{##1}}}
+%%%\end{SingleSpace}
+}
 }
 \chapterstyle{mineschapter}
+\indentafterchapter
 \renewcommand{\section}{\@startsection {section}{1}{\z@}%
                                  {-3.5ex \@plus -1ex \@minus -.2ex}%
                                  {2.3ex \@plus.2ex}%
