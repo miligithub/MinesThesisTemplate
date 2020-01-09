@@ -193,9 +193,7 @@ Professor and Head\\
 }
 \newcommand{\makeabstractpage}{
 \clearpage 
-{\centering
-ABSTRACT\\
-}
+\chapter*{Abstract}
 \@abstract
 \clearpage
 }
