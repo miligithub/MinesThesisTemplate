@@ -200,6 +200,8 @@
 \RequirePackage{environ}
 %    \end{macrocode}
 %
+
+%
 % The |review| boolean is defined here for use with the
 % class options.
 %
@@ -486,7 +488,7 @@ this is the second line}
 	\clearpage	
 	\chapter*{Abstract}
 	\@abstract
-	\addcontentsline{toc}{chapter}{Abstract}
+	\addcontentsline{toc}{chapter}{\MakeUppercase{Abstract}}
 	\clearpage
 }
 %    \end{macrocode}
@@ -499,12 +501,18 @@ this is the second line}
 \renewcommand\listfigurename{List of Figures}
 \renewcommand\listtablename{List of Tables}
 %    \end{macrocode}
+%
 %    \begin{macrocode}
-\renewcommand{\cftdotsep}{1}
 \renewcommand{\cftchapterdotsep}{\cftdotsep}	
-\renewcommand{\cftchapterfont}{\chaptitlefont\MakeUppercase}
-\renewcommand{\cftchapterpagefont}{\chaptitlefont}
-\renewcommand{\cftchapterpresnum}{hello}
+\renewcommand{\cftchapterfont}{\normalfont\MakeUppercase}
+\renewcommand{\cftchapterpagefont}{\normalfont}
+\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
+\renewcommand{\chapternumberline}[1]{
+	\makebox[6.5em][l]{\MakeUppercase{\@chapapp~#1}}
+}
+\renewcommand{\l@chapter}{\@dottedtocline{0}{0em}{6.5em}}
+\renewcommand{\l@section}{\@dottedtocline{1}{3em}{2em}}
+\renewcommand{\@dotsep}{1}
 %%% no extra space before the entry, or in the LoF/LoT
 \setlength{\cftbeforechapterskip}{0pt plus 0pt}
 \renewcommand{\insertchapterspace}{}
@@ -538,7 +546,6 @@ this is the second line}
 	}
 }
 \chapterstyle{mineschapter}
-\indentafterchapter
 %    \end{macrocode}
 %
 % \begin{macro}{\section}

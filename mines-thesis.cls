@@ -30,6 +30,7 @@
 
 \RequirePackage{ifthen}
 \RequirePackage{environ}
+
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
@@ -193,17 +194,22 @@ Professor and Head\\
 \clearpage 
 \chapter*{Abstract}
 \@abstract
-\addcontentsline{toc}{chapter}{Abstract}
+\addcontentsline{toc}{chapter}{\MakeUppercase{Abstract}}
 \clearpage
 }
 \renewcommand\contentsname{Table of Contents}
 \renewcommand\listfigurename{List of Figures}
 \renewcommand\listtablename{List of Tables}
-\renewcommand{\cftdotsep}{1}
 \renewcommand{\cftchapterdotsep}{\cftdotsep} 
-\renewcommand{\cftchapterfont}{\chaptitlefont\MakeUppercase}
-\renewcommand{\cftchapterpagefont}{\chaptitlefont}
-\renewcommand{\cftchapterpresnum}{hello}
+\renewcommand{\cftchapterfont}{\normalfont\MakeUppercase}
+\renewcommand{\cftchapterpagefont}{\normalfont}
+\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
+\renewcommand{\chapternumberline}[1]{
+\makebox[6.5em][l]{\MakeUppercase{\@chapapp~#1}}
+}
+\renewcommand{\l@chapter}{\@dottedtocline{0}{0em}{6.5em}}
+\renewcommand{\l@section}{\@dottedtocline{1}{3em}{2em}}
+\renewcommand{\@dotsep}{1}
 %%% no extra space before the entry, or in the LoF/LoT
 \setlength{\cftbeforechapterskip}{0pt plus 0pt}
 \renewcommand{\insertchapterspace}{}
@@ -225,7 +231,6 @@ Professor and Head\\
 }
 }
 \chapterstyle{mineschapter}
-\indentafterchapter
 \renewcommand{\section}{\@startsection {section}{1}{\z@}%
                                  {-3.5ex \@plus -1ex \@minus -.2ex}%
                                  {2.3ex \@plus.2ex}%
