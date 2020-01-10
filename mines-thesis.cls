@@ -199,19 +199,53 @@ Professor and Head\\
 \renewcommand\contentsname{Table of Contents}
 \renewcommand\listfigurename{List of Figures}
 \renewcommand\listtablename{List of Tables}
-\renewcommand{\cftchapterdotsep}{\cftdotsep} 
-\renewcommand{\cftchapterfont}{\normalfont\MakeUppercase}
-\renewcommand{\cftchapterpagefont}{\normalfont}
-\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
-\renewcommand{\cftchaptername}{Chapter\space}
-\renewcommand{\cftdotsep}{1}
-\setlength{\cftbeforechapterskip}{\z@ plus \z@}
-\renewcommand{\insertchapterspace}{}
-\renewcommand{\l@chapter}[2]{%
-\begin{SingleSpace}
-\l@chapapp{#1}{#2}{\cftchaptername}
-\end{SingleSpace}}
 
+\newcommand{\@dottedtocline@sec}[5]{%
+\ifnum #1>\c@tocdepth \else
+\begin{SingleSpace}
+    \vskip \z@ \@plus.2\p@
+    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+     \parindent #2\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \@tempdima #3\relax
+ \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+ {#4}\nobreak
+     \leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfill
+     \nobreak
+     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5
+\kern-\p@\kern\p@}%
+ \par}
+\end{SingleSpace}%
+  \fi}
+\renewcommand{\l@section}{
+\@dottedtocline@sec{1}{1.5em}{2.3em}
+}
+\newcommand{\@dottedtocline@chap}[5]{%
+\ifnum #1>\c@tocdepth \else
+\begin{SingleSpace}
+    \vskip \z@ \@plus.2\p@
+    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+     \parindent #2\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \@tempdima #3\relax
+ \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+ {#4}\nobreak
+     \leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfill
+     \nobreak
+     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5
+\kern-\p@\kern\p@}%
+ \par}
+\end{SingleSpace}%
+  \fi}
+\renewcommand{\l@chapter}[2]{
+\l@chapapp{#1}{#2}{\cftchaptername}
+}
 
 \newcommand{\maketoc}{ 
 \tableofcontents*
