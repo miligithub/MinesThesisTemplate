@@ -326,6 +326,7 @@ this is the second line}
 	\pagestyle{plain}
 	\setcounter{page}{2}
 	\makesubmittalpage
+	\makeabstractpage
 	\maketoc
 	\pagenumbering{arabic}
   \setcounter{page}{1}
@@ -497,7 +498,7 @@ this is the second line}
 	\clearpage	
 	\chapter*{Abstract}
 	\@abstract
-	\addcontentsline{toc}{chapter}{\MakeUppercase{Abstract}}
+	\addcontentsline{toc}{chapter}{ABSTRACT}
 	\clearpage
 }
 %    \end{macrocode}
@@ -553,7 +554,53 @@ this is the second line}
 %
 %
 %
-
+% \begin{macro}{\l@chapapp}
+% Redefine the generic chapter/appendix ToC entry typesetting.
+%    \begin{macrocode}
+\renewcommand{\l@chapapp}[3]{%
+	\ifnum \c@tocdepth >\m@ne
+		\begin{SingleSpace}
+			\cftchapterbreak
+			\vskip \cftbeforechapterskip
+			{
+				\leftskip \cftchapterindent\relax
+				%%%     \memRTLleftskip \cftchapterindent\relax
+				\rightskip \@tocrmarg
+				%%%     \memRTLrightskip \@tocrmarg
+				\parfillskip -\rightskip
+				%%%     \parfillskip -\memRTLrightskip
+				\parindent \cftchapterindent\relax
+				\@afterindenttrue
+				\interlinepenalty\@M
+				\leavevmode
+				\let\@cftbsnum \cftchapterpresnum
+				\let\@cftasnum \cftchapteraftersnum
+				\let\@cftasnumb \cftchapteraftersnumb
+				\def\@chapapp@head{#3}%
+				\settowidth{\@tempdima}{\cftchapterfont\@chapapp@head}%
+				\addtolength{\@tempdima}{\cftchapternumwidth}%
+				\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+				%%%     \advance\memRTLleftskip \@tempdima \null\nobreak\hskip -\memRTLleftskip
+				{\cftchapterfont {#1}}\nobreak
+				\cftchapterfillnum{#2}}
+		\end{SingleSpace}	 
+	\fi}
+	
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+\renewcommand{\cftchapterdotsep}{\cftdotsep}	
+\renewcommand{\cftchapterfont}{\normalfont}
+\renewcommand{\cftchapterpagefont}{\normalfont}
+\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
+\renewcommand{\cftchaptername}{CHAPTER\space}
+\renewcommand{\cftdotsep}{1}
+% ^^A no extra space before the entry, or in the LoF/LoT
+\setlength{\cftbeforechapterskip}{\z@ plus \z@}
+\renewcommand{\insertchapterspace}{}
+%    \end{macrocode}
+%
 %
 % \begin{macro}{\maketoc}
 % TABLE OF CONTENTS (Title) is centered horizontally, 
@@ -563,6 +610,7 @@ this is the second line}
 %    \begin{macrocode}
 \newcommand{\maketoc}{	
 	\tableofcontents*
+	\clearpage
 }
 %    \end{macrocode}
 % \end{macro}

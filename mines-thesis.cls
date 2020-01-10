@@ -79,6 +79,7 @@ this is the second line}
 \pagestyle{plain}
 \setcounter{page}{2}
 \makesubmittalpage
+\makeabstractpage
 \maketoc
 \pagenumbering{arabic}
   \setcounter{page}{1}
@@ -192,7 +193,7 @@ Professor and Head\\
 \clearpage 
 \chapter*{Abstract}
 \@abstract
-\addcontentsline{toc}{chapter}{\MakeUppercase{Abstract}}
+\addcontentsline{toc}{chapter}{ABSTRACT}
 \clearpage
 }
 \renewcommand\contentsname{Table of Contents}
@@ -222,9 +223,46 @@ Professor and Head\\
 \renewcommand{\l@section}{
 \@dottedtocline@sec{1}{1.5em}{2.3em}
 }
+\renewcommand{\l@chapapp}[3]{%
+\ifnum \c@tocdepth >\m@ne
+\begin{SingleSpace}
+\cftchapterbreak
+\vskip \cftbeforechapterskip
+{
+\leftskip \cftchapterindent\relax
+%%%     \memRTLleftskip \cftchapterindent\relax
+\rightskip \@tocrmarg
+%%%     \memRTLrightskip \@tocrmarg
+\parfillskip -\rightskip
+%%%     \parfillskip -\memRTLrightskip
+\parindent \cftchapterindent\relax
+\@afterindenttrue
+\interlinepenalty\@M
+\leavevmode
+\let\@cftbsnum \cftchapterpresnum
+\let\@cftasnum \cftchapteraftersnum
+\let\@cftasnumb \cftchapteraftersnumb
+\def\@chapapp@head{#3}%
+\settowidth{\@tempdima}{\cftchapterfont\@chapapp@head}%
+\addtolength{\@tempdima}{\cftchapternumwidth}%
+\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+%%%     \advance\memRTLleftskip \@tempdima \null\nobreak\hskip -\memRTLleftskip
+{\cftchapterfont {#1}}\nobreak
+\cftchapterfillnum{#2}}
+\end{SingleSpace} 
+\fi}
 
+\renewcommand{\cftchapterdotsep}{\cftdotsep} 
+\renewcommand{\cftchapterfont}{\normalfont}
+\renewcommand{\cftchapterpagefont}{\normalfont}
+\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
+\renewcommand{\cftchaptername}{CHAPTER\space}
+\renewcommand{\cftdotsep}{1}
+\setlength{\cftbeforechapterskip}{\z@ plus \z@}
+\renewcommand{\insertchapterspace}{}
 \newcommand{\maketoc}{ 
 \tableofcontents*
+\clearpage
 }
 \makechapterstyle{mineschapter}{%
 \setlength{\midchapskip}{.2\baselineskip}
