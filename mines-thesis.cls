@@ -30,7 +30,6 @@
 
 \RequirePackage{ifthen}
 \RequirePackage{environ}
-
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
@@ -89,7 +88,7 @@ this is the second line}
 \vbox{
 \vspace{10pt}
 \hsize=\textwidth
-    \parindent=0pt
+    \parindent=\z@
     \emergencystretch=1in
     \parshape 6
     0.01\textwidth .98\textwidth
@@ -98,9 +97,9 @@ this is the second line}
     0.2\textwidth .6\textwidth
     0.25\textwidth .5\textwidth
     0.3\textwidth .4\textwidth
-    \leftskip=0pt plus 1fil
-    \rightskip=0pt plus -1fil
-    \parfillskip=0pt plus 2fil
+    \leftskip=\z@ plus 1fil
+    \rightskip=\z@ plus -1fil
+    \parfillskip=\z@ plus 2fil
     #1\par
 }
 }
@@ -206,15 +205,20 @@ Professor and Head\\
 \renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
 \renewcommand{\cftchaptername}{Chapter\space}
 \renewcommand{\cftdotsep}{1}
-%%% no extra space before the entry, or in the LoF/LoT
-\setlength{\cftbeforechapterskip}{0pt plus 0pt}
+\setlength{\cftbeforechapterskip}{\z@ plus \z@}
 \renewcommand{\insertchapterspace}{}
-\newcommand{\maketoc}{
+\renewcommand{\l@chapter}[2]{%
+\begin{SingleSpace}
+\l@chapapp{#1}{#2}{\cftchaptername}
+\end{SingleSpace}}
+
+
+\newcommand{\maketoc}{ 
 \tableofcontents*
 }
 \makechapterstyle{mineschapter}{%
-\setlength{\midchapskip}{5pt}
-\setlength{\afterchapskip}{5pt}
+\setlength{\midchapskip}{.2\baselineskip}
+\setlength{\afterchapskip}{.2\baselineskip}
 \renewcommand{\chapnumfont}{\normalfont}
 \renewcommand{\chaptitlefont}{\normalfont}
 \renewcommand*{\chapterheadstart}{}
@@ -227,18 +231,25 @@ Professor and Head\\
 }
 }
 \chapterstyle{mineschapter}
-\renewcommand{\section}{\@startsection {section}{1}{\z@}%
-                                 {-3.5ex \@plus -1ex \@minus -.2ex}%
-                                 {2.3ex \@plus.2ex}%
-                                 {\normalfont\normalsize\bfseries}}
-\renewcommand{\subsection}{\@startsection {subsection}{1}{\z@}%
-                                 {-3.5ex \@plus -1ex \@minus -.2ex}%
-                                 {2.3ex \@plus.2ex}%
-                                 {\normalfont\normalsize\bfseries}}
-\renewcommand{\subsubsection}{\@startsection {subsubsection}{1}{\z@}%
-                                 {-3.5ex \@plus -1ex \@minus -.2ex}%
-                                 {2.3ex \@plus.2ex}%
-                                 {\normalfont\normalsize\bfseries}}
+
+\renewcommand{\section}{\@startsection{section}
+{1} % level
+{\z@} % indent from left margin
+{.1ex} % skip above heading
+{.1ex} % heading between title and text
+{\normalfont\normalsize\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}
+{1} % level
+{\z@} % indent from left margin
+{.1ex} % skip above heading
+{.1ex} % heading between title and text
+{\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}
+{1} % level
+{\z@} % indent from left margin
+{.1ex} % skip above heading
+{.1ex} % heading between title and text
+{\normalfont\normalsize\bfseries}}
 
 \endinput
 %%
