@@ -199,6 +199,8 @@
 %    \begin{macrocode}
 \RequirePackage{environ}
 %    \end{macrocode}
+
+
 %
 %
 % The |review| boolean is defined here for use with the
@@ -608,6 +610,19 @@ this is the second line}
 % in ALL UPPER CASE LETTERS
 %
 %    \begin{macrocode}
+\AtBeginDocument{
+	\@ifpackageloaded{hyperref}{
+	\settocpreprocessor{chapter}{%
+		\let\tempf@rtoc\f@rtoc%
+		\def\f@rtoc{%When hyperref is used,
+			\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+	}}{}
+	\usepackage[hang,flushmargin]{footmisc}
+	\setlength{\footparindent}{-1em}
+	\renewcommand{\footnoterule}{% 
+		\kern .5\baselineskip%
+		\hrule width \columnwidth \kern .5\baselineskip}
+}
 \newcommand{\maketoc}{	
 	\tableofcontents*
 	\clearpage
@@ -631,6 +646,17 @@ this is the second line}
 	}
 }
 \chapterstyle{mineschapter}
+\newcommand{\reproduceinfo}[1]{
+	\begin{center}
+		#1\\
+	\end{center}
+	
+}
+\newcommand{\symbolfootnote}[2]{
+	\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+	\footnote[#1]{#2}
+	\renewcommand{\thefootnote}{\arabic{footnote}}
+}
 %    \end{macrocode}
 %
 % \begin{macro}{\section}

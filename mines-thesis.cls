@@ -30,6 +30,7 @@
 
 \RequirePackage{ifthen}
 \RequirePackage{environ}
+
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
@@ -260,6 +261,19 @@ Professor and Head\\
 \renewcommand{\cftdotsep}{1}
 \setlength{\cftbeforechapterskip}{\z@ plus \z@}
 \renewcommand{\insertchapterspace}{}
+\AtBeginDocument{
+\@ifpackageloaded{hyperref}{
+\settocpreprocessor{chapter}{%
+\let\tempf@rtoc\f@rtoc%
+\def\f@rtoc{%When hyperref is used,
+\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+}}{}
+\usepackage[hang,flushmargin]{footmisc}
+\setlength{\footparindent}{-1em}
+\renewcommand{\footnoterule}{%
+\kern .5\baselineskip%
+\hrule width \columnwidth \kern .5\baselineskip}
+}
 \newcommand{\maketoc}{ 
 \tableofcontents*
 \clearpage
@@ -279,6 +293,17 @@ Professor and Head\\
 }
 }
 \chapterstyle{mineschapter}
+\newcommand{\reproduceinfo}[1]{
+\begin{center}
+#1\\
+\end{center}
+
+}
+\newcommand{\symbolfootnote}[2]{
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\footnote[#1]{#2}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+}
 \renewcommand{\section}{\@startsection{section}
 {1} % level
 {\z@} % indent from left margin
