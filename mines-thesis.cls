@@ -196,7 +196,7 @@ Professor and Head\\
 \clearpage 
 \chapter*{Abstract}
 \@abstract
-\addcontentsline{toc}{chapter}{ABSTRACT}
+\addcontentsline{toc}{chapter}{\abstractname}
 \clearpage
 }
 \newenvironment{acknowledgment}{\Collect@Body\@saveacknowledgments}{}
@@ -223,9 +223,12 @@ Professor and Head\\
 \clearpage
   }
 }
-\renewcommand\contentsname{Table of Contents}
-\renewcommand\listfigurename{List of Figures}
-\renewcommand\listtablename{List of Tables}
+\renewcommand{\abstractname}{ABSTRACT}
+\renewcommand{\chaptername}{CHAPTER}
+\renewcommand{\appendixname}{APPENDIX}
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\listtablename}{List of Tables}
 
 \newcommand{\@dottedtocline@sec}[5]{%
 \ifnum #1>\c@tocdepth \else
@@ -283,8 +286,8 @@ Professor and Head\\
 \renewcommand{\cftchapterfont}{\normalfont\MakeUppercase}
 \renewcommand{\cftchapterpagefont}{\normalfont}
 \renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
-\renewcommand{\cftchaptername}{CHAPTER\space}
-\renewcommand{\cftappendixname}{APPENDIX\space}
+\renewcommand{\cftchaptername}{\chaptername\space}
+\renewcommand{\cftappendixname}{\appendixname\space}
 \renewcommand{\cftdotsep}{1}
 \setlength{\cftbeforechapterskip}{\z@ plus \z@}
 \renewcommand{\insertchapterspace}{}

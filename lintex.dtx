@@ -502,7 +502,7 @@ this is the second line}
 	\clearpage	
 	\chapter*{Abstract}
 	\@abstract
-	\addcontentsline{toc}{chapter}{ABSTRACT}
+	\addcontentsline{toc}{chapter}{\abstractname}
 	\clearpage
 }
 %    \end{macrocode}
@@ -593,9 +593,12 @@ this is the second line}
 % We rename the headings for the toc, lof, and the references.
 %
 %    \begin{macrocode}
-\renewcommand\contentsname{Table of Contents}
-\renewcommand\listfigurename{List of Figures}
-\renewcommand\listtablename{List of Tables}
+\renewcommand{\abstractname}{ABSTRACT}
+\renewcommand{\chaptername}{CHAPTER}
+\renewcommand{\appendixname}{APPENDIX}
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\listfigurename}{List of Figures}
+\renewcommand{\listtablename}{List of Tables}
 %    \end{macrocode}
 %
 
@@ -680,8 +683,8 @@ this is the second line}
 \renewcommand{\cftchapterfont}{\normalfont\MakeUppercase}
 \renewcommand{\cftchapterpagefont}{\normalfont}
 \renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
-\renewcommand{\cftchaptername}{CHAPTER\space}
-\renewcommand{\cftappendixname}{APPENDIX\space}
+\renewcommand{\cftchaptername}{\chaptername\space}
+\renewcommand{\cftappendixname}{\appendixname\space}
 \renewcommand{\cftdotsep}{1}
 % ^^A no extra space before the entry, or in the LoF/LoT
 \setlength{\cftbeforechapterskip}{\z@ plus \z@}
