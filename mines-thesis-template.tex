@@ -12,7 +12,7 @@
 %                           Packages                             
 %========================================
 \usepackage{lipsum} % dummy text
-%\usepackage{hyperref}
+\usepackage{hyperref} % hyperref is a package that frequently requires compiling twice 
 
 \begin{document}
 	%========================================
@@ -55,7 +55,19 @@
 		%
 		The abstract submitted online at the time of thesis submission should be the same as the abstract inside the thesis. ProQuest continues to publish print indexes that have maximum abstract lengths of 150 words for Masters and 350 words for PhDs. Abstracts exceeding these limits will be truncated in the print indexes so it may be wise to work within those word limits in most cases.
 	\end{abstract}
-	
+
+	%%==================Acknowledgements===============
+	\begin{acknowledgment}
+		This optional page includes a paragraph or two acknowledging and thanking your
+		advisor(s), committee members, funding sponsors, family members etc.
+		
+		Typically, if you acknowledge everyone here, you won’t have a dedication page.
+	\end{acknowledgment}
+
+	%%==================Dedication===============
+	\begin{dedication}
+		Dedication Page: A dedication page is optional and not frequently included in a thesis. However, occasionally the thesis writer wants to dedicate the document to a professional colleague, friend, or relative. A dedication typically expresses gratitude for someone's support. If a dedication page is included, it is placed at the end of the front matter section, following the acknowledgments. Typically, a dedication page has no title, it simply states, e.g., "For my father." Roman numeral page numbering continues on the dedication page.
+	\end{dedication}	
 
 	\makefrontmatter
 %	\pagenumbering{roman}
@@ -67,6 +79,8 @@
 %	\makesubmittalpage
 %	\makeabstractpage
 %	\maketoc
+%	\makeacknowledgepage
+%	\makededicationpage
 %	\pagenumbering{arabic}
 %	\setcounter{page}{1}
 
@@ -78,6 +92,7 @@
 
 \chapter{Introduction} \lipsum[1]
 \section{First section} \lipsum[2-3]
+\subsection{First SubSection} \lipsum[2-3]
 
 
 

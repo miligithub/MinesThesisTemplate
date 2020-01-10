@@ -181,7 +181,9 @@
 % \cs{DoubleSpacing}
 % \cs{DoubleSpacing*}
 % Text will be double spaced or 1.5 spaced. 
-% Sometimes it is also required to make page notes and floats (including captions) in ‘double’ spacing. The starred version of the two macros above takes care of this. 
+% Sometimes it is also required to make page notes and 
+% floats (including captions) in ‘double’ spacing. 
+% The starred version of the two macros above takes care of this. 
 
 %
 % \newpage
@@ -330,6 +332,8 @@ this is the second line}
 	\makesubmittalpage
 	\makeabstractpage
 	\maketoc
+	\makeacknowledgepage
+	\makededicationpage
 	\pagenumbering{arabic}
   \setcounter{page}{1}
 }
@@ -470,14 +474,13 @@ this is the second line}
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{abstract}
-%  We redifine the |abstract| enviroment.
+% \begin{environment}{abstract}
+%  We redifine the |abstract| environment.
 %  First, we need to save the text
 %    \begin{macrocode}
 \renewenvironment{abstract}{\Collect@Body\@saveabstract}{}
 %    \end{macrocode}
-%
-% \end{macro}
+% \end{environment}
 %
 % \begin{macro}{\@saveabstract}
 %   And saving the abstract
@@ -486,7 +489,6 @@ this is the second line}
 	\long\gdef\@abstract{#1}
 }
 %    \end{macrocode}
-%
 % \end{macro}
 %
 % \begin{macro}{\makeabstractpage}
@@ -505,6 +507,88 @@ this is the second line}
 }
 %    \end{macrocode}
 % \end{macro}
+%
+% \begin{environment}{acknowledgment}
+%  We difine the |acknowledgment| environment.
+%  First, we need to save the text
+%    \begin{macrocode}
+\newenvironment{acknowledgment}{\Collect@Body\@saveacknowledgments}{}
+%    \end{macrocode}
+% \end{environment}
+%
+% \begin{macro}{\@saveacknowledgments}
+%   And saving the acknowledgments
+%    \begin{macrocode}
+\newcommand{\@saveacknowledgments}[1]{
+	\long\gdef\@acknowledgments{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\makeacknowledgepage}
+% ACKNOWLEDGMENTS (Title) is centered horizontally, 
+% 1 keyboard return below 1 inch top margin and in 
+% ALL UPPER CASE LETTERS
+%
+%    \begin{macrocode}
+\newcommand{\makeacknowledgepage}{
+	\@ifundefined{@acknowledgments}{}{
+	\clearpage	
+	\chapter*{Acknowledgments}
+	\@acknowledgments
+  \addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
+	\clearpage
+	}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%
+% \begin{environment}{dedication}
+%  We difine the |dedication| environment.
+%  First, we need to save the text
+%    \begin{macrocode}
+\newenvironment{dedication}{\Collect@Body\@savededication}{}
+%    \end{macrocode}
+% \end{environment}
+%
+% \begin{macro}{\@savededication}
+%   And saving the dedication
+%    \begin{macrocode}
+\newcommand{\@savededication}[1]{
+	\long\gdef\@dedication{#1}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\makededicationpage}
+% ACKNOWLEDGMENTS (Title) is centered horizontally, 
+% 1 keyboard return below 1 inch top margin and in 
+% ALL UPPER CASE LETTERS.
+% Dedication Page: A dedication page is optional and 
+% not frequently included in a thesis. However, occasionally
+% the thesis writer wants to dedicate the document 
+% to a professional colleague, friend, or relative. 
+% A dedication typically expresses gratitude for 
+% someone's support. If a dedication page is included, 
+% it is placed at the end of the front matter section, 
+% following the acknowledgments. Typically, a dedication page 
+% has no title, it simply states, e.g., "For my father." 
+% Roman numeral page numbering continues on the dedication page.
+%
+%    \begin{macrocode}
+\newcommand{\makededicationpage}{
+	\@ifundefined{@dedication}{}{
+	\clearpage	
+	\@dedication
+	\clearpage
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
 %
 % We rename the headings for the toc, lof, and the references.
 %
@@ -612,6 +696,7 @@ this is the second line}
 %    \begin{macrocode}
 \AtBeginDocument{
 	\@ifpackageloaded{hyperref}{
+		\usepackage{bookmark} % to avoid compiling twice
 	\settocpreprocessor{chapter}{%
 		\let\tempf@rtoc\f@rtoc%
 		\def\f@rtoc{%When hyperref is used,

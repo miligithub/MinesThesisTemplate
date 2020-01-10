@@ -82,6 +82,8 @@ this is the second line}
 \makesubmittalpage
 \makeabstractpage
 \maketoc
+\makeacknowledgepage
+\makededicationpage
 \pagenumbering{arabic}
   \setcounter{page}{1}
 }
@@ -197,6 +199,30 @@ Professor and Head\\
 \addcontentsline{toc}{chapter}{ABSTRACT}
 \clearpage
 }
+\newenvironment{acknowledgment}{\Collect@Body\@saveacknowledgments}{}
+\newcommand{\@saveacknowledgments}[1]{
+\long\gdef\@acknowledgments{#1}
+}
+\newcommand{\makeacknowledgepage}{
+\@ifundefined{@acknowledgments}{}{
+\clearpage 
+\chapter*{Acknowledgments}
+\@acknowledgments
+  \addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
+\clearpage
+}
+}
+\newenvironment{dedication}{\Collect@Body\@savededication}{}
+\newcommand{\@savededication}[1]{
+\long\gdef\@dedication{#1}
+}
+\newcommand{\makededicationpage}{
+\@ifundefined{@dedication}{}{
+\clearpage 
+\@dedication
+\clearpage
+  }
+}
 \renewcommand\contentsname{Table of Contents}
 \renewcommand\listfigurename{List of Figures}
 \renewcommand\listtablename{List of Tables}
@@ -263,6 +289,7 @@ Professor and Head\\
 \renewcommand{\insertchapterspace}{}
 \AtBeginDocument{
 \@ifpackageloaded{hyperref}{
+\usepackage{bookmark} % to avoid compiling twice
 \settocpreprocessor{chapter}{%
 \let\tempf@rtoc\f@rtoc%
 \def\f@rtoc{%When hyperref is used,
