@@ -72,14 +72,13 @@ this is the second line}
 \checkandfixthelayout
 
 \newcommand{\makefrontmatter}{
-  \pagenumbering{roman}
+\pagenumbering{roman}
 \pagestyle{empty}
 \maketitlepage
 \makecopyrightpage
 \pagestyle{plain}
-\setcounter {page} {2}
+\setcounter{page}{2}
 \makesubmittalpage
-\makeabstractpage
 \maketoc
 \pagenumbering{arabic}
   \setcounter{page}{1}
@@ -215,36 +214,13 @@ Professor and Head\\
         \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
         mu$}\hfill
      \nobreak
-     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5
-\kern-\p@\kern\p@}%
+     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
  \par}
 \end{SingleSpace}%
   \fi}
+\renewcommand{\@dotsep}{1}
 \renewcommand{\l@section}{
 \@dottedtocline@sec{1}{1.5em}{2.3em}
-}
-\newcommand{\@dottedtocline@chap}[5]{%
-\ifnum #1>\c@tocdepth \else
-\begin{SingleSpace}
-    \vskip \z@ \@plus.2\p@
-    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
-     \parindent #2\relax\@afterindenttrue
-     \interlinepenalty\@M
-     \leavevmode
-     \@tempdima #3\relax
- \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
- {#4}\nobreak
-     \leaders\hbox{$\m@th
-        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
-        mu$}\hfill
-     \nobreak
-     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5
-\kern-\p@\kern\p@}%
- \par}
-\end{SingleSpace}%
-  \fi}
-\renewcommand{\l@chapter}[2]{
-\l@chapapp{#1}{#2}{\cftchaptername}
 }
 
 \newcommand{\maketoc}{ 
@@ -255,7 +231,7 @@ Professor and Head\\
 \setlength{\afterchapskip}{.2\baselineskip}
 \renewcommand{\chapnumfont}{\normalfont}
 \renewcommand{\chaptitlefont}{\normalfont}
-\renewcommand*{\chapterheadstart}{}
+\renewcommand{\chapterheadstart}{}
 \renewcommand{\printchapternum}{}
 \renewcommand{\printchapternonum}{}
 \renewcommand{\printchaptername}{%
@@ -265,7 +241,6 @@ Professor and Head\\
 }
 }
 \chapterstyle{mineschapter}
-
 \renewcommand{\section}{\@startsection{section}
 {1} % level
 {\z@} % indent from left margin
