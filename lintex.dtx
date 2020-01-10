@@ -681,6 +681,7 @@ this is the second line}
 \renewcommand{\cftchapterpagefont}{\normalfont}
 \renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
 \renewcommand{\cftchaptername}{CHAPTER\space}
+\renewcommand{\cftappendixname}{APPENDIX\space}
 \renewcommand{\cftdotsep}{1}
 % ^^A no extra space before the entry, or in the LoF/LoT
 \setlength{\cftbeforechapterskip}{\z@ plus \z@}
@@ -696,7 +697,6 @@ this is the second line}
 %    \begin{macrocode}
 \AtBeginDocument{
 	\@ifpackageloaded{hyperref}{
-		\usepackage{bookmark} % to avoid compiling twice
 	\settocpreprocessor{chapter}{%
 		\let\tempf@rtoc\f@rtoc%
 		\def\f@rtoc{%When hyperref is used,
@@ -735,14 +735,11 @@ this is the second line}
 \chapterstyle{mineschapter}
 \newcommand{\reproduceinfo}[1]{
 	\begin{center}
-		#1\\
+		#1\par
 	\end{center}
 }
-\newcommand{\reproduceabstract}[1]{
-	\noindent Abstract
-	
-	#1
-	
+\newcommand{\reproduceabstract}{
+	{\noindent Abstract\par}
 }
 \newcommand{\symbolfootnote}[2]{
 	\renewcommand{\thefootnote}{\fnsymbol{footnote}}
