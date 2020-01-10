@@ -280,7 +280,7 @@ Professor and Head\\
 \fi}
 
 \renewcommand{\cftchapterdotsep}{\cftdotsep} 
-\renewcommand{\cftchapterfont}{\normalfont}
+\renewcommand{\cftchapterfont}{\normalfont\MakeUppercase}
 \renewcommand{\cftchapterpagefont}{\normalfont}
 \renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
 \renewcommand{\cftchaptername}{CHAPTER\space}
@@ -295,6 +295,7 @@ Professor and Head\\
 \def\f@rtoc{%When hyperref is used,
 \texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
 }
+\renewcommand{\cftchapterfont}{\normalfont}
 }{}
 \setlength{\footmarkwidth}{\z@}
 \setlength{\footmarksep}{-\footmarkwidth}
