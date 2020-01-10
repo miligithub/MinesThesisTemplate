@@ -1,5 +1,5 @@
-\documentclass{mines-thesis}
-% Font Size: 10-12 point type
+\documentclass[12pt]{mines-thesis}
+% Font Size: 10-12 point type, change the value above
 
 %========================================
 %                              Set-up                              
@@ -22,7 +22,7 @@
 	\title{Thesis title centered on the page vertically and horizontally, in all upper case letters
 		and in an inverted pyramid shape. Math mode: $\frac{2^{15}}{\pi}$
 	}
-	% If you want to break the title by yourself, you must use \protect \\  or add an empty line.
+	% If you want to break the title by yourself, you must use ``\protect \\ '' or use extra empty line.
 	% For example,
 	%\title{
 	%	Thesis title centered on the page vertically and horizontally, \protect\\
@@ -36,7 +36,7 @@
 	\year{2020}     % this is the year of defence
 	\degree{Doctor of Philosophy}{Computer Science} %
 	\advisor{Dr. Thesis Advisor}
-	%\coadvisor{Dr. Co-Advisor} 
+	%\coadvisor{Dr. Co-Advisor}  % uncomment if you have a co-advisor
 	\department{Department of XXX}
 	\departmenthead{Dr. Department Head}
 	
@@ -46,8 +46,7 @@
 	% 2. Consist of one to two paragraphs of information,
 	% 3. Does not usually contain citations, 
 	% 4. Do not repeat the thesis title, and
-	% 5. Each paragraph should be indented.
-	
+	% 5. Each paragraph should be indented.	
 	\begin{abstract}
 		The abstract is a concise, one to three sentence statement of the thesis problem, a brief description consisting of no more than a few sentences describing the research method or design, and a report of the major findings and conclusions.
 		%
@@ -57,6 +56,7 @@
 	\end{abstract}
 
 	%%==================Acknowledgements===============
+	% Comment the section out if you don't need it 
 	\begin{acknowledgment}
 		This optional page includes a paragraph or two acknowledging and thanking your
 		advisor(s), committee members, funding sponsors, family members etc.
@@ -65,87 +65,30 @@
 	\end{acknowledgment}
 
 	%%==================Dedication===============
+	% Comment the section out if you don't need it 
 	\begin{dedication}
 		Dedication Page: A dedication page is optional and not frequently included in a thesis. However, occasionally the thesis writer wants to dedicate the document to a professional colleague, friend, or relative. A dedication typically expresses gratitude for someone's support. If a dedication page is included, it is placed at the end of the front matter section, following the acknowledgments. Typically, a dedication page has no title, it simply states, e.g., "For my father." Roman numeral page numbering continues on the dedication page.
 	\end{dedication}	
 
+
 	\makefrontmatter
-%	\pagenumbering{roman}
-%	\pagestyle{empty}
-%	\maketitlepage 
-%	\makecopyrightpage
-%	\pagestyle{plain}
-%	\setcounter{page}{2}
-%	\makesubmittalpage
-%	\makeabstractpage
-%	\maketoc
-%	\makeacknowledgepage
-%	\makededicationpage
-%	\pagenumbering{arabic}
-%	\setcounter{page}{1}
+	
+	
+	%========================================
+	%                              Main Body                              
+	%========================================
+	%TODO Main Body
+	
+	\include{chapter1}
+	\include{chapter2}
+	\include{chapter3}
+	\include{chapter4}
+	\include{chapter5}
+	\include{chapter6}
+	
 
-
-%========================================
-%                              Main Body                              
-%========================================
-%
-
-\chapter{Introduction} \lipsum[1]
-\section{First section} \lipsum[2-3]
-\subsection{First SubSection} \lipsum[2-3]
-
-
-
-\chapter{Reproduced Chapter}
-\reproduceinfo{
-	Reproduced with permission from The Journal of Geology\\
-	2012 Elsevier Ltd. 
-	Katherine Smith\symbolfootnote{1}{Primary author and editor.}\footnote[1]{Department of  Civil and Environmental Engineering, Colorado School of Mines, 1500 Illinois Street, Golden, Colorado 80401, USA.}, 
-	Eric Wright\symbolfootnote{2}{Corresponding author. Direct correspondence to \texttt{example@mines.edu}.}\footnote[2]{Southern Nevada, 550 City Parkway, Suite 810, Las Vegas, NV, 89106, USA.}
-}
-\reproduceabstract{
-	\lipsum[1]
-}
-\section{First section} \lipsum[2-3]
-\subsection{SubSection}\lipsum[1]
-\subsubsection{SubSubSection}\lipsum[1]
-\section{Second section} \lipsum[4-5]
-\section{Last section} \lipsum[6-7]
-
-\chapter{This is a really really long title that someone else wrote for all the penguins in the world}
-\lipsum[1-2]
-\section{First section} \lipsum[2-3]
-\section{Second section} \lipsum[4-5]
-\section{This is a really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really long title having more than three lines of text to appear on the toc.}
-\lipsum[1-2]
-
-\lipsum[1-2]
-
-\chapter{Example of Long  Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long Long chapter}
-\lipsum[1-10]
-
-\section{First section} \lipsum[2-3]
-\section{Second section} \lipsum[4-5]
-\section{Last section} \lipsum[6-7]
-\subsection{Subsection}
-\lipsum[4-5]
-\subsection{this is a really really really really really really really really really really really really really really really really really really really really really really really really really really really really really really long title having more than three lines of text to appear on the toc.}
-\subsubsection{SubSubsection}
-\lipsum[1]
-\chapter{Last chapter} \lipsum[1]
-\section{First section} \lipsum[2-3]
-\section{Second section} \lipsum[4-5]
-\section{Last section} \lipsum[6-7]
-\chapter{Last chapter} \lipsum[1]
-\section{First section} \lipsum[2-3]
-\section{Second section} \lipsum[4-5]
-\section{Last section} \lipsum[6-7]
-\chapter{Last chapter} \lipsum[1]
-\section{First section} \lipsum[2-3]
-\section{Second section} \lipsum[4-5]
-\section{Last section} \lipsum[6-7]
-%========================================
-%                             Back Matter                               
-%========================================
-
+	%========================================
+	%                             Back Matter                               
+	%========================================
+	
 \end{document}
