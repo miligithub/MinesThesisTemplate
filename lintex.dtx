@@ -201,9 +201,8 @@
 %    \begin{macrocode}
 \RequirePackage{environ}
 %    \end{macrocode}
-
-
 %
+
 %
 % The |review| boolean is defined here for use with the
 % class options.
@@ -313,6 +312,7 @@ this is the second line}
 \setheadfoot{\onelineskip}{2\onelineskip}
 \setheaderspaces{*}{2\onelineskip}{*}
 \DoubleSpacing
+\setlength{\parindent}{2em}
 \checkandfixthelayout
 
 %    \end{macrocode}
@@ -599,6 +599,8 @@ this is the second line}
 \renewcommand{\contentsname}{Table of Contents}
 \renewcommand{\listfigurename}{List of Figures}
 \renewcommand{\listtablename}{List of Tables}
+%% for REFERENCE section
+\renewcommand{\bibname}{REFERENCES}
 %    \end{macrocode}
 %
 
@@ -721,6 +723,11 @@ this is the second line}
 %    \end{macrocode}
 % \end{macro}
 %
+%
+% \subsubsection{Main Body}
+% \label{sec:imp_code_main}
+%
+% \begin{macro}{\chapter}
 %    \begin{macrocode}
 \makechapterstyle{mineschapter}{%
 	\setlength{\midchapskip}{.2\baselineskip}
@@ -751,6 +758,7 @@ this is the second line}
 	\renewcommand{\thefootnote}{\arabic{footnote}}
 }
 %    \end{macrocode}
+% \end{macro}
 %
 % \begin{macro}{\section}
 %
@@ -778,10 +786,25 @@ this is the second line}
 %    \end{macrocode}
 % \end{macro}
 %
+% \subsubsection{Back Matter}
+% \label{sec:imp_code_back}
 %
+%
+% \subsubsection{Others}
+% \label{sec:imp_code_others}
 %
 %
 
+%    \begin{macrocode}
+\AtBeginDocument{
+	\setlength{\bibhang}{\parindent}
+	\renewcommand{\bibpreamble}{\vspace{\baselineskip}}
+}
+
+%    \end{macrocode}
+
+%
+%
 % \Finale
 % ^^A
 \endinput

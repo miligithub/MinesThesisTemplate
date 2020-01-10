@@ -70,6 +70,7 @@ this is the second line}
 \setheadfoot{\onelineskip}{2\onelineskip}
 \setheaderspaces{*}{2\onelineskip}{*}
 \DoubleSpacing
+\setlength{\parindent}{2em}
 \checkandfixthelayout
 
 \newcommand{\makefrontmatter}{
@@ -229,6 +230,8 @@ Professor and Head\\
 \renewcommand{\contentsname}{Table of Contents}
 \renewcommand{\listfigurename}{List of Figures}
 \renewcommand{\listtablename}{List of Tables}
+%% for REFERENCE section
+\renewcommand{\bibname}{REFERENCES}
 
 \newcommand{\@dottedtocline@sec}[5]{%
 \ifnum #1>\c@tocdepth \else
@@ -357,6 +360,12 @@ Professor and Head\\
 {.1ex} % skip above heading
 {.1ex} % heading between title and text
 {\normalfont\normalsize\bfseries}}
+
+\AtBeginDocument{
+\setlength{\bibhang}{\parindent}
+\renewcommand{\bibpreamble}{\vspace{\baselineskip}}
+}
+
 
 \endinput
 %%

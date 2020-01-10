@@ -7,96 +7,137 @@
 % Text will be double spaced or 1.5 spaced. 
 %\OnehalfSpacing 
 \DoubleSpacing
+% Set the indentation of each paragraph.
+\setlength{\parindent}{3em}
+
 
 %========================================
 %                           Packages                             
 %========================================
 \usepackage{lipsum} % dummy text
-%\usepackage{hyperref} % hyperref is a package that frequently 
-%                                     % requires compiling twice 
+\usepackage{graphicx} 
+\usepackage{natbib} % for Chicago style References
+% hyperref is a package that frequently requires compiling twice 
+\usepackage{hyperref} % for \url and links 
+
+
+% Place all chapter tex files in ``Chapters'' folder
+% Place all references bib files in ``References'' folder
+
+% Place all figures in ``Figures'' folder
+\graphicspath{{Figures}} 
+% Or
+% Define several directories to be searched for figures.
+% \graphicspath{{Figures/}{../figures/}{C:/Users/me/Documents/project/figures/}}
 
 \begin{document}
-	%========================================
-	%                            Front Matter                              
-	%========================================
-	\autotitle %automatically change the title into upper cases and reshape it to an inverted pyramid
-	\title{Thesis title centered on the page vertically and horizontally, in all upper case letters
-		and in an inverted pyramid shape. Math mode: $\frac{2^{15}}{\pi}$
-	}
-	% If you want to break the title by yourself, you must use ``\protect \\ '' or use extra empty line.
-	% For example,
-	%\title{
-	%	Thesis title centered on the page vertically and horizontally, \protect\\
-	%	%	
-	%	in all upper case letters and in an inverted 
-	%	
-	%	pyramid shape. Math mode: $\frac{2^{15}}{\pi}$
-	%}
+%========================================
+%                            Front Matter                              
+%========================================
+\autotitle %automatically change the title into upper cases and reshape it to an inverted pyramid
+\title{Thesis title centered on the page vertically and horizontally, in all upper case letters and in an inverted pyramid shape. Math mode: $\frac{2^{15}}{\pi}$
+}
+% If you want to break the title by yourself, you must use ``\protect \\ '' or use extra empty line.
+% For example,
+%\title{
+%	Thesis title centered on the page vertically and horizontally, \protect\\
+%	%	
+%	in all upper case letters and in an inverted 
+%	
+%	pyramid shape. Math mode: $\frac{2^{15}}{\pi}$
+%}
 	
-	\author{Student Name}  % this is your name exactly as you want it
-	\year{2020}     % this is the year of defence
-	\degree{Doctor of Philosophy}{Computer Science} %
-	\advisor{Dr. Thesis Advisor}
-	\coadvisor{Dr. Co-Advisor}  % comment out this line  if no co-advisor
-	\department{Department of XXX}
-	\departmenthead{Dr. Department Head}
+\author{Student Name}  % this is your name exactly as you want it
+\year{2020}     % this is the year of defence
+\degree{Doctor of Philosophy}{Computer Science} %
+\advisor{Dr. Thesis Advisor}
+\coadvisor{Dr. Co-Advisor}  % comment out this line  if no co-advisor
+\department{Department of XXX}
+\departmenthead{Dr. Department Head}
 	
 	
-	%==================Abstracts===============
-	% 1. Are generally 200-300 words in length, 
-	% 2. Consist of one to two paragraphs of information,
-	% 3. Does not usually contain citations, 
-	% 4. Do not repeat the thesis title, and
-	% 5. Each paragraph should be indented.	
-	\begin{abstract}
-		The abstract is a concise, one to three sentence statement of the thesis problem, a brief description consisting of no more than a few sentences describing the research method or design, and a report of the major findings and conclusions.
-		%
-		
-		%
-		The abstract submitted online at the time of thesis submission should be the same as the abstract inside the thesis. ProQuest continues to publish print indexes that have maximum abstract lengths of 150 words for Masters and 350 words for PhDs. Abstracts exceeding these limits will be truncated in the print indexes so it may be wise to work within those word limits in most cases.
-	\end{abstract}
+%==================Abstracts===============
+% 1. Are generally 200-300 words in length, 
+% 2. Consist of one to two paragraphs of information,
+% 3. Does not usually contain citations, 
+% 4. Do not repeat the thesis title, and
+% 5. Each paragraph should be indented.	
+\begin{abstract}
+	The abstract is a concise, one to three sentence statement of the thesis problem, a brief description consisting of no more than a few sentences describing the research method or design, and a report of the major findings and conclusions.
+	%
+			
+	%
+	The abstract submitted online at the time of thesis submission should be the same as the abstract inside the thesis. ProQuest continues to publish print indexes that have maximum abstract lengths of 150 words for Masters and 350 words for PhDs. Abstracts exceeding these limits will be truncated in the print indexes so it may be wise to work within those word limits in most cases.
+\end{abstract}
 
-	%%==================Acknowledgements===============
-	% Comment the section out if you don't need it 
-	\begin{acknowledgment}
-		This optional page includes a paragraph or two acknowledging and thanking your
-		advisor(s), committee members, funding sponsors, family members etc.
-		
-		Typically, if you acknowledge everyone here, you won’t have a dedication page.
-	\end{acknowledgment}
+%%============Acknowledgements==============
+% Comment the section out if you don't need it 
+\begin{acknowledgment}
+	This optional page includes a paragraph or two acknowledging and thanking your
+	advisor(s), committee members, funding sponsors, family members etc.
+			
+	Typically, if you acknowledge everyone here, you won’t have a dedication page.
+\end{acknowledgment}
 
-	%%==================Dedication===============
-	% Comment the section out if you don't need it 
-	\begin{dedication}
-		Dedication Page: A dedication page is optional and not frequently included in a thesis. However, occasionally the thesis writer wants to dedicate the document to a professional colleague, friend, or relative. A dedication typically expresses gratitude for someone's support. If a dedication page is included, it is placed at the end of the front matter section, following the acknowledgments. Typically, a dedication page has no title, it simply states, e.g., "For my father." Roman numeral page numbering continues on the dedication page.
-	\end{dedication}	
+%%==================Dedication===============
+% Comment the section out if you don't need it 
+\begin{dedication}
+	Dedication Page: A dedication page is optional and not frequently included in a thesis. However, occasionally the thesis writer wants to dedicate the document to a professional colleague, friend, or relative. A dedication typically expresses gratitude for someone's support. If a dedication page is included, it is placed at the end of the front matter section, following the acknowledgments. Typically, a dedication page has no title, it simply states, e.g., "For my father." Roman numeral page numbering continues on the dedication page.
+\end{dedication}	
 
 
-	\makefrontmatter
+\makefrontmatter
 	
 	
-	%========================================
-	%                              Main Body                              
-	%========================================
-	%TODO Main Body
+%========================================
+%                              Main Body                              
+%========================================
+%TODO Main Body
 	
-	\include{chapter1}
-	\include{chapter2}
-	\include{chapter3}
-	\include{chapter4}
-	\include{chapter5}
-	\include{chapter6}
-	
-	% The \appendix declaration changes the numbering of chapters 
-	% to an alphabetic form and also changes the names of chapters 
-	% from \chaptername (default  CHAPTER) to the value 
-	% of \appendixname (default APPENDIX). 
-	\appendix 
-	\include{appendixA}
-	\include{appendixB}
+% You can separate the chapters
 
-	%========================================
-	%                             Back Matter                               
-	%========================================
+\include{Chapters/chapter1}
+\include{Chapters/chapter2}
+\include{Chapters/chapter3}
+\include{Chapters/chapter4}
+\include{Chapters/chapter5}
+\include{Chapters/chapter6}
+
+% Or add chapters here
+\chapter{Last Last chapter}
+\lipsum[3]
+\section{Section}
+\lipsum[4]
+\subsection{SubSection} 
+\lipsum[4]
+\subsubsection{SubSubSection}
+\lipsum[4-5]
 	
+%========================================
+%                             Back Matter                               
+%========================================
+%%================Reference===============
+% You may:
+% 1. Add one reference section at the end of the thesis/dissertation, 
+% or 
+% 2. Add a reference section at the end of each chapter
+% Set the NAME of your bibliography file
+\begin{SingleSpace}
+	\bibliography{References/referenceAll.bib} 
+\end{SingleSpace}
+% Set the STYLE of your reference, you need to compile TWICE
+% entries are sorted alphabetically and labelled with numbers.
+%\bibliographystyle{plain}
+% Chicago style is an "author-date" style, so the citation in the text consists of the author(s) name and year of publication given wholly or partly in round brackets.
+\bibliographystyle{chicago}	
+
+%%=================Appendix===============
+% The \appendix declaration changes the numbering of chapters 
+% to an alphabetic form and also changes the names of chapters 
+% from \chaptername (default  CHAPTER) to the value 
+% of \appendixname (default APPENDIX). 
+\appendix 
+\include{Chapters/appendixA}
+\include{Chapters/appendixB}
+
 \end{document}
