@@ -267,9 +267,13 @@ Professor and Head\\
 \let\tempf@rtoc\f@rtoc%
 \def\f@rtoc{%When hyperref is used,
 \texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
-}}{}
+}
+}{
 \usepackage[hang,flushmargin]{footmisc}
-\setlength{\footparindent}{-1em}
+}
+\setlength{\footmarkwidth}{\z@}
+\setlength{\footmarksep}{-\footmarkwidth}
+\setlength{\footparindent}{\footmarkwidth}
 \renewcommand{\footnoterule}{%
 \kern .5\baselineskip%
 \hrule width \columnwidth \kern .5\baselineskip}
