@@ -45,8 +45,8 @@
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
-
-
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
 \newboolean{auto} % for auto pyramid
 \setboolean{auto}{false}
 \def\year#1{\gdef\@year{#1}}
@@ -204,12 +204,8 @@ Professor and Head\\
 \renewcommand{\cftchapterfont}{\normalfont\MakeUppercase}
 \renewcommand{\cftchapterpagefont}{\normalfont}
 \renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
-\renewcommand{\chapternumberline}[1]{
-\makebox[6.5em][l]{\MakeUppercase{\@chapapp~#1}}
-}
-\renewcommand{\l@chapter}{\@dottedtocline{0}{0em}{6.5em}}
-\renewcommand{\l@section}{\@dottedtocline{1}{3em}{2em}}
-\renewcommand{\@dotsep}{1}
+\renewcommand{\cftchaptername}{Chapter\space}
+\renewcommand{\cftdotsep}{1}
 %%% no extra space before the entry, or in the LoF/LoT
 \setlength{\cftbeforechapterskip}{0pt plus 0pt}
 \renewcommand{\insertchapterspace}{}

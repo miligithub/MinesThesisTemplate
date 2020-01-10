@@ -244,9 +244,20 @@
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
-
 %
-
+%\begin{macro}{\if@afterindent}
+%	\LaTeX\ uses the switch |\if@afterindent| to decide whether to indent
+%	after a section heading. We just need to make sure that this is always
+%	true.
+%    \begin{macrocode}
+%
+%<*class>		
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+%</class>		
+%		
+%    \end{macrocode}
+%\end{macro}
 %
 % \subsubsection{Commands to define parameters for the front matter}
 % \label{sec:imp_code_front_param}
@@ -507,12 +518,8 @@ this is the second line}
 \renewcommand{\cftchapterfont}{\normalfont\MakeUppercase}
 \renewcommand{\cftchapterpagefont}{\normalfont}
 \renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
-\renewcommand{\chapternumberline}[1]{
-	\makebox[6.5em][l]{\MakeUppercase{\@chapapp~#1}}
-}
-\renewcommand{\l@chapter}{\@dottedtocline{0}{0em}{6.5em}}
-\renewcommand{\l@section}{\@dottedtocline{1}{3em}{2em}}
-\renewcommand{\@dotsep}{1}
+\renewcommand{\cftchaptername}{Chapter\space}
+\renewcommand{\cftdotsep}{1}
 %%% no extra space before the entry, or in the LoF/LoT
 \setlength{\cftbeforechapterskip}{0pt plus 0pt}
 \renewcommand{\insertchapterspace}{}
