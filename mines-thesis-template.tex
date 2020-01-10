@@ -12,7 +12,7 @@
 %                           Packages                             
 %========================================
 \usepackage{lipsum} % dummy text
-\usepackage{hyperref}
+%\usepackage{hyperref}
 
 \begin{document}
 	%========================================
@@ -88,7 +88,9 @@
 	Katherine Smith\symbolfootnote{1}{Primary author and editor.}\footnote[1]{Department of  Civil and Environmental Engineering, Colorado School of Mines, 1500 Illinois Street, Golden, Colorado 80401, USA.}, 
 	Eric Wright\symbolfootnote{2}{Corresponding author. Direct correspondence to \texttt{example@mines.edu}.}\footnote[2]{Southern Nevada, 550 City Parkway, Suite 810, Las Vegas, NV, 89106, USA.}
 }
-\lipsum[1-5]
+\reproduceabstract{
+	\lipsum[1]
+}
 \section{First section} \lipsum[2-3]
 \subsection{SubSection}\lipsum[1]
 \subsubsection{SubSubSection}\lipsum[1]

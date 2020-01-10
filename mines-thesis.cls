@@ -268,9 +268,7 @@ Professor and Head\\
 \def\f@rtoc{%When hyperref is used,
 \texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
 }
-}{
-\usepackage[hang,flushmargin]{footmisc}
-}
+}{}
 \setlength{\footmarkwidth}{\z@}
 \setlength{\footmarksep}{-\footmarkwidth}
 \setlength{\footparindent}{\footmarkwidth}
@@ -301,6 +299,11 @@ Professor and Head\\
 \begin{center}
 #1\\
 \end{center}
+}
+\newcommand{\reproduceabstract}[1]{
+\noindent Abstract
+
+#1
 
 }
 \newcommand{\symbolfootnote}[2]{

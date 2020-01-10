@@ -617,9 +617,7 @@ this is the second line}
 		\def\f@rtoc{%When hyperref is used,
 			\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
 	}
-	}{
-	\usepackage[hang,flushmargin]{footmisc}
-	}
+	}{}
 	\setlength{\footmarkwidth}{\z@} 
 	\setlength{\footmarksep}{-\footmarkwidth}
 	\setlength{\footparindent}{\footmarkwidth}
@@ -654,6 +652,11 @@ this is the second line}
 	\begin{center}
 		#1\\
 	\end{center}
+}
+\newcommand{\reproduceabstract}[1]{
+	\noindent Abstract
+	
+	#1
 	
 }
 \newcommand{\symbolfootnote}[2]{
