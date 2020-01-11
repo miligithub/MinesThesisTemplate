@@ -258,6 +258,9 @@ mu$}\hfill
 }
 \renewcommand{\cftfigurename}{\figurename\space}
 \renewcommand{\cfttablename}{\tablename\space}
+\let\oldl@figure=\l@figure
+\renewcommand{\l@figure}{\SingleSpacing
+\oldl@figure }
 
 \renewcommand{\l@chapapp}[3]{%
 \ifnum \c@tocdepth >\m@ne
@@ -287,7 +290,6 @@ mu$}\hfill
 \cftchapterfillnum{#2}}
 \end{SingleSpace} 
 \fi}
-
 \renewcommand{\cftchapterdotsep}{\cftdotsep} 
 \renewcommand{\cftchapterfont}{\normalfont\MakeTextUppercase}
 \renewcommand{\cftchapterpagefont}{\normalfont}
@@ -296,7 +298,10 @@ mu$}\hfill
 \renewcommand{\cftappendixname}{\appendixname\space}
 \renewcommand{\cftdotsep}{1}
 \setlength{\cftbeforechapterskip}{\z@ plus \z@}
-\renewcommand{\insertchapterspace}{}
+\renewcommand{\insertchapterspace}{
+\addtocontents{lof}{\protect\addvspace{5pt}} % previous default 10pt
+  \addtocontents{lot}{\protect\addvspace{5pt}}
+}
 \AtBeginDocument{
 \@ifpackageloaded{hyperref}{
 \settocpreprocessor{chapter}{%
@@ -309,7 +314,7 @@ mu$}\hfill
 }
 \newcommand{\maketoc}{ 
 \tableofcontents*
-\clearpage
+\clearpage 
 \listoffigures
 \clearpage
 \listoftables

@@ -673,8 +673,12 @@ this is the second line}
 %
 % \begin{macro}{\l@figure}
 % \cs{l@figure}\marg{title}\marg{page} typesets the LoF entry for
-% a \cs{figure} caption.
+% a \cs{figure} caption heading. 
+% Multiple line figure captions are single spaced.
 %    \begin{macrocode}
+\let\oldl@figure=\l@figure
+\renewcommand{\l@figure}{\SingleSpacing
+	\oldl@figure }
 
 %    \end{macrocode}
 % \end{macro}
@@ -711,7 +715,6 @@ this is the second line}
 				\cftchapterfillnum{#2}}
 		\end{SingleSpace}	 
 	\fi}
-	
 %    \end{macrocode}
 % \end{macro}
 %
@@ -725,7 +728,10 @@ this is the second line}
 \renewcommand{\cftdotsep}{1}
 % ^^A no extra space before the entry, or in the LoF/LoT
 \setlength{\cftbeforechapterskip}{\z@ plus \z@}
-\renewcommand{\insertchapterspace}{}
+\renewcommand{\insertchapterspace}{
+	\addtocontents{lof}{\protect\addvspace{5pt}} % previous default 10pt 
+  \addtocontents{lot}{\protect\addvspace{5pt}}
+}
 %    \end{macrocode}
 %
 %
@@ -747,7 +753,7 @@ this is the second line}
 }
 \newcommand{\maketoc}{	
 	\tableofcontents*
-	\clearpage
+	\clearpage	
 	\listoffigures
 	\clearpage
 	\listoftables
