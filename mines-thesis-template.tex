@@ -1,3 +1,5 @@
+% Please compile the tex file by pdfLaTeX, 
+% it would handle the landscape pages correctly.
 \documentclass[12pt]{mines-thesis}
 % Font Size: 10-12 point type, change the value above
 
@@ -8,7 +10,7 @@
 %\OnehalfSpacing 
 \DoubleSpacing
 % Set the indentation of each paragraph.
-\setlength{\parindent}{3em}
+\setlength{\parindent}{2.5em}
 
 
 %========================================
@@ -19,8 +21,9 @@
 \usepackage{natbib} % for Chicago style References
 % hyperref is a package that frequently requires compiling twice 
 \usepackage{hyperref} % for \url and links 
-\usepackage{pdflscape} % for landscape mode page
-\usepackage{everypage} % for landscape mode page numbering 
+%\usepackage{pdflscape} % for landscape mode page
+%\usepackage{everypage} % for landscape mode page numbering 
+
 
 
 % Place all chapter tex files in ``Chapters'' folder
@@ -132,7 +135,7 @@
 % entries are sorted alphabetically and labelled with numbers.
 %\bibliographystyle{plain}
 % Chicago style is an "author-date" style, so the citation in the text consists of the author(s) name and year of publication given wholly or partly in round brackets.
-\bibliographystyle{chicago}	
+\bibliographystyle{chicago}	 % Require natbib package
 
 %%=================Appendix===============
 % The \appendix declaration changes the numbering of chapters 

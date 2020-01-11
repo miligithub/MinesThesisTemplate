@@ -28,9 +28,10 @@
 [2020/01/10 v1.0 Colorado School of Mines dissertation/thesis class]
 
 
+
 \RequirePackage{ifthen}
 \RequirePackage{environ}
-
+\RequirePackage{pdflscape,everypage}
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
@@ -86,25 +87,25 @@ this is the second line}
 \makeacknowledgepage
 \makededicationpage
 \pagenumbering{arabic}
-  \setcounter{page}{1}
+\setcounter{page}{1}
 }
 \DeclareRobustCommand{\invpyr}[1]{
 \vbox{
 \vspace{10pt}
 \hsize=\textwidth
-    \parindent=\z@
-    \emergencystretch=1in
-    \parshape 6
-    0.01\textwidth .98\textwidth
-    0.1\textwidth .8\textwidth
-    0.15\textwidth .7\textwidth
-    0.2\textwidth .6\textwidth
-    0.25\textwidth .5\textwidth
-    0.3\textwidth .4\textwidth
-    \leftskip=\z@ plus 1fil
-    \rightskip=\z@ plus -1fil
-    \parfillskip=\z@ plus 2fil
-    #1\par
+\parindent=\z@
+\emergencystretch=1in
+\parshape 6
+0.01\textwidth .98\textwidth
+0.1\textwidth .8\textwidth
+0.15\textwidth .7\textwidth
+0.2\textwidth .6\textwidth
+0.25\textwidth .5\textwidth
+0.3\textwidth .4\textwidth
+\leftskip=\z@ plus 1fil
+\rightskip=\z@ plus -1fil
+\parfillskip=\z@ plus 2fil
+#1\par
 }
 }
 \newcommand{\autotitle}{\setboolean{auto}{true}}
@@ -116,9 +117,9 @@ this is the second line}
 {\invpyr{\MakeUppercase{\@title}}}
 {\@title}
 \end{vplace}
-  \begin{center}
+\begin{center}
 by\\
-    \@author
+\@author
 \end{center}
 \clearpage
 }
@@ -160,13 +161,13 @@ Thesis Advisor\\[2em]
 {
 \vspace{2.5em}
 }
-   {
+{
 Signed: \underline{\hspace{2in}}\\
 \begin{SingleSpace}
 {\@coadvisor}\\
 Thesis Advisor 
 \end{SingleSpace}
-   }
+}
 
 \end{flushright}
 
@@ -209,7 +210,7 @@ Professor and Head\\
 \clearpage 
 \chapter*{Acknowledgments}
 \@acknowledgments
-  \addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
+\addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
 \clearpage
 }
 }
@@ -222,7 +223,7 @@ Professor and Head\\
 \clearpage 
 \@dedication
 \clearpage
-  }
+}
 }
 \renewcommand{\abstractname}{ABSTRACT}
 \renewcommand{\chaptername}{CHAPTER}
@@ -236,22 +237,22 @@ Professor and Head\\
 \newcommand{\@dottedtocline@sec}[5]{%
 \ifnum #1>\c@tocdepth \else
 \begin{SingleSpace}
-    \vskip \z@ \@plus.2\p@
-    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
-     \parindent #2\relax\@afterindenttrue
-     \interlinepenalty\@M
-     \leavevmode
-     \@tempdima #3\relax
- \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
- {#4}\nobreak
-     \leaders\hbox{$\m@th
-        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
-        mu$}\hfill
-     \nobreak
-     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
- \par}
+\vskip \z@ \@plus.2\p@
+{\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+\parindent #2\relax\@afterindenttrue
+\interlinepenalty\@M
+\leavevmode
+\@tempdima #3\relax
+\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+{#4}\nobreak
+\leaders\hbox{$\m@th
+\mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+mu$}\hfill
+\nobreak
+\hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
+\par}
 \end{SingleSpace}%
-  \fi}
+\fi}
 \renewcommand{\@dotsep}{1}
 \renewcommand{\l@section}{
 \@dottedtocline@sec{1}{1.5em}{2.3em}
@@ -308,8 +309,7 @@ Professor and Head\\
 \texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
 }
 \renewcommand{\cftchapterfont}{\normalfont}
-}{}
-
+}{} 
 }
 \newcommand{\maketoc}{ 
 \tableofcontents*
@@ -377,9 +377,13 @@ Professor and Head\\
 {\normalfont\normalsize\bfseries}}
 
 \AtBeginDocument{
+\@ifpackageloaded{natbib}{
 \setlength{\bibhang}{\parindent}
 \renewcommand{\bibpreamble}{\vspace{\baselineskip}}
-
+}{}
+}
+\AtBeginDocument{
+\@ifpackageloaded{pdflscape}{
 \newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
 \dimendef\margin=0 %use \margin instead of \dimen0
 \ifodd\value{page}\margin=\oddsidemargin
@@ -388,11 +392,17 @@ Professor and Head\\
 \raisebox{\dimexpr -\topmargin-\headheight-\headsep-0.5\linewidth}[0pt][0pt]{%
 \rlap{\hspace{\dimexpr \margin+\textheight+\footskip}%
 \llap{\rotatebox{90}{\thepage}}}}%
-\egroup\fi}
-\AddEverypageHook{\Lpagenumber}%
+\egroup\fi
 }
-
-
+\@ifpackageloaded{everypage}{
+\AddEverypageHook{\Lpagenumber}%
+\newenvironment{pdflandscape}{
+\begin{landscape}\pagestyle{empty}}{
+\end{landscape}
+\pagestyle{plain}}
+}{}
+}{} 
+}
 \endinput
 %%
 %% End of file `mines-thesis.cls'.

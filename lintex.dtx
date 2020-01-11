@@ -173,6 +173,25 @@
 % 
 % \DescribeMacro{\paragraph}
 %
+% \DescribeEnv{pdflandscape}
+% Try the |lscape| package: |lscape.sty| Produce landscape pages 
+% in a (mainly) portrait document. This modifies the margins and
+% rotates the page contents but not the page number. 
+% Useful, for example, with large multipage tables, 
+% and is compatible with the packages longtable and supertabular.
+% If you are using pdfLaTeX, you should use |pdflscape| instead.
+% The pdflscape package adds PDF support to 
+% the landscape environment of package lscape, 
+% by setting the PDF/Rotate page attribute. 
+% Pages with this attribute will be displayed 
+% in landscape orientation by conforming PDF viewers:
+% \begin{quote}
+%   |begin{pdflandscape}|\\
+%				\emph{Here goes the figure or table...}\\
+% 	|\end{pdflandscape}|
+% \end{quote}
+
+%
 % ========================================
 %                              Set-up                              
 % ========================================
@@ -202,7 +221,9 @@
 \RequirePackage{environ}
 %    \end{macrocode}
 %
-
+%    \begin{macrocode}
+\RequirePackage{pdflscape,everypage}
+%    \end{macrocode}
 %
 % The |review| boolean is defined here for use with the
 % class options.
@@ -217,7 +238,7 @@
 %    \begin{macrocode}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
-\PassOptionsToClass{final,12pt,onecolumn,openany}{memoir}}
+	\PassOptionsToClass{final,12pt,onecolumn,openany}{memoir}}
 \DeclareOption*{
 	\PassOptionsToClass{\CurrentOption}{memoir}
 }
@@ -335,7 +356,7 @@ this is the second line}
 	\makeacknowledgepage
 	\makededicationpage
 	\pagenumbering{arabic}
-  \setcounter{page}{1}
+	\setcounter{page}{1}
 }
 %    \end{macrocode}
 %
@@ -353,33 +374,33 @@ this is the second line}
 	\vbox{
 		\vspace{10pt}
 		\hsize=\textwidth
-    \parindent=\z@
-    \emergencystretch=1in
-    \parshape 6
-    0.01\textwidth .98\textwidth
-    0.1\textwidth .8\textwidth
-    0.15\textwidth .7\textwidth
-    0.2\textwidth .6\textwidth
-    0.25\textwidth .5\textwidth
-    0.3\textwidth .4\textwidth
-    \leftskip=\z@ plus 1fil
-    \rightskip=\z@ plus -1fil
-    \parfillskip=\z@ plus 2fil
-    #1\par
+		\parindent=\z@
+		\emergencystretch=1in
+		\parshape 6
+		0.01\textwidth .98\textwidth
+		0.1\textwidth .8\textwidth
+		0.15\textwidth .7\textwidth
+		0.2\textwidth .6\textwidth
+		0.25\textwidth .5\textwidth
+		0.3\textwidth .4\textwidth
+		\leftskip=\z@ plus 1fil
+		\rightskip=\z@ plus -1fil
+		\parfillskip=\z@ plus 2fil
+		#1\par
 	}
 }
 \newcommand{\autotitle}{\setboolean{auto}{true}}
 \newcommand{\maketitlepage}{
 	\clearpage
 	\begin{vplace}
-			\centering
-			\ifthenelse{\boolean{auto}}
-			{\invpyr{\MakeUppercase{\@title}}}
-			{\@title}
+		\centering
+		\ifthenelse{\boolean{auto}}
+		{\invpyr{\MakeUppercase{\@title}}}
+		{\@title}
 	\end{vplace}
-  \begin{center}
+	\begin{center}
 		by\\
-    \@author
+		\@author
 	\end{center}
 	\clearpage
 }
@@ -419,56 +440,56 @@ this is the second line}
 	Trustees of the Colorado School of Mines in partial 
 	fulfillment of the requirements for the degree of
 	{\@degreelv} ({\@degreename}).
-	
+					
 	\vspace{2em}
 	\begin{flushleft}
 		Golden, Colorado\\[.5em]			
 		Date \underline{\hspace{2in}}
 	\end{flushleft}
-		
+						
 	\vspace{.5em}
 	\begin{flushright}
 		Signed: \underline{\hspace{2in}}\\
 		{\@author}\\[2em]
-		
+										
 		Signed: \underline{\hspace{2in}}\\
 		\begin{SingleSpace}
 			{\@advisor}\\
 			Thesis Advisor\\[2em]
 		\end{SingleSpace}
-		
-		
+										
+										
 		\@ifundefined{@coadvisor}
 		{
 			\vspace{2.5em}
 		}
-  	{
+		{
 			Signed: \underline{\hspace{2in}}\\
 			\begin{SingleSpace}
 				{\@coadvisor}\\
 				Thesis Advisor	
 			\end{SingleSpace}
-  	}
-		
+		}
+										
 	\end{flushright}
-	
+					
 	\begin{flushleft}
 		Golden, Colorado\\[.5em]			
 		Date \underline{\hspace{2in}}
 	\end{flushleft}
-
+				
 	\vspace{.5em}
 	\begin{flushright}
 		Signed: \underline{\hspace{2in}}\\
-
+								
 		\begin{SingleSpace}
 			{\@departmenthead}\\		
 			Professor and Head\\
 			{\@department}	
 		\end{SingleSpace}
-
+								
 	\end{flushright}
-	
+					
 	\clearpage
 }
 %    \end{macrocode}
@@ -533,11 +554,11 @@ this is the second line}
 %    \begin{macrocode}
 \newcommand{\makeacknowledgepage}{
 	\@ifundefined{@acknowledgments}{}{
-	\clearpage	
-	\chapter*{Acknowledgments}
-	\@acknowledgments
-  \addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
-	\clearpage
+		\clearpage	
+		\chapter*{Acknowledgments}
+		\@acknowledgments
+		\addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
+		\clearpage
 	}
 }
 %    \end{macrocode}
@@ -580,10 +601,10 @@ this is the second line}
 %    \begin{macrocode}
 \newcommand{\makededicationpage}{
 	\@ifundefined{@dedication}{}{
-	\clearpage	
-	\@dedication
-	\clearpage
-  }
+		\clearpage	
+		\@dedication
+		\clearpage
+	}
 }
 %    \end{macrocode}
 % \end{macro}
@@ -611,23 +632,23 @@ this is the second line}
 %    \begin{macrocode}
 \newcommand{\@dottedtocline@sec}[5]{%
 	\ifnum #1>\c@tocdepth \else
-	\begin{SingleSpace}
-    \vskip \z@ \@plus.2\p@
-    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
-     \parindent #2\relax\@afterindenttrue
-     \interlinepenalty\@M
-     \leavevmode
-     \@tempdima #3\relax
-		 \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-		 {#4}\nobreak
-     \leaders\hbox{$\m@th
-        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
-        mu$}\hfill
-     \nobreak
-     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
-		 \par}
-	\end{SingleSpace}%
-  \fi}
+		\begin{SingleSpace}
+			\vskip \z@ \@plus.2\p@
+			{\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+				\parindent #2\relax\@afterindenttrue
+				\interlinepenalty\@M
+				\leavevmode
+				\@tempdima #3\relax
+				\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+				{#4}\nobreak
+				\leaders\hbox{$\m@th
+					\mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+					mu$}\hfill
+				\nobreak
+				\hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
+				\par}
+		\end{SingleSpace}%
+	\fi}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -708,14 +729,13 @@ this is the second line}
 %    \begin{macrocode}
 \AtBeginDocument{
 	\@ifpackageloaded{hyperref}{
-	\settocpreprocessor{chapter}{%
-		\let\tempf@rtoc\f@rtoc%
-		\def\f@rtoc{%When hyperref is used,
-			\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
-	}
-	\renewcommand{\cftchapterfont}{\normalfont}
-	}{}
-	
+		\settocpreprocessor{chapter}{%
+			\let\tempf@rtoc\f@rtoc%
+			\def\f@rtoc{%When hyperref is used,
+				\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+		}
+		\renewcommand{\cftchapterfont}{\normalfont}
+		}{}		
 }
 \newcommand{\maketoc}{	
 	\tableofcontents*
@@ -841,25 +861,44 @@ this is the second line}
 %
 %
 % 
+% Change the indent of References if |natbib| packadge is loaded.
 %    \begin{macrocode}
 \AtBeginDocument{
-	\setlength{\bibhang}{\parindent}
-	\renewcommand{\bibpreamble}{\vspace{\baselineskip}}
-
-\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
-\dimendef\margin=0 %use \margin instead of \dimen0
-\ifodd\value{page}\margin=\oddsidemargin
-\else\margin=\evensidemargin
-\fi
-\raisebox{\dimexpr -\topmargin-\headheight-\headsep-0.5\linewidth}[0pt][0pt]{%
-	\rlap{\hspace{\dimexpr \margin+\textheight+\footskip}%
-		\llap{\rotatebox{90}{\thepage}}}}%
-\egroup\fi}
-\AddEverypageHook{\Lpagenumber}%
+	\@ifpackageloaded{natbib}{
+		\setlength{\bibhang}{\parindent}
+		\renewcommand{\bibpreamble}{\vspace{\baselineskip}}
+		}{}
 }
-
 %    \end{macrocode}
-
+%
+% 
+% \begin{environment}{pdflandscape}
+% We define the |pdflandscape| to 
+% handle the page numbering in landscape mode.	
+%    \begin{macrocode}
+\AtBeginDocument{
+	\@ifpackageloaded{pdflscape}{
+		\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
+			\dimendef\margin=0 %use \margin instead of \dimen0
+			\ifodd\value{page}\margin=\oddsidemargin
+			\else\margin=\evensidemargin
+			\fi
+			\raisebox{\dimexpr -\topmargin-\headheight-\headsep-0.5\linewidth}[0pt][0pt]{%
+				\rlap{\hspace{\dimexpr \margin+\textheight+\footskip}%
+					\llap{\rotatebox{90}{\thepage}}}}%
+			\egroup\fi
+		}
+		\@ifpackageloaded{everypage}{
+			\AddEverypageHook{\Lpagenumber}%
+			\newenvironment{pdflandscape}{
+				\begin{landscape}\pagestyle{empty}}{
+				\end{landscape}
+				\pagestyle{plain}}
+			}{}
+		}{}	
+}
+%    \end{macrocode}
+% \end{environment}
 %
 %
 % \Finale
