@@ -309,12 +309,7 @@ Professor and Head\\
 }
 \renewcommand{\cftchapterfont}{\normalfont}
 }{}
-\setlength{\footmarkwidth}{\z@}
-\setlength{\footmarksep}{-\footmarkwidth}
-\setlength{\footparindent}{\footmarkwidth}
-\renewcommand{\footnoterule}{%
-\kern .5\baselineskip%
-\hrule width \columnwidth \kern .5\baselineskip}
+
 }
 \newcommand{\maketoc}{ 
 \tableofcontents*
@@ -324,6 +319,7 @@ Professor and Head\\
 \listoftables
 \clearpage
 }
+
 \makechapterstyle{mineschapter}{%
 \setlength{\midchapskip}{.2\baselineskip}
 \setlength{\afterchapskip}{.2\baselineskip}
@@ -347,11 +343,20 @@ Professor and Head\\
 \newcommand{\reproduceabstract}{
 {\noindent Abstract\par}
 }
+\AtBeginDocument{
+\setlength{\footmarkwidth}{\z@}
+\setlength{\footmarksep}{-\footmarkwidth}
+\setlength{\footparindent}{\footmarkwidth}
+\renewcommand{\footnoterule}{%
+\kern .5\baselineskip%
+\hrule width \columnwidth \kern .5\baselineskip}
+}
 \newcommand{\symbolfootnote}[2]{
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \footnote[#1]{#2}
 \renewcommand{\thefootnote}{\arabic{footnote}}
 }
+
 \renewcommand{\section}{\@startsection{section}
 {1} % level
 {\z@} % indent from left margin

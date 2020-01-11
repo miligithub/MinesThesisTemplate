@@ -715,12 +715,7 @@ this is the second line}
 	}
 	\renewcommand{\cftchapterfont}{\normalfont}
 	}{}
-	\setlength{\footmarkwidth}{\z@} 
-	\setlength{\footmarksep}{-\footmarkwidth}
-	\setlength{\footparindent}{\footmarkwidth}
-	\renewcommand{\footnoterule}{% 
-		\kern .5\baselineskip%
-		\hrule width \columnwidth \kern .5\baselineskip}
+	
 }
 \newcommand{\maketoc}{	
 	\tableofcontents*
@@ -731,6 +726,7 @@ this is the second line}
 	\clearpage
 }
 %    \end{macrocode}
+
 % \end{macro}
 %
 %
@@ -754,14 +750,49 @@ this is the second line}
 	}
 }
 \chapterstyle{mineschapter}
+%    \end{macrocode}
+%
+% \end{macro}
+% \begin{macro}{\reproduceinfo}
+% Information about the reproduced chapter.
+% Including the author, year, organization, publisher. 
+%    \begin{macrocode}
 \newcommand{\reproduceinfo}[1]{
 	\begin{center}
 		#1\par
 	\end{center}
 }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\reproduceabstract}
+% One single line of Abstract flused left.	
+%    \begin{macrocode}
 \newcommand{\reproduceabstract}{
 	{\noindent Abstract\par}
 }
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\footnote}
+% Set the format for \cs{footnote}. 
+% One horizontal line to separate the text and the footnotes.
+%    \begin{macrocode}
+\AtBeginDocument{
+	\setlength{\footmarkwidth}{\z@} 
+	\setlength{\footmarksep}{-\footmarkwidth}
+	\setlength{\footparindent}{\footmarkwidth}
+	\renewcommand{\footnoterule}{% 
+		\kern .5\baselineskip%
+		\hrule width \columnwidth \kern .5\baselineskip}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\symbolfootnote}
+% A new type of footnote command which use symbols
+% instead of arabic numbers as markers	
+%    \begin{macrocode}
 \newcommand{\symbolfootnote}[2]{
 	\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 	\footnote[#1]{#2}
@@ -769,10 +800,13 @@ this is the second line}
 }
 %    \end{macrocode}
 % \end{macro}
+
+
 %
 % \begin{macro}{\section}
 %
-%  This section of code re-defines some standard stuff for sanity.
+% Redefine \cs{section}, \cs{subsection} and
+% \cs{subsubsection}.
 %
 %    \begin{macrocode}
 \renewcommand{\section}{\@startsection{section}
@@ -796,6 +830,8 @@ this is the second line}
 %    \end{macrocode}
 % \end{macro}
 %
+
+%
 % \subsubsection{Back Matter}
 % \label{sec:imp_code_back}
 %
@@ -804,7 +840,7 @@ this is the second line}
 % \label{sec:imp_code_others}
 %
 %
-
+% 
 %    \begin{macrocode}
 \AtBeginDocument{
 	\setlength{\bibhang}{\parindent}
