@@ -256,6 +256,12 @@ Professor and Head\\
 \renewcommand{\l@section}{
 \@dottedtocline@sec{1}{1.5em}{2.3em}
 }
+\renewcommand{\l@figure}{
+\@dottedtocline@sec{1}{1.5em}{2.3em}
+}
+\renewcommand{\l@table}{
+\@dottedtocline@sec{1}{1.5em}{2.3em}
+}
 \renewcommand{\l@chapapp}[3]{%
 \ifnum \c@tocdepth >\m@ne
 \begin{SingleSpace}
@@ -313,6 +319,10 @@ Professor and Head\\
 \newcommand{\maketoc}{ 
 \tableofcontents*
 \clearpage
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
 }
 \makechapterstyle{mineschapter}{%
 \setlength{\midchapskip}{.2\baselineskip}
@@ -364,8 +374,25 @@ Professor and Head\\
 \AtBeginDocument{
 \setlength{\bibhang}{\parindent}
 \renewcommand{\bibpreamble}{\vspace{\baselineskip}}
+
+\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
+\dimendef\margin=0 %use \margin instead of \dimen0
+\ifodd\value{page}\margin=\oddsidemargin
+\else\margin=\evensidemargin
+\fi
+\raisebox{\dimexpr -\topmargin-\headheight-\headsep-0.5\linewidth}[0pt][0pt]{%
+\rlap{\hspace{\dimexpr \margin+\textheight+\footskip}%
+\llap{\rotatebox{90}{\thepage}}}}%
+\egroup\fi}
+\AddEverypageHook{\Lpagenumber}%
 }
 
+\newlength{\mylen}
+
+\renewcommand{\cftfigpresnum}{\figurename\enspace}
+\renewcommand{\cftfigaftersnum}{:}
+\settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum}
+\addtolength{\cftfignumwidth}{\mylen}
 
 \endinput
 %%

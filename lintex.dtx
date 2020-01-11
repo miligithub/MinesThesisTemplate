@@ -102,7 +102,7 @@
 % Generally speaking, the options have |key=value| forms, 
 % for example,
 % \begin{quote}
-%   |\documentclass[screen=true, review=false]{mines-thesis}|
+%   |\documentclass[10pt]{mines-thesis}|
 % \end{quote}
 % The default options are \textsf{letterpaper,12pt}. 
 % \textbf{TODO review? oneside?  onecolumn,draft,openany}
@@ -640,6 +640,12 @@ this is the second line}
 \renewcommand{\l@section}{
 	\@dottedtocline@sec{1}{1.5em}{2.3em}
 }
+\renewcommand{\l@figure}{
+	\@dottedtocline@sec{1}{1.5em}{2.3em}
+}
+\renewcommand{\l@table}{
+	\@dottedtocline@sec{1}{1.5em}{2.3em}
+}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -718,6 +724,10 @@ this is the second line}
 }
 \newcommand{\maketoc}{	
 	\tableofcontents*
+	\clearpage
+	\listoffigures
+	\clearpage
+	\listoftables
 	\clearpage
 }
 %    \end{macrocode}
@@ -799,8 +809,25 @@ this is the second line}
 \AtBeginDocument{
 	\setlength{\bibhang}{\parindent}
 	\renewcommand{\bibpreamble}{\vspace{\baselineskip}}
+
+\newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
+\dimendef\margin=0 %use \margin instead of \dimen0
+\ifodd\value{page}\margin=\oddsidemargin
+\else\margin=\evensidemargin
+\fi
+\raisebox{\dimexpr -\topmargin-\headheight-\headsep-0.5\linewidth}[0pt][0pt]{%
+	\rlap{\hspace{\dimexpr \margin+\textheight+\footskip}%
+		\llap{\rotatebox{90}{\thepage}}}}%
+\egroup\fi}
+\AddEverypageHook{\Lpagenumber}%
 }
 
+\newlength{\mylen}
+
+\renewcommand{\cftfigpresnum}{\figurename\enspace}
+\renewcommand{\cftfigaftersnum}{:}
+\settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum}
+\addtolength{\cftfignumwidth}{\mylen}
 %    \end{macrocode}
 
 %
