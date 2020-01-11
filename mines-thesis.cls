@@ -387,12 +387,6 @@ Professor and Head\\
 \AddEverypageHook{\Lpagenumber}%
 }
 
-\newlength{\mylen}
-
-\renewcommand{\cftfigpresnum}{\figurename\enspace}
-\renewcommand{\cftfigaftersnum}{:}
-\settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum}
-\addtolength{\cftfignumwidth}{\mylen}
 
 \endinput
 %%
