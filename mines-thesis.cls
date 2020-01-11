@@ -227,9 +227,9 @@ Professor and Head\\
 \renewcommand{\abstractname}{ABSTRACT}
 \renewcommand{\chaptername}{CHAPTER}
 \renewcommand{\appendixname}{APPENDIX}
-\renewcommand{\contentsname}{Table of Contents}
-\renewcommand{\listfigurename}{List of Figures}
-\renewcommand{\listtablename}{List of Tables}
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\renewcommand{\listtablename}{LIST OF TABLES}
 %% for REFERENCE section
 \renewcommand{\bibname}{REFERENCES}
 
