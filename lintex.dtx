@@ -221,9 +221,9 @@
 \RequirePackage{environ}
 %    \end{macrocode}
 %
-%    \begin{macrocode}
-\RequirePackage{pdflscape,everypage}
-%    \end{macrocode}
+% ^^A %    \begin{macrocode}
+% ^^A \RequirePackage{pdflscape,everypage}
+% ^^A %    \end{macrocode}
 %
 % The |review| boolean is defined here for use with the
 % class options.
@@ -395,7 +395,7 @@ this is the second line}
 	\begin{vplace}
 		\centering
 		\ifthenelse{\boolean{auto}}
-		{\invpyr{\MakeUppercase{\@title}}}
+		{\invpyr{\MakeTextUppercase{\@title}}}
 		{\@title}
 	\end{vplace}
 	\begin{center}
@@ -440,25 +440,25 @@ this is the second line}
 	Trustees of the Colorado School of Mines in partial 
 	fulfillment of the requirements for the degree of
 	{\@degreelv} ({\@degreename}).
-					
+						
 	\vspace{2em}
 	\begin{flushleft}
 		Golden, Colorado\\[.5em]			
 		Date \underline{\hspace{2in}}
 	\end{flushleft}
-						
+							
 	\vspace{.5em}
 	\begin{flushright}
 		Signed: \underline{\hspace{2in}}\\
 		{\@author}\\[2em]
-										
+												
 		Signed: \underline{\hspace{2in}}\\
 		\begin{SingleSpace}
 			{\@advisor}\\
 			Thesis Advisor\\[2em]
 		\end{SingleSpace}
-										
-										
+												
+												
 		\@ifundefined{@coadvisor}
 		{
 			\vspace{2.5em}
@@ -470,26 +470,26 @@ this is the second line}
 				Thesis Advisor	
 			\end{SingleSpace}
 		}
-										
+												
 	\end{flushright}
-					
+						
 	\begin{flushleft}
 		Golden, Colorado\\[.5em]			
 		Date \underline{\hspace{2in}}
 	\end{flushleft}
-				
+					
 	\vspace{.5em}
 	\begin{flushright}
 		Signed: \underline{\hspace{2in}}\\
-								
+										
 		\begin{SingleSpace}
 			{\@departmenthead}\\		
 			Professor and Head\\
 			{\@department}	
 		\end{SingleSpace}
-								
+										
 	\end{flushright}
-					
+						
 	\clearpage
 }
 %    \end{macrocode}
@@ -611,7 +611,7 @@ this is the second line}
 %
 %
 %
-% We rename the headings for the toc, lof, and the references.
+% We rename the headings for the toc, lof, lot, and the references.
 %
 %    \begin{macrocode}
 \renewcommand{\abstractname}{ABSTRACT}
@@ -661,15 +661,23 @@ this is the second line}
 \renewcommand{\l@section}{
 	\@dottedtocline@sec{1}{1.5em}{2.3em}
 }
-\renewcommand{\l@figure}{
-	\@dottedtocline@sec{1}{1.5em}{2.3em}
-}
-\renewcommand{\l@table}{
-	\@dottedtocline@sec{1}{1.5em}{2.3em}
-}
 %    \end{macrocode}
 % \end{macro}
 %
+%
+%
+%    \begin{macrocode}
+\renewcommand{\cftfigurename}{\figurename\space}
+\renewcommand{\cfttablename}{\tablename\space}
+%    \end{macrocode}
+%
+% \begin{macro}{\l@figure}
+% \cs{l@figure}\marg{title}\marg{page} typesets the LoF entry for
+% a \cs{figure} caption.
+%    \begin{macrocode}
+
+%    \end{macrocode}
+% \end{macro}
 %
 %
 % \begin{macro}{\l@chapapp}
@@ -709,7 +717,7 @@ this is the second line}
 %
 %    \begin{macrocode}
 \renewcommand{\cftchapterdotsep}{\cftdotsep}	
-\renewcommand{\cftchapterfont}{\normalfont\MakeUppercase}
+\renewcommand{\cftchapterfont}{\normalfont\MakeTextUppercase}
 \renewcommand{\cftchapterpagefont}{\normalfont}
 \renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
 \renewcommand{\cftchaptername}{\chaptername\space}
@@ -764,9 +772,9 @@ this is the second line}
 	\renewcommand{\printchapternum}{}
 	\renewcommand{\printchapternonum}{}
 	\renewcommand{\printchaptername}{%
-		\centerline{\chapnumfont\MakeUppercase{\@chapapp\ \thechapter}}}
+		\centerline{\chapnumfont\MakeTextUppercase{\@chapapp\ \thechapter}}}
 	\renewcommand{\printchaptertitle}[1]{%
-		\centering \vbox{\chaptitlefont\invpyr{\MakeUppercase{##1}}}
+		\centering \vbox{\chaptitlefont\invpyr{\MakeTextUppercase{##1}}}
 	}
 }
 \chapterstyle{mineschapter}

@@ -31,7 +31,6 @@
 
 \RequirePackage{ifthen}
 \RequirePackage{environ}
-\RequirePackage{pdflscape,everypage}
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
@@ -114,7 +113,7 @@ this is the second line}
 \begin{vplace}
 \centering
 \ifthenelse{\boolean{auto}}
-{\invpyr{\MakeUppercase{\@title}}}
+{\invpyr{\MakeTextUppercase{\@title}}}
 {\@title}
 \end{vplace}
 \begin{center}
@@ -257,12 +256,9 @@ mu$}\hfill
 \renewcommand{\l@section}{
 \@dottedtocline@sec{1}{1.5em}{2.3em}
 }
-\renewcommand{\l@figure}{
-\@dottedtocline@sec{1}{1.5em}{2.3em}
-}
-\renewcommand{\l@table}{
-\@dottedtocline@sec{1}{1.5em}{2.3em}
-}
+\renewcommand{\cftfigurename}{\figurename\space}
+\renewcommand{\cfttablename}{\tablename\space}
+
 \renewcommand{\l@chapapp}[3]{%
 \ifnum \c@tocdepth >\m@ne
 \begin{SingleSpace}
@@ -293,7 +289,7 @@ mu$}\hfill
 \fi}
 
 \renewcommand{\cftchapterdotsep}{\cftdotsep} 
-\renewcommand{\cftchapterfont}{\normalfont\MakeUppercase}
+\renewcommand{\cftchapterfont}{\normalfont\MakeTextUppercase}
 \renewcommand{\cftchapterpagefont}{\normalfont}
 \renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
 \renewcommand{\cftchaptername}{\chaptername\space}
@@ -329,9 +325,9 @@ mu$}\hfill
 \renewcommand{\printchapternum}{}
 \renewcommand{\printchapternonum}{}
 \renewcommand{\printchaptername}{%
-\centerline{\chapnumfont\MakeUppercase{\@chapapp\ \thechapter}}}
+\centerline{\chapnumfont\MakeTextUppercase{\@chapapp\ \thechapter}}}
 \renewcommand{\printchaptertitle}[1]{%
-\centering \vbox{\chaptitlefont\invpyr{\MakeUppercase{##1}}}
+\centering \vbox{\chaptitlefont\invpyr{\MakeTextUppercase{##1}}}
 }
 }
 \chapterstyle{mineschapter}
