@@ -1,10 +1,10 @@
 %========================================
-%                            Chapter                            
+%              Chapter              
 %======================================== 
 \chapter{Figure and Table Chapter}
 \lipsum[5]
 %========================================
-%                            Section                             
+%              Section               
 %======================================== 
 \section{Figures}
 
@@ -15,10 +15,9 @@ in the example below.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{fig1}
-	\caption{1907 Franklin Model D roadster. Photograph by Harris \&
-		Ewing, Inc. [Public domain], via Wikimedia
-		Commons. (\url{https://goo.gl/VLCRBB}).}
+	\caption{The figure with long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long caption and links. (\url{https://goo.gl/VLCRBB}).}
 \end{figure}
+
 
 
 
@@ -35,13 +34,19 @@ Figure captions are placed {\itshape below} the figure.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=\linewidth]{fig2}
-		\caption{1907 Franklin Model D roadster. Photograph by Harris \&
-			Ewing, Inc. [Public domain], via Wikimedia
-			Commons. (\url{https://goo.gl/VLCRBB}).}
+		\caption{Example of a figure in landscape mode.}
 	\end{figure}
 \end{pdflandscape}
+
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{fig3}
+	\caption[Short version caption for LoF, the original caption is really long]{The original realy long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long figure caption.}
+\end{figure}
 %========================================
-%                            Section                             
+%              Section               
 %======================================== 
 \section{Tables}
 
@@ -52,12 +57,12 @@ high-quality tables.
 Table captions are placed {\itshape above} the table.
 
 Because tables cannot be split across pages, the best placement for
-them is typically the top of the page nearest their initial cite.  To
+them is typically the top of the page nearest their initial cite. To
 ensure this proper ``floating'' placement of tables, use the
 environment \textbf{table} to enclose the table's contents and the
-table caption.  The contents of the table itself must go in the
+table caption. The contents of the table itself must go in the
 \textbf{tabular} environment, to be aligned properly in rows and
-columns, with the desired horizontal and vertical rules.  Again,
+columns, with the desired horizontal and vertical rules. Again,
 detailed instructions on \textbf{tabular} material are found in the
 \textit{\LaTeX\ User's Guide}.
 
@@ -66,48 +71,95 @@ Table~\ref{tab:freq} is included in the input file; compare the
 placement of the table here with the table in the printed output of
 this document.
 
-\begin{table}
+\begin{table}[h]
 	\caption{Frequency of Special Characters}
 	\label{tab:freq}
 	\centering
 	\begin{tabular}{ccl}
 		\toprule
-		Non-English or Math&Frequency&Comments\\
+		Non-English or Math & Frequency   & Comments          \\
 		\midrule
-		\O & 1 in 1,000& For Swedish names\\
-		$\pi$ & 1 in 5& Common in math\\
-		\$ & 4 in 5 & Used in business\\
-		$\Psi^2_1$ & 1 in 40,000& Unexplained usage\\
+		\O                  & 1 in 1,000  & For Swedish names \\
+		$\pi$               & 1 in 5      & Common in math    \\
+		\$                  & 4 in 5      & Used in business  \\
+		$\Psi^2_1$          & 1 in 40,000 & Unexplained usage \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
+
+\begin{table*}[h]
+	\caption{Some Typical Commands}
+	\label{tab:commands}
+	\centering
+	\begin{tabular}{cclccr}
+		\toprule
+		Command                    & A Number & Comments         & Command                    & A Number & Comments         \\
+		\midrule
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\bottomrule
+	\end{tabular}
+\end{table*}
+
 To set a wider table, which takes up the whole width of the page's
 live area, use the environment \textbf{table*} to enclose the table's
-contents and the table caption.  As with a single-column table, this
+contents and the table caption. As with a single-column table, this
 wide table will ``float'' to a location deemed more
 desirable. Immediately following this sentence is the point at which
 Table~\ref{tab:commands} is included in the input file; again, it is
 instructive to compare the placement of the table here with the table
 in the printed output of this document.
-
-\begin{table*}
-	\caption{Some Typical Commands}
-	\label{tab:commands}
+\begin{table}[h]
+	\caption{Some table with really long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long caption}
+	\label{tab:commandsnostar}
 	\centering
-	\begin{tabular}{ccl}
+	\begin{tabular}{cclccr}
 		\toprule
-		Command &A Number & Comments\\
+		Command                    & A Number & Comments         & Command                    & A Number & Comments         \\
 		\midrule
-		\texttt{{\char'134}author} & 100& Author \\
-		\texttt{{\char'134}table}& 300 & For tables\\
-		\texttt{{\char'134}table*}& 400& For wider tables\\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
 		\bottomrule
 	\end{tabular}
-\end{table*}
+\end{table}
+
+
+
+\begin{pdflandscape}
+	\begin{vplace}
+		\begin{table}[h]
+			\caption{A table in landscape mode, Use \texttt{vplace} to place table in the center}
+			\label{tab:landscape}
+			\centering
+			\begin{tabular}{cclccrlcr}
+				\toprule
+				Command                    & A Number & Comments         & Command                    & A Number & Comments         & Command                    & A Number & Comments         \\
+				\midrule
+				\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+				\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+				\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+				\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+				\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+				\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+				\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+				\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+				\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+				\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+				\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+				\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+	\end{vplace}
+\end{pdflandscape}
+
+
 
 %========================================
-%                            Section                             
+%              Section               
 %======================================== 
 \section{Last section}
 \lipsum[6-7]

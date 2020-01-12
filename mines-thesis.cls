@@ -82,7 +82,7 @@ this is the second line}
 \setcounter{page}{2}
 \makesubmittalpage
 \makeabstractpage
-\maketoc
+\makecft
 \makeacknowledgepage
 \makededicationpage
 \pagenumbering{arabic}
@@ -224,44 +224,6 @@ Professor and Head\\
 \clearpage
 }
 }
-\renewcommand{\abstractname}{ABSTRACT}
-\renewcommand{\chaptername}{CHAPTER}
-\renewcommand{\appendixname}{APPENDIX}
-\renewcommand{\contentsname}{TABLE OF CONTENTS}
-\renewcommand{\listfigurename}{LIST OF FIGURES}
-\renewcommand{\listtablename}{LIST OF TABLES}
-%% for REFERENCE section
-\renewcommand{\bibname}{REFERENCES}
-
-\newcommand{\@dottedtocline@sec}[5]{%
-\ifnum #1>\c@tocdepth \else
-\begin{SingleSpace}
-\vskip \z@ \@plus.2\p@
-{\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
-\parindent #2\relax\@afterindenttrue
-\interlinepenalty\@M
-\leavevmode
-\@tempdima #3\relax
-\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-{#4}\nobreak
-\leaders\hbox{$\m@th
-\mkern \@dotsep mu\hbox{.}\mkern \@dotsep
-mu$}\hfill
-\nobreak
-\hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
-\par}
-\end{SingleSpace}%
-\fi}
-\renewcommand{\@dotsep}{1}
-\renewcommand{\l@section}{
-\@dottedtocline@sec{1}{1.5em}{2.3em}
-}
-\renewcommand{\cftfigurename}{\figurename\space}
-\renewcommand{\cfttablename}{\tablename\space}
-\let\oldl@figure=\l@figure
-\renewcommand{\l@figure}{\SingleSpacing
-\oldl@figure }
-
 \renewcommand{\l@chapapp}[3]{%
 \ifnum \c@tocdepth >\m@ne
 \begin{SingleSpace}
@@ -312,14 +274,53 @@ mu$}\hfill
 \renewcommand{\cftchapterfont}{\normalfont}
 }{} 
 }
-\newcommand{\maketoc}{ 
+\newcommand{\makecft}{ 
 \tableofcontents*
 \clearpage 
 \listoffigures
 \clearpage
 \listoftables
 \clearpage
+} % end \makecft
+
+\renewcommand{\abstractname}{ABSTRACT}
+\renewcommand{\chaptername}{CHAPTER}
+\renewcommand{\appendixname}{APPENDIX}
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\renewcommand{\listtablename}{LIST OF TABLES}
+%% for REFERENCE section
+\renewcommand{\bibname}{REFERENCES}
+
+\newcommand{\@dottedtocline@sec}[5]{%
+\ifnum #1>\c@tocdepth \else
+\begin{SingleSpace}
+\vskip \z@ \@plus.2\p@
+{\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+\parindent #2\relax\@afterindenttrue
+\interlinepenalty\@M
+\leavevmode
+\@tempdima #3\relax
+\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+{#4}\nobreak
+\leaders\hbox{$\m@th
+\mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+mu$}\hfill
+\nobreak
+\hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor #5}%
+\par}
+\end{SingleSpace}%
+\fi}
+\renewcommand{\@dotsep}{1}
+\renewcommand{\l@section}{
+\@dottedtocline@sec{1}{1.5em}{2.3em}
 }
+\renewcommand{\cftfigurename}{\figurename\space}
+\renewcommand{\cfttablename}{\tablename\space}
+\let\oldl@figure=\l@figure
+\renewcommand{\l@figure}{\SingleSpacing\oldl@figure}
+\let\oldl@table=\l@table
+\renewcommand{\l@table}{\SingleSpacing\oldl@table}
 
 \makechapterstyle{mineschapter}{%
 \setlength{\midchapskip}{.2\baselineskip}

@@ -352,7 +352,7 @@ this is the second line}
 	\setcounter{page}{2}
 	\makesubmittalpage
 	\makeabstractpage
-	\maketoc
+	\makecft
 	\makeacknowledgepage
 	\makededicationpage
 	\pagenumbering{arabic}
@@ -610,6 +610,87 @@ this is the second line}
 % \end{macro}
 %
 %
+% \begin{macro}{\l@chapapp}
+% Redefine the generic chapter/appendix ToC entry typesetting.
+%    \begin{macrocode}
+\renewcommand{\l@chapapp}[3]{%
+	\ifnum \c@tocdepth >\m@ne
+		\begin{SingleSpace}
+			\cftchapterbreak
+			\vskip \cftbeforechapterskip
+			{
+				\leftskip \cftchapterindent\relax
+				%%%     \memRTLleftskip \cftchapterindent\relax
+				\rightskip \@tocrmarg
+				%%%     \memRTLrightskip \@tocrmarg
+				\parfillskip -\rightskip
+				%%%     \parfillskip -\memRTLrightskip
+				\parindent \cftchapterindent\relax
+				\@afterindenttrue
+				\interlinepenalty\@M
+				\leavevmode
+				\let\@cftbsnum \cftchapterpresnum
+				\let\@cftasnum \cftchapteraftersnum
+				\let\@cftasnumb \cftchapteraftersnumb
+				\def\@chapapp@head{#3}%
+				\settowidth{\@tempdima}{\cftchapterfont\@chapapp@head}%
+				\addtolength{\@tempdima}{\cftchapternumwidth}%
+				\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+				%%%     \advance\memRTLleftskip \@tempdima \null\nobreak\hskip -\memRTLleftskip
+				{\cftchapterfont {#1}}\nobreak
+				\cftchapterfillnum{#2}}
+		\end{SingleSpace}	 
+	\fi}
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+\renewcommand{\cftchapterdotsep}{\cftdotsep}	
+\renewcommand{\cftchapterfont}{\normalfont\MakeTextUppercase}
+\renewcommand{\cftchapterpagefont}{\normalfont}
+\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
+\renewcommand{\cftchaptername}{\chaptername\space}
+\renewcommand{\cftappendixname}{\appendixname\space}
+\renewcommand{\cftdotsep}{1}
+% ^^A no extra space before the entry, or in the LoF/LoT
+\setlength{\cftbeforechapterskip}{\z@ plus \z@}
+\renewcommand{\insertchapterspace}{
+	\addtocontents{lof}{\protect\addvspace{5pt}} % previous default 10pt 
+  \addtocontents{lot}{\protect\addvspace{5pt}}
+}
+%    \end{macrocode}
+%
+%
+% \begin{macro}{\makecft}
+% \cs{makecft} generates Table of Contents, List of Figures, and
+% List of Tables.	
+% TABLE OF CONTENTS (Title) is centered horizontally, 
+% 1 keyboard return below 1 inch top margin and
+% in ALL UPPER CASE LETTERS
+%
+%    \begin{macrocode}
+\AtBeginDocument{
+	\@ifpackageloaded{hyperref}{
+		\settocpreprocessor{chapter}{%
+			\let\tempf@rtoc\f@rtoc%
+			\def\f@rtoc{%When hyperref is used,
+				\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+		}
+		\renewcommand{\cftchapterfont}{\normalfont}
+		}{}		
+}
+\newcommand{\makecft}{	
+	\tableofcontents*
+	\clearpage	
+	\listoffigures
+	\clearpage
+	\listoftables
+	\clearpage
+} % end \makecft
+%    \end{macrocode}
+% \end{macro} 
+
+%
 %
 % We rename the headings for the toc, lof, lot, and the references.
 %
@@ -677,91 +758,21 @@ this is the second line}
 % Multiple line figure captions are single spaced.
 %    \begin{macrocode}
 \let\oldl@figure=\l@figure
-\renewcommand{\l@figure}{\SingleSpacing
-	\oldl@figure }
+\renewcommand{\l@figure}{\SingleSpacing\oldl@figure}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l@table}
+% \cs{l@table}\marg{title}\marg{page} typesets the LoF entry for
+% a \cs{table} caption heading. 
+% Multiple line table captions are single spaced.
+%    \begin{macrocode}
+\let\oldl@table=\l@table
+\renewcommand{\l@table}{\SingleSpacing\oldl@table}
+%    \end{macrocode}
+% \end{macro}
+%
 
-%    \end{macrocode}
-% \end{macro}
-%
-%
-% \begin{macro}{\l@chapapp}
-% Redefine the generic chapter/appendix ToC entry typesetting.
-%    \begin{macrocode}
-\renewcommand{\l@chapapp}[3]{%
-	\ifnum \c@tocdepth >\m@ne
-		\begin{SingleSpace}
-			\cftchapterbreak
-			\vskip \cftbeforechapterskip
-			{
-				\leftskip \cftchapterindent\relax
-				%%%     \memRTLleftskip \cftchapterindent\relax
-				\rightskip \@tocrmarg
-				%%%     \memRTLrightskip \@tocrmarg
-				\parfillskip -\rightskip
-				%%%     \parfillskip -\memRTLrightskip
-				\parindent \cftchapterindent\relax
-				\@afterindenttrue
-				\interlinepenalty\@M
-				\leavevmode
-				\let\@cftbsnum \cftchapterpresnum
-				\let\@cftasnum \cftchapteraftersnum
-				\let\@cftasnumb \cftchapteraftersnumb
-				\def\@chapapp@head{#3}%
-				\settowidth{\@tempdima}{\cftchapterfont\@chapapp@head}%
-				\addtolength{\@tempdima}{\cftchapternumwidth}%
-				\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-				%%%     \advance\memRTLleftskip \@tempdima \null\nobreak\hskip -\memRTLleftskip
-				{\cftchapterfont {#1}}\nobreak
-				\cftchapterfillnum{#2}}
-		\end{SingleSpace}	 
-	\fi}
-%    \end{macrocode}
-% \end{macro}
-%
-%    \begin{macrocode}
-\renewcommand{\cftchapterdotsep}{\cftdotsep}	
-\renewcommand{\cftchapterfont}{\normalfont\MakeTextUppercase}
-\renewcommand{\cftchapterpagefont}{\normalfont}
-\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
-\renewcommand{\cftchaptername}{\chaptername\space}
-\renewcommand{\cftappendixname}{\appendixname\space}
-\renewcommand{\cftdotsep}{1}
-% ^^A no extra space before the entry, or in the LoF/LoT
-\setlength{\cftbeforechapterskip}{\z@ plus \z@}
-\renewcommand{\insertchapterspace}{
-	\addtocontents{lof}{\protect\addvspace{5pt}} % previous default 10pt 
-  \addtocontents{lot}{\protect\addvspace{5pt}}
-}
-%    \end{macrocode}
-%
-%
-% \begin{macro}{\maketoc}
-% TABLE OF CONTENTS (Title) is centered horizontally, 
-% 1 keyboard return below 1 inch top margin and
-% in ALL UPPER CASE LETTERS
-%
-%    \begin{macrocode}
-\AtBeginDocument{
-	\@ifpackageloaded{hyperref}{
-		\settocpreprocessor{chapter}{%
-			\let\tempf@rtoc\f@rtoc%
-			\def\f@rtoc{%When hyperref is used,
-				\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
-		}
-		\renewcommand{\cftchapterfont}{\normalfont}
-		}{}		
-}
-\newcommand{\maketoc}{	
-	\tableofcontents*
-	\clearpage	
-	\listoffigures
-	\clearpage
-	\listoftables
-	\clearpage
-}
-%    \end{macrocode}
-
-% \end{macro}
 %
 %
 % \subsubsection{Main Body}
