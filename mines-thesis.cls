@@ -40,6 +40,22 @@
 \ExecuteOptions{final}
 \ProcessOptions\relax
 \LoadClass[oneside,letterpaper]{memoir}
+\newcommand{\makefrontmatter}{
+\pagenumbering{roman}
+\pagestyle{empty}
+\maketitlepage
+\makecopyrightpage
+\pagestyle{plain}
+\setcounter{page}{2}
+\makesubmittalpage
+\makeabstractpage
+\makecft
+\makeacknowledgepage
+\makededicationpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+}
+
 \newboolean{auto} % for auto pyramid
 \setboolean{auto}{false}
 \def\year#1{\gdef\@year{#1}}
@@ -66,21 +82,6 @@ this is the second line}
 \setlength{\parindent}{2em}
 \checkandfixthelayout
 
-\newcommand{\makefrontmatter}{
-\pagenumbering{roman}
-\pagestyle{empty}
-\maketitlepage
-\makecopyrightpage
-\pagestyle{plain}
-\setcounter{page}{2}
-\makesubmittalpage
-\makeabstractpage
-\makecft
-\makeacknowledgepage
-\makededicationpage
-\pagenumbering{arabic}
-\setcounter{page}{1}
-}
 \DeclareRobustCommand{\invpyr}[1]{
 \vbox{
 \vspace{10pt}
@@ -307,7 +308,6 @@ mu$}\hfill
 }
 \renewcommand{\cftfigurename}{\figurename\space}
 \renewcommand{\cfttablename}{\tablename\space}
-\setlength{\cftparskip}{-\parskip}
 \let\oldl@figure=\l@figure
 \renewcommand{\l@figure}{\SingleSpacing\oldl@figure}
 \let\oldl@table=\l@table
@@ -381,10 +381,14 @@ mu$}\hfill
 }{}
 }
 \let\oldbibliography=\bibliography
-\renewcommand{\bibliography}{\SingleSpacing\oldbibliography}
+\renewcommand{\bibliography}[1]{
+\begin{SingleSpace}
+\oldbibliography{#1}
+\end{SingleSpace}
+}
 \AtBeginDocument{
-\firmlists
-} %\tightlists
+\tightlists
+} %\firmlists
 \AtBeginDocument{
 \tolerance=1
 \emergencystretch=\maxdimen

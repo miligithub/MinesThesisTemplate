@@ -72,11 +72,6 @@
 % ^^A======================================================
 % \changes{v1.0}{2020/01/10}{Initial version}
 % \GetFileInfo{lintex.dtx}
-% \DoNotIndex{\#,\$,\%,\&,\@,\\,\{,\},\^,\_,\~,\ }
-% \DoNotIndex{\@ne}
-% \DoNotIndex{\advance,\begingroup,\catcode,\closein}
-% \DoNotIndex{\closeout,\day,\def,\gdef,\edef,\else,\empty,\endgroup}
-% \DoNotIndex{\newcommand,\newenvironment}
 %
 % ^^A======================================================
 % ^^A                 User documentation                               
@@ -95,7 +90,7 @@
 % \end{abstract}
 %
 % \tableofcontents
-% \newpage
+% \clearpage
 %
 % ^^A======================================================
 % ^^A                    User's Guide                               
@@ -214,9 +209,11 @@
 % \end{quote}
 
 %
-% ========================================
-%                              Set-up                              
-% ========================================
+% \DescribeMacro{\OnehalfSpacing}
+%
+% \DescribeMacro{\DoubleSpacing}
+%
+% \DescribeEnv{SingleSpace}
 % \cs{OnehalfSpacing} 
 % \cs{OnehalfSpacing*}
 % \cs{DoubleSpacing}
@@ -251,7 +248,8 @@
 % ^^A======================================================
 % \subsection{Initial Code}
 % These packages are useful when writing this |.dtx| file.
-% The \cs{ifthenelse} macro controls many conditional logic commands.
+% The \cs{ifthenelse} macro controls many conditional logic command,
+% So we load |ifthen| package.
 % The \cs{collect@body} macro in |amsmath| is defined using \cs{def}. 
 % We load |environ| to access the \cs{long} version of this command.
 %    \begin{macrocode}
@@ -304,7 +302,36 @@
 % ^^A                      Front Matter                             
 % ^^A======================================================
 % \subsubsection{Front Matter}
-% \label{sec:imp_code_front_param}
+% \label{sec:imp_code_front}
+% \begin{macro}{\makefrontmatter}
+% The \cs{makefrontmatter} will generate all
+% front matter pages: \cs{maketitlepage} for Title Page, 
+% \cs{makecopyrightpage} for Copyright Page, 
+% \cs{makesubmittalpage} for Submittal Page, 
+% \cs{makeabstractpage} for Abstract, 
+% \cs{makecft} for Tables of Contents (toc) and Lists 
+% (List of Figures (lof) \& List of Tables (lot)),
+% \cs{makeacknowledgepage} for  Acknowledgments,
+% and \cs{makededicationpage} for Dedication. 
+%    \begin{macrocode}
+\newcommand{\makefrontmatter}{
+	\pagenumbering{roman}
+	\pagestyle{empty}
+	\maketitlepage 
+	\makecopyrightpage
+	\pagestyle{plain}
+	\setcounter{page}{2}
+	\makesubmittalpage
+	\makeabstractpage
+	\makecft
+	\makeacknowledgepage
+	\makededicationpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+}
+%    \end{macrocode}
+% \end{macro}
+
 %    \begin{macrocode}
 \newboolean{auto} % for auto pyramid
 \setboolean{auto}{false}
@@ -358,30 +385,7 @@ this is the second line}
 \checkandfixthelayout
 
 %    \end{macrocode}
-% \subsubsection{Front Matter}
-% \label{sec:imp_code_front}
 %
-% \begin{macro}{\makefrontmatter}
-%
-%    \begin{macrocode}
-\newcommand{\makefrontmatter}{
-	\pagenumbering{roman}
-	\pagestyle{empty}
-	\maketitlepage 
-	\makecopyrightpage
-	\pagestyle{plain}
-	\setcounter{page}{2}
-	\makesubmittalpage
-	\makeabstractpage
-	\makecft
-	\makeacknowledgepage
-	\makededicationpage
-	\pagenumbering{arabic}
-	\setcounter{page}{1}
-}
-%    \end{macrocode}
-%
-% \end{macro}
 %
 % \begin{macro}{\maketitlepage}
 % The thesis title must be in all upper case letters,
@@ -772,7 +776,6 @@ this is the second line}
 %    \begin{macrocode}
 \renewcommand{\cftfigurename}{\figurename\space}
 \renewcommand{\cfttablename}{\tablename\space}
-\setlength{\cftparskip}{-\parskip}
 %    \end{macrocode}
 %
 % \begin{macro}{\l@figure}
@@ -914,7 +917,7 @@ this is the second line}
 % \subsubsection{Back Matter}
 % \label{sec:imp_code_back}
 %
-% Change the indent of References if |natbib| packadge is loaded.
+% Change the indent of References if |natbib| package is loaded.
 %    \begin{macrocode}
 \AtBeginDocument{
 	\@ifpackageloaded{natbib}{
@@ -926,7 +929,11 @@ this is the second line}
 % \begin{macro}{\bibliography}
 %    \begin{macrocode}	
 \let\oldbibliography=\bibliography
-\renewcommand{\bibliography}{\SingleSpacing\oldbibliography}
+\renewcommand{\bibliography}[1]{
+	\begin{SingleSpace}
+		\oldbibliography{#1}
+	\end{SingleSpace}
+}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -944,8 +951,8 @@ this is the second line}
 % while \cs{firmlist} only removes some.
 %    \begin{macrocode}
 \AtBeginDocument{
-	\firmlists 
-} %\tightlists
+	\tightlists
+} %\firmlists 
 %    \end{macrocode} 
 % \end{macro}
 % \end{macro}
