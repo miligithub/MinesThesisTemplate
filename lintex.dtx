@@ -299,6 +299,86 @@
 % \subsection{Main Code}
 % \label{sec:imp_code}
 % ^^A======================================================
+% ^^A       Margin, Spacing, Indentation, Hyphenation, ...                          
+% ^^A======================================================
+% \subsubsection{Global Setting}
+% In this section, we define margins, spacings, indentations,
+% hyphenations, and so on.
+% ^^A The page size is automatically set by the class option
+% ^^A |letterpaper|. 
+% The page is set by \cs{setpagecc} to be centered 
+% with respect to the stock.
+%    \begin{macrocode}
+\setpagecc{11in}{8.5in}{*}
+%    \end{macrocode}
+% ^^A \setstocksize{11in}{8.5in}
+% ^^A set paper size equal to stock size
+% ^^A\settrimmedsize{\stockheight}{\stockwidth}{*}
+% ^^A set equal trim at the top and bottom
+% ^^A \setlength{\trimtop}{\stockheight} % \trimtop = \stockheight 
+% ^^A \addtolength{\trimtop}{-\paperheight} % - \paperheight 
+% ^^A \setlength{\trimedge}{\stockwidth} % \trimedge = \stockwidth 
+% ^^A \addtolength{\trimedge}{-\paperwidth} % - \paperwidth
+% ^^A \settrims{0.5\trimtop}{\trimedge}
+% ^^A \settypeblocksize{\paperheight}{\paperwidth}{*}
+% The margins is set to be |1in| for all left, right, 
+% upper, and lower margins.
+% ^^A \cs{setlrmarginsandblock}\marg{spine}\marg{edge}\marg{ratio} 
+% ^^A sets the spine and fore edge margins 
+% ^^A with variable typeblock. For vertical spacings,
+% ^^A \cs{setulmarginsandblock} is used.
+%    \begin{macrocode}
+\setlrmarginsandblock{1in}{*}{*}
+\setulmarginsandblock{1in}{*}{*}
+%    \end{macrocode}
+% ^^A \cs{setheadfoot}\marg{headheight}\marg{footskip}
+% ^^A sets the headheight and the footskip. 
+% If there is a header,
+% its height would be \cs{onelineskip}. If there is a footer,
+% it would be |2|\cs{onelineskip} below the body text. 
+% ^^A \cs{setheaderspaces}\marg{headdrop}\marg{headsep}\marg{ratio}
+% ^^A sets the head margin and headsep spacing 
+% ^^A with constant headheight.
+% The header would be |2|\cs{onelineskip} above the body text.
+%    \begin{macrocode}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\setheaderspaces{*}{2\onelineskip}{*}
+%    \end{macrocode}
+% By default, we use double spacing for the thesis/dissertaion.
+%    \begin{macrocode}
+\DoubleSpacing
+%    \end{macrocode}
+% The paragraph indentation is |2em|. |1em| is roughly the width 
+% of a capital ``M'' in the current font.
+% We will also indent the first paragraph after a section heading.
+%	^^A \LaTeX\ uses the switch |\if@afterindent| to decide whether
+%	^^A to indent after a section heading. We just need to make 
+%	^^A sure that this is always true.
+%    \begin{macrocode}
+\setlength{\parindent}{2em}
+\let\@afterindentfalse\@afterindenttrue
+	\@afterindenttrue
+%    \end{macrocode}
+% We check and implement the layout settings.
+% ^^A The \cs{checkandfixthelayout} macro uses \cs{checkthelayout}
+% ^^A to check the page layout specification you have given, and 
+% ^^A then calls \cs{fixthelayout} to finally implement it.
+%    \begin{macrocode}
+\checkandfixthelayout
+%    \end{macrocode}
+% Moreover, we remove all interior spaces for list enviroments,
+%    \begin{macrocode}
+\tightlists % use \firmlists if vertical gaps is wanted
+%    \end{macrocode} 
+% and  prevent \LaTeX\ from hyphenating the entire document.
+%    \begin{macrocode}
+	\tolerance=1
+	\emergencystretch=\maxdimen
+	\hyphenpenalty=10000
+	\hbadness=10000
+%    \end{macrocode} 
+%
+% ^^A======================================================
 % ^^A                      Front Matter                             
 % ^^A======================================================
 % \subsubsection{Front Matter}
@@ -362,30 +442,7 @@ this is the second line}
 \gdef\@departmenthead{Dr. Department Head}
 %    \end{macrocode}
 %
-% Set margins 
-%    \begin{macrocode}
-% ^^A automatically set by the class option letterpaper
-% ^^A \setstocksize{11in}{8.5in}
-% ^^A set paper size equal to stock size
-% ^^A\settrimmedsize{\stockheight}{\stockwidth}{*}
-% ^^A set equal trim at the top and bottom
-% ^^A \setlength{\trimtop}{\stockheight} % \trimtop = \stockheight 
-% ^^A \addtolength{\trimtop}{-\paperheight} % - \paperheight 
-% ^^A \setlength{\trimedge}{\stockwidth} % \trimedge = \stockwidth 
-% ^^A \addtolength{\trimedge}{-\paperwidth} % - \paperwidth
-% ^^A \settrims{0.5\trimtop}{\trimedge}
-\setpagecc{11in}{8.5in}{*}
-% ^^A \settypeblocksize{\paperheight}{\paperwidth}{*}
-\setlrmarginsandblock{1in}{*}{*}
-\setulmarginsandblock{1in}{*}{*}
-\setheadfoot{\onelineskip}{2\onelineskip}
-\setheaderspaces{*}{2\onelineskip}{*}
-\DoubleSpacing
-\setlength{\parindent}{2em}
-\checkandfixthelayout
 
-%    \end{macrocode}
-%
 %
 % \begin{macro}{\maketitlepage}
 % The thesis title must be in all upper case letters,
@@ -944,44 +1001,7 @@ this is the second line}
 % 
 %
 %
-% \begin{macro}{\firmlist}
-% \begin{macro}{\tightlist}
-% These two macros can be used at the start of a list environment to
-% reduce the vertical gaps. \cs{tightlist} removes all interior spaces
-% while \cs{firmlist} only removes some.
-%    \begin{macrocode}
-\AtBeginDocument{
-	\tightlists
-} %\firmlists 
-%    \end{macrocode} 
-% \end{macro}
-% \end{macro}
-%
-% Prevent LaTeX from hyphenating the entire document
-%    \begin{macrocode}
-\AtBeginDocument{
-	\tolerance=1
-	\emergencystretch=\maxdimen
-	\hyphenpenalty=10000
-	\hbadness=10000
-} 
-%    \end{macrocode} 
 
-%
-%\begin{macro}{\if@afterindent}
-%	\LaTeX\ uses the switch |\if@afterindent| to decide whether to indent
-%	after a section heading. We just need to make sure that this is always
-%	true.
-%    \begin{macrocode}
-\AtBeginDocument{
-	\let\@afterindentfalse\@afterindenttrue
-	\@afterindenttrue
-} 
-%	
-%		
-%    \end{macrocode}
-%\end{macro}
-%
 % 
 % \begin{environment}{landscape}
 % We define the |landscape| to 

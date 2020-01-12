@@ -40,6 +40,21 @@
 \ExecuteOptions{final}
 \ProcessOptions\relax
 \LoadClass[oneside,letterpaper]{memoir}
+\setpagecc{11in}{8.5in}{*}
+\setlrmarginsandblock{1in}{*}{*}
+\setulmarginsandblock{1in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\setheaderspaces{*}{2\onelineskip}{*}
+\DoubleSpacing
+\setlength{\parindent}{2em}
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+\checkandfixthelayout
+\tightlists % use \firmlists if vertical gaps is wanted
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
 \newcommand{\makefrontmatter}{
 \pagenumbering{roman}
 \pagestyle{empty}
@@ -73,14 +88,6 @@ this is the second line}
 \gdef\@advisor{Dr. Main Advisor}
 \gdef\@department{Department of Some Name}
 \gdef\@departmenthead{Dr. Department Head}
-\setpagecc{11in}{8.5in}{*}
-\setlrmarginsandblock{1in}{*}{*}
-\setulmarginsandblock{1in}{*}{*}
-\setheadfoot{\onelineskip}{2\onelineskip}
-\setheaderspaces{*}{2\onelineskip}{*}
-\DoubleSpacing
-\setlength{\parindent}{2em}
-\checkandfixthelayout
 
 \DeclareRobustCommand{\invpyr}[1]{
 \vbox{
@@ -386,20 +393,7 @@ mu$}\hfill
 \oldbibliography{#1}
 \end{SingleSpace}
 }
-\AtBeginDocument{
-\tightlists
-} %\firmlists
-\AtBeginDocument{
-\tolerance=1
-\emergencystretch=\maxdimen
-\hyphenpenalty=10000
-\hbadness=10000
-}
 
-\AtBeginDocument{
-\let\@afterindentfalse\@afterindenttrue
-\@afterindenttrue
-}
 \AtBeginDocument{
 \@ifpackageloaded{pdflscape}{
 \newcommand{\Lpagenumber}{\ifdim\textwidth=\linewidth\else\bgroup
