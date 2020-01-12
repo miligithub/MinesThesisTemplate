@@ -28,11 +28,11 @@ in the example below.
 		\includegraphics[width=.9\linewidth]{fig3} 
 		\caption{Continues figures in landscape mode. (first)}
 	\end{figure}
-
+	
 	\begin{figure}[h]
-	\centering
-	\includegraphics[width=\linewidth]{fig4}
-	\caption{Continues figures in landscape mode. (second)}
+		\centering
+		\includegraphics[width=\linewidth]{fig4}
+		\caption{Continues figures in landscape mode. (second)}
 	\end{figure}
 \end{landscape}
 
@@ -137,13 +137,13 @@ this document.
 	\centering
 	\begin{tabular}{>{\ttfamily}m{0.1\textwidth}m{0.2\textwidth}m{0.2\textwidth}} % use | to add vertical lines
 		\hline % use hline instead of toprule/midrule/bottomrule
-		Command          & A Number & Comments\\
+		Command           & A Number & Comments         \\
 		\hline
-		{\char'134}author & 100      & Author            \\
-		{\char'134}table & 300      & For tables        \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
 		{\char'134}table* & 400      & For wider tables \\
-		{\char'134}author & 100      & Author            \\
-		{\char'134}table & 300      & For tables        \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
 		{\char'134}table* & 400      & For wider tables \\
 		\hline
 	\end{tabular}
@@ -165,7 +165,7 @@ in the printed output of this document.
 	\centering
 	\begin{tabular}{cclccr}
 		\toprule
-		Command & A Number & Comments & Command  & A Number & Comments         \\
+		Command                    & A Number & Comments         & Command                    & A Number & Comments         \\
 		\midrule
 		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
 		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
@@ -180,7 +180,7 @@ in the printed output of this document.
 	\begin{table}[h]
 		\caption{A table in landscape mode}
 		\label{tab:landscape}
-%		\centering
+		%		\centering
 		\begin{tabular}{cclccrlcr}
 			\toprule
 			Command                    & A Number & Comments         & Command                    & A Number & Comments         & Command                    & A Number & Comments         \\
@@ -203,3 +203,231 @@ in the printed output of this document.
 \end{landscape}
 
 
+%========================================
+%              Section               
+%======================================== 
+\section{Section of Long Tables}
+\lipsum[6]
+\begin{SingleSpace}
+	\begin{longtable}{>{\ttfamily}m{0.1\textwidth}m{0.2\textwidth}m{0.4\textwidth}} 
+		\caption{Example of long table cross multiple pages}
+		\label{tab:long} \\
+				
+		\toprule
+		Command           & A Number & Comments         \\				
+		\midrule
+		
+		\endfirsthead
+				
+		\normalfont\tablename~\thetable{}~Continued\\
+		\toprule
+		Command           & A Number & Comments         \\				
+		\midrule
+		
+		\endhead
+				
+		\bottomrule		
+		\endfoot
+		
+		\endlastfoot
+			
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+		{\char'134}author & 100      & Author           \\
+		{\char'134}table  & 300      & For tables       \\
+		{\char'134}table* & 400      & For wider tables \\
+				
+		\bottomrule
+	\end{longtable}
+\end{SingleSpace}
+
+\lipsum[4]
+
+\begin{landscape}
+	\SingleSpacing
+
+	\begin{longtable}{p{5em}clccrlcr}
+		\caption{A long long table in landscape mode}
+		\label{tab:landscapelong}\\
+		
+		\toprule
+		Command                    & A Number & Comments         & Command                    & A Number & Comments         & Command                    & A Number & Comments         \\
+		\midrule
+		
+		\endfirsthead
+		
+		\normalfont\tablename~\thetable{}~Continued\\
+		\toprule
+		Command                    & A Number & Comments         & Command                    & A Number & Comments         & Command                    & A Number & Comments         \\
+		\midrule
+		
+		\endhead
+		
+		\bottomrule		
+		\endfoot
+		
+		\endlastfoot
+		
+		
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+		\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+		\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+		\bottomrule
+	
+	\end{longtable}
+	
+\end{landscape}
