@@ -378,7 +378,12 @@ mu$}\hfill
 {.1ex} % skip above heading
 {.1ex} % heading between title and text
 {\normalfont\normalsize\bfseries}}
+\AtBeginDocument{
+\@ifpackageloaded{longtable}{
+\setlength{\LTcapwidth}{\linewidth}
 
+}{}
+}
 \AtBeginDocument{
 \@ifpackageloaded{natbib}{
 \setlength{\bibhang}{\parindent}
@@ -399,9 +404,11 @@ mu$}\hfill
 }
 \@ifpackageloaded{everypage}{
 \AddEverypageHook{\Lpagenumber}%
-\newenvironment{pdflandscape}{
-\begin{landscape}\pagestyle{empty}\begin{vplace}}{
-\end{vplace}\end{landscape}
+\let\oldlandscape=\landscape
+\let\endoldlandscape=\endlandscape
+\renewenvironment{landscape}{
+\oldlandscape\pagestyle{empty}\begin{vplace}}{
+\end{vplace}\endoldlandscape
 \pagestyle{plain}}
 }{}
 }{} 

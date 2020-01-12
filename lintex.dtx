@@ -173,7 +173,7 @@
 % 
 % \DescribeMacro{\paragraph}
 %
-% \DescribeEnv{pdflandscape}
+% \DescribeEnv{landscape}
 % Try the |lscape| package: |lscape.sty| Produce landscape pages 
 % in a (mainly) portrait document. This modifies the margins and
 % rotates the page contents but not the page number. 
@@ -186,9 +186,9 @@
 % Pages with this attribute will be displayed 
 % in landscape orientation by conforming PDF viewers:
 % \begin{quote}
-%   |begin{pdflandscape}|\\
+%   |begin{landscape}|\\
 %				\emph{Here goes the figure or table...}\\
-% 	|\end{pdflandscape}|
+% 	|\end{landscape}|
 % \end{quote}
 
 %
@@ -209,12 +209,12 @@
 %
 % ^^A======================= Frequently Asked Questions =======================
 % \section{Frequently Asked Questions}
-% Blank pages. If you use |pdflandscape| and got extra blank pages,
+% Blank pages. If you use |landscape| and got extra blank pages,
 % it if mostly because your figure is too large. You need to resize
 % the height or width of the figure. For example, instead of 
 % |\includegraphics[width=\linewidth]{FigureName}|,
 % you should use 
-% |\includegraphics[width=.6\linewidth]{FigureName}|.
+% |\includegraphics[width=.6\linewidth]{FigureName}|
 
 % ^^A======================= Code and Commentary =======================
 % \StopEventually{\PrintIndex}
@@ -885,7 +885,18 @@ this is the second line}
 %    \end{macrocode}
 % \end{macro}
 %
-
+%
+%
+% \begin{environment}{longtable}
+%    \begin{macrocode}
+\AtBeginDocument{
+	\@ifpackageloaded{longtable}{
+		\setlength{\LTcapwidth}{\linewidth} 
+		
+	}{}
+}
+%    \end{macrocode}
+% \end{environment}
 %
 % \subsubsection{Back Matter}
 % \label{sec:imp_code_back}
@@ -907,8 +918,8 @@ this is the second line}
 %    \end{macrocode}
 %
 % 
-% \begin{environment}{pdflandscape}
-% We define the |pdflandscape| to 
+% \begin{environment}{landscape}
+% We define the |landscape| to 
 % handle the page numbering in landscape mode.	
 %    \begin{macrocode}
 \AtBeginDocument{
@@ -925,9 +936,11 @@ this is the second line}
 		}
 		\@ifpackageloaded{everypage}{
 			\AddEverypageHook{\Lpagenumber}%
-			\newenvironment{pdflandscape}{
-				\begin{landscape}\pagestyle{empty}\begin{vplace}}{
-				\end{vplace}\end{landscape}
+			\let\oldlandscape=\landscape
+			\let\endoldlandscape=\endlandscape
+			\renewenvironment{landscape}{
+				\oldlandscape\pagestyle{empty}\begin{vplace}}{
+				\end{vplace}\endoldlandscape
 				\pagestyle{plain}}
 			}{}
 		}{}	
