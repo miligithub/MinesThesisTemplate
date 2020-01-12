@@ -36,8 +36,8 @@
 % ^^A Driver code 
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage{hyperref}
-\EnableCrossrefs
+\usepackage{hypdoc}
+\DisableCrossrefs
 \CodelineIndex
 \RecordChanges
 \begin{document}
@@ -46,7 +46,9 @@
 %</driver>
 % \fi
 %
-% ^^A======================= Code verification =======================
+% ^^A======================================================
+% ^^A                   Code verification                              
+% ^^A======================================================
 % \CheckSum{0}
 %
 % \CharacterTable
@@ -65,32 +67,50 @@
 %   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %   Right brace   \}     Tilde         \~}
 %
-% ^^A======================= Miscellaneous initialization =======================
+% ^^A======================================================
+% ^^A             Miscellaneous Initialization                               
+% ^^A======================================================
 % \changes{v1.0}{2020/01/10}{Initial version}
 % \GetFileInfo{lintex.dtx}
+% \DoNotIndex{\#,\$,\%,\&,\@,\\,\{,\},\^,\_,\~,\ }
+% \DoNotIndex{\@ne}
+% \DoNotIndex{\advance,\begingroup,\catcode,\closein}
+% \DoNotIndex{\closeout,\day,\def,\gdef,\edef,\else,\empty,\endgroup}
+% \DoNotIndex{\newcommand,\newenvironment}
 %
-% ^^A======================= User documentation =======================
+% ^^A======================================================
+% ^^A                 User documentation                               
+% ^^A======================================================
 % \title{The \textsf{mines-thesis} class
 % \thanks{This document corresponds to 
 %     \textsf{mines-thesis}~\fileversion, 
 %     dated~\filedate.}}
 % \author{Ming Li\thanks{\href{mailto:mili@mymail.mines.edu}{\texttt{mili@mymail.mines.edu}}},\quad Jian Lin}
+%
 % \maketitle
+%
 % \begin{abstract}
 %   This package provides a class for graduate students at Colorado
 %   School of Mines to prepare their theses and dissertations.
 % \end{abstract}
-% \tableofcontents
 %
+% \tableofcontents
 % \newpage
 %
-% \section{User's guide}
+% ^^A======================================================
+% ^^A                    User's Guide                               
+% ^^A======================================================
+% \section{User's Guide}
 % \label{sec:ug}
-% 
+% ^^A======================================================
+% ^^A                    Installation                               
+% ^^A======================================================
 % \subsection{Installation}
 % \label{sec:ug_install}
-%
-% \subsection{Invocation and options}
+% ^^A======================================================
+% ^^A               Invocation and Options                              
+% ^^A======================================================
+% \subsection{Invocation and Options}
 % \label{sec:ug_invoke}
 % \DescribeMacro{\documentclass} The \textsf{mines-thesis} class 
 % is invoked in the standard fashion. 
@@ -107,6 +127,9 @@
 % The default options are \textsf{letterpaper,12pt}. 
 % \textbf{TODO review? oneside?  onecolumn,draft,openany}
 %
+% ^^A======================================================
+% ^^A                Preprogrammed Formats                               
+% ^^A======================================================
 % \subsection{Preprogrammed Formats}
 % \label{sec:ug_preprog}
 %
@@ -163,7 +186,6 @@
 % commentted out until you need the front matter generated.
 %  
 % \DescribeMacro{\chapter}
-
 %  
 % \DescribeMacro{\section}
 % 
@@ -206,8 +228,9 @@
 
 %
 % \newpage
-%
-% ^^A======================= Frequently Asked Questions =======================
+% ^^A======================================================
+% ^^A                Frequently Asked Questions                               
+% ^^A======================================================
 % \section{Frequently Asked Questions}
 % Blank pages. If you use |landscape| and got extra blank pages,
 % it if mostly because your figure is too large. You need to resize
@@ -215,35 +238,38 @@
 % |\includegraphics[width=\linewidth]{FigureName}|,
 % you should use 
 % |\includegraphics[width=.6\linewidth]{FigureName}|
-
-% ^^A======================= Code and Commentary =======================
+%
+% ^^A======================================================
+% ^^A                Code and Commentary                             
+% ^^A======================================================
 % \StopEventually{\PrintIndex}
 %
 % \section{Implementation}
 % \label{sec:imp}
+% ^^A======================================================
+% ^^A                   Initial Code                             
+% ^^A======================================================
+% \subsection{Initial Code}
+% These packages are useful when writing this |.dtx| file.
+% The \cs{ifthenelse} macro controls many conditional logic commands.
+% The \cs{collect@body} macro in |amsmath| is defined using \cs{def}. 
+% We load |environ| to access the \cs{long} version of this command.
 %    \begin{macrocode}
 \RequirePackage{ifthen} 
-%    \end{macrocode}
-%
-% The \cs{collect@body} macro in |amsmath| is defined using \cs{def}.  We load
-% |environ| to access the \cs{long} version of this command
-%    \begin{macrocode}
 \RequirePackage{environ}
 %    \end{macrocode}
-%
 % ^^A %    \begin{macrocode}
 % ^^A \RequirePackage{pdflscape,everypage}
 % ^^A %    \end{macrocode}
 %
+%
+% \subsubsection{Declaration of Options}
+% \label{sec:imp_option}
 % The |review| boolean is defined here for use with the
 % class options.
-%
 %    \begin{macrocode}
 \newboolean{review}
 %    \end{macrocode}
-%
-% \subsection{Declaration of Options}
-% \label{sec:imp_option}
 %
 %    \begin{macrocode}
 \DeclareOption{draft}{\setboolean{review}{true}}
@@ -252,47 +278,32 @@
 \DeclareOption*{
 	\PassOptionsToClass{\CurrentOption}{memoir}
 }
+%    \end{macrocode}
+%    \begin{macrocode}
 \ExecuteOptions{final}
 %    \end{macrocode}
 %
-% \subsection{Execution of Options}
+% \subsubsection{Execution of Options}
 % \label{sec:imp_option_exec}
-%
 %    \begin{macrocode}
 \ProcessOptions\relax
 %    \end{macrocode}
 %
-% \subsection{Package Loading}
+% \subsubsection{Package Loading}
 % \label{sec:imp_package}
-%
 %    \begin{macrocode}
 \LoadClass[oneside,letterpaper]{memoir}
 %    \end{macrocode}
 %
+% ^^A======================================================
+% ^^A                      Main Code                             
+% ^^A======================================================
 % \subsection{Main Code}
 % \label{sec:imp_code}
-%
-% Prevent LaTeX from hyphenating the entire document
-\tolerance=1
-\emergencystretch=\maxdimen
-\hyphenpenalty=10000
-\hbadness=10000
-%
-%\begin{macro}{\if@afterindent}
-%	\LaTeX\ uses the switch |\if@afterindent| to decide whether to indent
-%	after a section heading. We just need to make sure that this is always
-%	true.
-%    \begin{macrocode}
-%
-%<*class>		
-\let\@afterindentfalse\@afterindenttrue
-\@afterindenttrue
-%</class>		
-%		
-%    \end{macrocode}
-%\end{macro}
-%
-% \subsubsection{Commands to define parameters for the front matter}
+% ^^A======================================================
+% ^^A                      Front Matter                             
+% ^^A======================================================
+% \subsubsection{Front Matter}
 % \label{sec:imp_code_front_param}
 %    \begin{macrocode}
 \newboolean{auto} % for auto pyramid
@@ -664,10 +675,11 @@ this is the second line}
 \renewcommand{\cftdotsep}{1}
 % ^^A no extra space before the entry, or in the LoF/LoT
 \setlength{\cftbeforechapterskip}{\z@ plus \z@}
-\renewcommand{\insertchapterspace}{
-	\addtocontents{lof}{\protect\addvspace{5pt}} % previous default 10pt 
-  \addtocontents{lot}{\protect\addvspace{5pt}}
-}
+\renewcommand{\insertchapterspace}{}
+% ^^A \renewcommand{\insertchapterspace}{
+% ^^A 	\addtocontents{lof}{\protect\addvspace{5pt}} % previous default 10pt 
+% ^^A   \addtocontents{lot}{\protect\addvspace{5pt}}
+% ^^A }
 %    \end{macrocode}
 %
 %
@@ -760,6 +772,7 @@ this is the second line}
 %    \begin{macrocode}
 \renewcommand{\cftfigurename}{\figurename\space}
 \renewcommand{\cfttablename}{\tablename\space}
+\setlength{\cftparskip}{-\parskip}
 %    \end{macrocode}
 %
 % \begin{macro}{\l@figure}
@@ -901,21 +914,66 @@ this is the second line}
 % \subsubsection{Back Matter}
 % \label{sec:imp_code_back}
 %
+% Change the indent of References if |natbib| packadge is loaded.
+%    \begin{macrocode}
+\AtBeginDocument{
+	\@ifpackageloaded{natbib}{
+		\setlength{\bibhang}{\parindent}
+		\renewcommand{\bibpreamble}{\vspace{\parskip}}
+		}{}
+}
+%    \end{macrocode}
+% \begin{macro}{\bibliography}
+%    \begin{macrocode}	
+\let\oldbibliography=\bibliography
+\renewcommand{\bibliography}{\SingleSpacing\oldbibliography}
+%    \end{macrocode}
+% \end{macro}
 %
 % \subsubsection{Others}
 % \label{sec:imp_code_others}
 %
 %
 % 
-% Change the indent of References if |natbib| packadge is loaded.
+%
+%
+% \begin{macro}{\firmlist}
+% \begin{macro}{\tightlist}
+% These two macros can be used at the start of a list environment to
+% reduce the vertical gaps. \cs{tightlist} removes all interior spaces
+% while \cs{firmlist} only removes some.
 %    \begin{macrocode}
 \AtBeginDocument{
-	\@ifpackageloaded{natbib}{
-		\setlength{\bibhang}{\parindent}
-		\renewcommand{\bibpreamble}{\vspace{\baselineskip}}
-		}{}
-}
+	\firmlists 
+} %\tightlists
+%    \end{macrocode} 
+% \end{macro}
+% \end{macro}
+%
+% Prevent LaTeX from hyphenating the entire document
+%    \begin{macrocode}
+\AtBeginDocument{
+	\tolerance=1
+	\emergencystretch=\maxdimen
+	\hyphenpenalty=10000
+	\hbadness=10000
+} 
+%    \end{macrocode} 
+
+%
+%\begin{macro}{\if@afterindent}
+%	\LaTeX\ uses the switch |\if@afterindent| to decide whether to indent
+%	after a section heading. We just need to make sure that this is always
+%	true.
+%    \begin{macrocode}
+\AtBeginDocument{
+	\let\@afterindentfalse\@afterindenttrue
+	\@afterindenttrue
+} 
+%	
+%		
 %    \end{macrocode}
+%\end{macro}
 %
 % 
 % \begin{environment}{landscape}

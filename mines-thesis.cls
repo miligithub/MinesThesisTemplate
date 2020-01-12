@@ -28,8 +28,6 @@
 [2020/01/10 v1.0 Colorado School of Mines dissertation/thesis class]
 
 
-
-
 \RequirePackage{ifthen}
 \RequirePackage{environ}
 \newboolean{review}
@@ -42,12 +40,6 @@
 \ExecuteOptions{final}
 \ProcessOptions\relax
 \LoadClass[oneside,letterpaper]{memoir}
-\tolerance=1
-\emergencystretch=\maxdimen
-\hyphenpenalty=10000
-\hbadness=10000
-\let\@afterindentfalse\@afterindenttrue
-\@afterindenttrue
 \newboolean{auto} % for auto pyramid
 \setboolean{auto}{false}
 \def\year#1{\gdef\@year{#1}}
@@ -261,10 +253,7 @@ Professor and Head\\
 \renewcommand{\cftappendixname}{\appendixname\space}
 \renewcommand{\cftdotsep}{1}
 \setlength{\cftbeforechapterskip}{\z@ plus \z@}
-\renewcommand{\insertchapterspace}{
-\addtocontents{lof}{\protect\addvspace{5pt}} % previous default 10pt
-  \addtocontents{lot}{\protect\addvspace{5pt}}
-}
+\renewcommand{\insertchapterspace}{}
 \AtBeginDocument{
 \@ifpackageloaded{hyperref}{
 \settocpreprocessor{chapter}{%
@@ -318,6 +307,7 @@ mu$}\hfill
 }
 \renewcommand{\cftfigurename}{\figurename\space}
 \renewcommand{\cfttablename}{\tablename\space}
+\setlength{\cftparskip}{-\parskip}
 \let\oldl@figure=\l@figure
 \renewcommand{\l@figure}{\SingleSpacing\oldl@figure}
 \let\oldl@table=\l@table
@@ -387,8 +377,24 @@ mu$}\hfill
 \AtBeginDocument{
 \@ifpackageloaded{natbib}{
 \setlength{\bibhang}{\parindent}
-\renewcommand{\bibpreamble}{\vspace{\baselineskip}}
+\renewcommand{\bibpreamble}{\vspace{\parskip}}
 }{}
+}
+\let\oldbibliography=\bibliography
+\renewcommand{\bibliography}{\SingleSpacing\oldbibliography}
+\AtBeginDocument{
+\firmlists
+} %\tightlists
+\AtBeginDocument{
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+}
+
+\AtBeginDocument{
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
 }
 \AtBeginDocument{
 \@ifpackageloaded{pdflscape}{
