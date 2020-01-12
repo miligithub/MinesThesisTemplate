@@ -399,8 +399,8 @@ mu$}\hfill
 \@ifpackageloaded{everypage}{
 \AddEverypageHook{\Lpagenumber}%
 \newenvironment{pdflandscape}{
-\begin{landscape}\pagestyle{empty}}{
-\end{landscape}
+\begin{landscape}\pagestyle{empty}\begin{vplace}}{
+\end{vplace}\end{landscape}
 \pagestyle{plain}}
 }{}
 }{} 

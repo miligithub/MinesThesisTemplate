@@ -37,6 +37,13 @@ Figure captions are placed {\itshape below} the figure.
 		\caption{Example of a figure in landscape mode.}
 	\end{figure}
 \end{pdflandscape}
+\begin{pdflandscape} % Require pdflscape and everypage packadge
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.9\linewidth]{fig6}
+		\caption{Example of a figure in landscape mode. Use \texttt{$\backslash$centering} to center the image}
+	\end{figure}
+\end{pdflandscape}
 
 
 
@@ -129,31 +136,29 @@ in the printed output of this document.
 
 
 \begin{pdflandscape}
-	\begin{vplace}
-		\begin{table}[h]
-			\caption{A table in landscape mode, Use \texttt{vplace} to place table in the center}
-			\label{tab:landscape}
-			\centering
-			\begin{tabular}{cclccrlcr}
-				\toprule
-				Command                    & A Number & Comments         & Command                    & A Number & Comments         & Command                    & A Number & Comments         \\
-				\midrule
-				\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
-				\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
-				\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
-				\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
-				\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
-				\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
-				\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
-				\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
-				\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
-				\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
-				\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
-				\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
-				\bottomrule
-			\end{tabular}
-		\end{table}
-	\end{vplace}
+	\begin{table}[h]
+		\caption{A table in landscape mode}
+		\label{tab:landscape}
+%		\centering
+		\begin{tabular}{cclccrlcr}
+			\toprule
+			Command                    & A Number & Comments         & Command                    & A Number & Comments         & Command                    & A Number & Comments         \\
+			\midrule
+			\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+			\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+			\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+			\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+			\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+			\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+			\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+			\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+			\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+			\texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           & \texttt{{\char'134}author} & 100      & Author           \\
+			\texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       & \texttt{{\char'134}table}  & 300      & For tables       \\
+			\texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables & \texttt{{\char'134}table*} & 400      & For wider tables \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
 \end{pdflandscape}
 
 
