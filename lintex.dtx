@@ -236,6 +236,11 @@
 % you should use 
 % |\includegraphics[width=.6\linewidth]{FigureName}|
 %
+% When using line breaks in thesis title, chapter title, 
+% or section titles, use |\protect\\| instead of |\\|.
+% This is because these titles use both |center| environment 
+% and \cs{MakeTextUppercase}. \cs{MakeLowercase} are robust 
+% but they have moving arguments (see \cs{protect}).
 % ^^A======================================================
 % ^^A                Code and Commentary                             
 % ^^A======================================================
@@ -383,6 +388,7 @@
 % ^^A======================================================
 % \subsubsection{Front Matter}
 % \label{sec:imp_code_front}
+%
 % \begin{macro}{\makefrontmatter}
 % The \cs{makefrontmatter} will generate all
 % front matter pages: \cs{maketitlepage} for Title Page, 
@@ -393,56 +399,48 @@
 % (List of Figures (lof) \& List of Tables (lot)),
 % \cs{makeacknowledgepage} for  Acknowledgments,
 % and \cs{makededicationpage} for Dedication. 
-%    \begin{macrocode}
-\newcommand{\makefrontmatter}{
-	\pagenumbering{roman}
-	\pagestyle{empty}
-	\maketitlepage 
-	\makecopyrightpage
-	\pagestyle{plain}
-	\setcounter{page}{2}
-	\makesubmittalpage
-	\makeabstractpage
-	\makecft
-	\makeacknowledgepage
-	\makededicationpage
-	\pagenumbering{arabic}
-	\setcounter{page}{1}
-}
-%    \end{macrocode}
-% \end{macro}
-
-%    \begin{macrocode}
-\newboolean{auto} % for auto pyramid
-\setboolean{auto}{false}
-%    \end{macrocode}
 %
+%
+% First We define the macros for the informations 
+% and set their default values.
+% \begin{macro}{\title}
+% \begin{macro}{\author}
+% \begin{macro}{\year}
+% \begin{macro}{\degree}
+% \begin{macro}{\advisor}
+% \begin{macro}{\coadvisor}
+% \begin{macro}{\department}
+% \begin{macro}{\departmenthead}		
 %    \begin{macrocode}
-\def\year#1{\gdef\@year{#1}}
+\renewcommand{\year}[1]{\gdef\@year{#1}}
 \newcommand{\degree}[2]{\gdef\@degreelv{#1}\gdef\@degreename{#2}}
-\def\advisor#1{\gdef\@advisor{#1}}
-\def\coadvisor#1{\gdef\@coadvisor{#1}}
-\def\department#1{\gdef\@department{#1}}
-\def\departmenthead#1{\gdef\@departmenthead{#1}}
+\newcommand{\advisor}[1]{\gdef\@advisor{#1}}
+\newcommand{\coadvisor}[1]{\gdef\@coadvisor{#1}}
+\newcommand{\department}[1]{\gdef\@department{#1}}
+\newcommand{\departmenthead}[1]{\gdef\@departmenthead{#1}}
 %    \end{macrocode}
-%
-% The following are the initial values for some macros 
-% that provide info.
-%
+% ^^A Co Advisor is not required
+% ^^A \gdef\@coadvisor{Dr. Co Advisor}
 %    \begin{macrocode}
-\gdef\@author{Your Name} 
-\gdef\@title{This is the first line of a  medium length title, 
-this is the second line} 
+\gdef\@author{Student Name} 
+\gdef\@title{This is the first line of a  medium length title,
+\protect\\ this is the second line} 
 \gdef\@year{2020} 
 \gdef\@degreelv{Doctor of Philosophy}
 \gdef\@degreename{Computer Science}
 \gdef\@advisor{Dr. Main Advisor}
-% ^^A \gdef\@coadvisor{Dr. Co Advisor}
-\gdef\@department{Department of Some Name}
+\gdef\@department{Department of XXXXX}
 \gdef\@departmenthead{Dr. Department Head}
 %    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
 %
-
 %
 % \begin{macro}{\maketitlepage}
 % The thesis title must be in all upper case letters,
@@ -450,7 +448,10 @@ this is the second line}
 % be in an inverted pyramid shape and the font size needs 
 % to be the same size as all other font in the main text
 % (i.e. do not make the font size larger).
-%
+%    \begin{macrocode}
+\newboolean{auto} % for auto pyramid
+\setboolean{auto}{false}
+%    \end{macrocode}
 %    \begin{macrocode}
 \DeclareRobustCommand{\invpyr}[1]{
 	\vbox{
@@ -485,15 +486,15 @@ this is the second line}
 		\@author
 	\end{center}
 	\clearpage
-}
+} % end of \maketitlepage
 %    \end{macrocode}
 % \end{macro}
+%
 %
 % \begin{macro}{\makecopyrightpage}
 % Copyright Page. This is an optional page that
 % follows the title page. No displayed page number,
 % centered upper and lower case text.
-%
 %    \begin{macrocode}
 \newcommand{\makecopyrightpage}{
 	\clearpage
@@ -503,18 +504,16 @@ this is the second line}
 		All~Rights~Reserved
 	\end{vplace}
 	\clearpage
-}
+} % end of \makecopyrightpage
 %    \end{macrocode}
 % \end{macro}
-
+%
 % \begin{macro}{\makesubmittalpage}
 % Submittal Page. This is a required page that displays
 % the Roman numeral ii page number. Beginning with this page, 
 % front matter Roman numeral page numbers 
 % are centered 1/2 inch from the bottom edge of page. 
 % All signatures are required before the final thesis format review.
-%
-%
 %    \begin{macrocode}
 \newcommand{\makesubmittalpage}{
 	\clearpage
@@ -522,75 +521,45 @@ this is the second line}
 	Trustees of the Colorado School of Mines in partial 
 	fulfillment of the requirements for the degree of
 	{\@degreelv} ({\@degreename}).
-						
 	\vspace{2em}
 	\begin{flushleft}
 		Golden, Colorado\\[.5em]			
 		Date \underline{\hspace{2in}}
 	\end{flushleft}
-							
 	\vspace{.5em}
 	\begin{flushright}
 		Signed: \underline{\hspace{2in}}\\
 		{\@author}\\[2em]
-												
 		Signed: \underline{\hspace{2in}}\\
 		\begin{SingleSpace}
 			{\@advisor}\\
 			Thesis Advisor\\[2em]
 		\end{SingleSpace}
-												
-												
-		\@ifundefined{@coadvisor}
-		{
+		\@ifundefined{@coadvisor}{
 			\vspace{2.5em}
-		}
-		{
+		}{
 			Signed: \underline{\hspace{2in}}\\
 			\begin{SingleSpace}
 				{\@coadvisor}\\
 				Thesis Advisor	
 			\end{SingleSpace}
-		}
-												
+		}					
 	\end{flushright}
-						
 	\begin{flushleft}
 		Golden, Colorado\\[.5em]			
 		Date \underline{\hspace{2in}}
 	\end{flushleft}
-					
 	\vspace{.5em}
 	\begin{flushright}
 		Signed: \underline{\hspace{2in}}\\
-										
 		\begin{SingleSpace}
 			{\@departmenthead}\\		
 			Professor and Head\\
 			{\@department}	
 		\end{SingleSpace}
-										
 	\end{flushright}
-						
 	\clearpage
-}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{environment}{abstract}
-%  We redifine the |abstract| environment.
-%  First, we need to save the text
-%    \begin{macrocode}
-\renewenvironment{abstract}{\Collect@Body\@saveabstract}{}
-%    \end{macrocode}
-% \end{environment}
-%
-% \begin{macro}{\@saveabstract}
-%   And saving the abstract
-%    \begin{macrocode}
-\newcommand{\@saveabstract}[1]{
-	\long\gdef\@abstract{#1}
-}
+} % end of \makesubmittalpage
 %    \end{macrocode}
 % \end{macro}
 %
@@ -599,7 +568,18 @@ this is the second line}
 % 1 keyboard return below 1 inch top margin and
 % in ALL UPPER CASE LETTERS. 
 % Each paragraph should be indented.
-%
+% \begin{environment}{abstract}
+%  We redifine the |abstract| environment to save the text.
+% \begin{macro}{\@saveabstract}
+%    \begin{macrocode}
+\newcommand{\@saveabstract}[1]{\long\gdef\@abstract{#1}}
+%    \end{macrocode}
+% \end{macro}
+%    \begin{macrocode}
+\renewenvironment{abstract}{\Collect@Body\@saveabstract}{} 
+%    \end{macrocode}
+% \end{environment}
+% Abstract will show in the table of contents.
 %    \begin{macrocode}
 \newcommand{\makeabstractpage}{
 	\clearpage	
@@ -607,32 +587,28 @@ this is the second line}
 	\@abstract
 	\addcontentsline{toc}{chapter}{\abstractname}
 	\clearpage
-}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{environment}{acknowledgment}
-%  We difine the |acknowledgment| environment.
-%  First, we need to save the text
-%    \begin{macrocode}
-\newenvironment{acknowledgment}{\Collect@Body\@saveacknowledgments}{}
-%    \end{macrocode}
-% \end{environment}
-%
-% \begin{macro}{\@saveacknowledgments}
-%   And saving the acknowledgments
-%    \begin{macrocode}
-\newcommand{\@saveacknowledgments}[1]{
-	\long\gdef\@acknowledgments{#1}
-}
+} % end of \makeabstractpage
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\makeacknowledgepage}
 % ACKNOWLEDGMENTS (Title) is centered horizontally, 
 % 1 keyboard return below 1 inch top margin and in 
-% ALL UPPER CASE LETTERS
-%
+% ALL UPPER CASE LETTERS.
+% \begin{environment}{acknowledgment}
+%  We difine the |acknowledgment| environment.
+%  First, we need to save the text.
+% \begin{macro}{\@saveacknowledgments}
+%    \begin{macrocode}
+\newcommand{\@saveacknowledgments}[1]{
+	\long\gdef\@acknowledgments{#1}}
+%    \end{macrocode}
+% \end{macro}
+%    \begin{macrocode}
+\newenvironment{acknowledgment}{\Collect@Body\@saveacknowledgments}{}
+%    \end{macrocode}
+% \end{environment}
+% Acknowledgment page is not required.
 %    \begin{macrocode}
 \newcommand{\makeacknowledgepage}{
 	\@ifundefined{@acknowledgments}{}{
@@ -640,9 +616,8 @@ this is the second line}
 		\chapter*{Acknowledgments}
 		\@acknowledgments
 		\addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
-		\clearpage
-	}
-}
+		\clearpage}
+} % end of \makeacknowledgepage
 %    \end{macrocode}
 % \end{macro}
 %
@@ -854,8 +829,25 @@ this is the second line}
 \renewcommand{\l@table}{\SingleSpacing\oldl@table}
 %    \end{macrocode}
 % \end{macro}
+%    \begin{macrocode}
+\newcommand{\makefrontmatter}{
+	\pagenumbering{roman}
+	\pagestyle{empty}
+	\maketitlepage 
+	\makecopyrightpage
+	\pagestyle{plain}
+	\setcounter{page}{2}
+	\makesubmittalpage
+	\makeabstractpage
+	\makecft
+	\makeacknowledgepage
+	\makededicationpage
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+} % end of \makefrontmatter
+%    \end{macrocode}
+% \end{macro}
 %
-
 %
 %
 % \subsubsection{Main Body}

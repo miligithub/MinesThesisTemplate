@@ -55,40 +55,23 @@
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
-\newcommand{\makefrontmatter}{
-\pagenumbering{roman}
-\pagestyle{empty}
-\maketitlepage
-\makecopyrightpage
-\pagestyle{plain}
-\setcounter{page}{2}
-\makesubmittalpage
-\makeabstractpage
-\makecft
-\makeacknowledgepage
-\makededicationpage
-\pagenumbering{arabic}
-\setcounter{page}{1}
-}
-
-\newboolean{auto} % for auto pyramid
-\setboolean{auto}{false}
-\def\year#1{\gdef\@year{#1}}
+\renewcommand{\year}[1]{\gdef\@year{#1}}
 \newcommand{\degree}[2]{\gdef\@degreelv{#1}\gdef\@degreename{#2}}
-\def\advisor#1{\gdef\@advisor{#1}}
-\def\coadvisor#1{\gdef\@coadvisor{#1}}
-\def\department#1{\gdef\@department{#1}}
-\def\departmenthead#1{\gdef\@departmenthead{#1}}
-\gdef\@author{Your Name}
+\newcommand{\advisor}[1]{\gdef\@advisor{#1}}
+\newcommand{\coadvisor}[1]{\gdef\@coadvisor{#1}}
+\newcommand{\department}[1]{\gdef\@department{#1}}
+\newcommand{\departmenthead}[1]{\gdef\@departmenthead{#1}}
+\gdef\@author{Student Name}
 \gdef\@title{This is the first line of a  medium length title,
-this is the second line}
+\protect\\ this is the second line}
 \gdef\@year{2020}
 \gdef\@degreelv{Doctor of Philosophy}
 \gdef\@degreename{Computer Science}
 \gdef\@advisor{Dr. Main Advisor}
-\gdef\@department{Department of Some Name}
+\gdef\@department{Department of XXXXX}
 \gdef\@departmenthead{Dr. Department Head}
-
+\newboolean{auto} % for auto pyramid
+\setboolean{auto}{false}
 \DeclareRobustCommand{\invpyr}[1]{
 \vbox{
 \vspace{10pt}
@@ -122,7 +105,7 @@ by\\
 \@author
 \end{center}
 \clearpage
-}
+} % end of \maketitlepage
 \newcommand{\makecopyrightpage}{
 \clearpage
 \begin{vplace}[0.8]
@@ -131,89 +114,72 @@ Copyright~by~\@author~\@year\\
 All~Rights~Reserved
 \end{vplace}
 \clearpage
-}
-
+} % end of \makecopyrightpage
 \newcommand{\makesubmittalpage}{
 \clearpage
 A thesis submitted to the Faculty and the Board of
 Trustees of the Colorado School of Mines in partial
 fulfillment of the requirements for the degree of
 {\@degreelv} ({\@degreename}).
-
 \vspace{2em}
 \begin{flushleft}
 Golden, Colorado\\[.5em] 
 Date \underline{\hspace{2in}}
 \end{flushleft}
-
 \vspace{.5em}
 \begin{flushright}
 Signed: \underline{\hspace{2in}}\\
 {\@author}\\[2em]
-
 Signed: \underline{\hspace{2in}}\\
 \begin{SingleSpace}
 {\@advisor}\\
 Thesis Advisor\\[2em]
 \end{SingleSpace}
-
-\@ifundefined{@coadvisor}
-{
+\@ifundefined{@coadvisor}{
 \vspace{2.5em}
-}
-{
+}{
 Signed: \underline{\hspace{2in}}\\
 \begin{SingleSpace}
 {\@coadvisor}\\
 Thesis Advisor 
 \end{SingleSpace}
-}
-
+} 
 \end{flushright}
-
 \begin{flushleft}
 Golden, Colorado\\[.5em] 
 Date \underline{\hspace{2in}}
 \end{flushleft}
-
 \vspace{.5em}
 \begin{flushright}
 Signed: \underline{\hspace{2in}}\\
-
 \begin{SingleSpace}
 {\@departmenthead}\\ 
 Professor and Head\\
 {\@department} 
 \end{SingleSpace}
-
 \end{flushright}
-
 \clearpage
-}
+} % end of \makesubmittalpage
+\newcommand{\@saveabstract}[1]{\long\gdef\@abstract{#1}}
 \renewenvironment{abstract}{\Collect@Body\@saveabstract}{}
-\newcommand{\@saveabstract}[1]{
-\long\gdef\@abstract{#1}
-}
 \newcommand{\makeabstractpage}{
 \clearpage 
 \chapter*{Abstract}
 \@abstract
 \addcontentsline{toc}{chapter}{\abstractname}
 \clearpage
-}
-\newenvironment{acknowledgment}{\Collect@Body\@saveacknowledgments}{}
+} % end of \makeabstractpage
 \newcommand{\@saveacknowledgments}[1]{
-\long\gdef\@acknowledgments{#1}
-}
+\long\gdef\@acknowledgments{#1}}
+\newenvironment{acknowledgment}{\Collect@Body\@saveacknowledgments}{}
 \newcommand{\makeacknowledgepage}{
 \@ifundefined{@acknowledgments}{}{
 \clearpage 
 \chapter*{Acknowledgments}
 \@acknowledgments
 \addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
-\clearpage
-}
-}
+\clearpage}
+} % end of \makeacknowledgepage
 \newenvironment{dedication}{\Collect@Body\@savededication}{}
 \newcommand{\@savededication}[1]{
 \long\gdef\@dedication{#1}
@@ -319,7 +285,21 @@ mu$}\hfill
 \renewcommand{\l@figure}{\SingleSpacing\oldl@figure}
 \let\oldl@table=\l@table
 \renewcommand{\l@table}{\SingleSpacing\oldl@table}
-
+\newcommand{\makefrontmatter}{
+\pagenumbering{roman}
+\pagestyle{empty}
+\maketitlepage
+\makecopyrightpage
+\pagestyle{plain}
+\setcounter{page}{2}
+\makesubmittalpage
+\makeabstractpage
+\makecft
+\makeacknowledgepage
+\makededicationpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+} % end of \makefrontmatter
 \makechapterstyle{mineschapter}{%
 \setlength{\midchapskip}{.2\baselineskip}
 \setlength{\afterchapskip}{.2\baselineskip}
