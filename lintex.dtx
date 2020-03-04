@@ -371,6 +371,7 @@
 %    \begin{macrocode}
 \checkandfixthelayout
 %    \end{macrocode}
+%
 % Moreover, we remove all interior spaces for list enviroments,
 %    \begin{macrocode}
 \tightlists % use \firmlists if vertical gaps is wanted
@@ -382,6 +383,20 @@
 	\hyphenpenalty=10000
 	\hbadness=10000
 %    \end{macrocode} 
+%
+% We alse rename the headings for the toc, lof, lot, 
+% and the references. ALL UPPER CASE LETTERS are used.
+%    \begin{macrocode}
+\renewcommand{\abstractname}{ABSTRACT}
+\renewcommand{\chaptername}{CHAPTER}
+\renewcommand{\appendixname}{APPENDIX}
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\renewcommand{\listtablename}{LIST OF TABLES}
+\newcommand{\acknowledgmentname}{ACKNOWLEDGMENTS}
+\renewcommand{\bibname}{REFERENCES}
+%    \end{macrocode}
+%
 %
 % ^^A======================================================
 % ^^A                      Front Matter                             
@@ -400,7 +415,9 @@
 % \cs{makeacknowledgepage} for  Acknowledgments,
 % and \cs{makededicationpage} for Dedication. 
 %
-%
+% ^^A======================================================
+% ^^A                        Info                             
+% ^^A======================================================
 % First We define the macros for the informations 
 % and set their default values.
 % \begin{macro}{\title}
@@ -441,7 +458,10 @@
 % \end{macro}
 % \end{macro}
 %
-%
+% ^^A======================================================
+% ^^A                        Title                             
+% ^^A======================================================
+% Then we design the title page.
 % \begin{macro}{\maketitlepage}
 % The thesis title must be in all upper case letters,
 % be centered on the page both horizontally and vertically,
@@ -490,7 +510,10 @@
 %    \end{macrocode}
 % \end{macro}
 %
-%
+% ^^A======================================================
+% ^^A                      Copyright                             
+% ^^A======================================================
+% Next, the copyright page.
 % \begin{macro}{\makecopyrightpage}
 % Copyright Page. This is an optional page that
 % follows the title page. No displayed page number,
@@ -508,8 +531,12 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% ^^A======================================================
+% ^^A                    Submittal Page                             
+% ^^A======================================================
+% Next, the submittal page.
 % \begin{macro}{\makesubmittalpage}
-% Submittal Page. This is a required page that displays
+% This is a required page that displays
 % the Roman numeral ii page number. Beginning with this page, 
 % front matter Roman numeral page numbers 
 % are centered 1/2 inch from the bottom edge of page. 
@@ -563,6 +590,10 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% ^^A======================================================
+% ^^A                     Abstract                             
+% ^^A======================================================
+% Next, the abstract page.
 % \begin{macro}{\makeabstractpage}
 % ABSTRACT (title) is centered horizontally, 
 % 1 keyboard return below 1 inch top margin and
@@ -583,7 +614,7 @@
 %    \begin{macrocode}
 \newcommand{\makeabstractpage}{
 	\clearpage	
-	\chapter*{Abstract}
+	\chapter*{\abstractname}
 	\@abstract
 	\addcontentsline{toc}{chapter}{\abstractname}
 	\clearpage
@@ -591,84 +622,47 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\makeacknowledgepage}
-% ACKNOWLEDGMENTS (Title) is centered horizontally, 
-% 1 keyboard return below 1 inch top margin and in 
-% ALL UPPER CASE LETTERS.
-% \begin{environment}{acknowledgment}
-%  We difine the |acknowledgment| environment.
-%  First, we need to save the text.
-% \begin{macro}{\@saveacknowledgments}
-%    \begin{macrocode}
-\newcommand{\@saveacknowledgments}[1]{
-	\long\gdef\@acknowledgments{#1}}
-%    \end{macrocode}
-% \end{macro}
-%    \begin{macrocode}
-\newenvironment{acknowledgment}{\Collect@Body\@saveacknowledgments}{}
-%    \end{macrocode}
-% \end{environment}
-% Acknowledgment page is not required.
-%    \begin{macrocode}
-\newcommand{\makeacknowledgepage}{
-	\@ifundefined{@acknowledgments}{}{
-		\clearpage	
-		\chapter*{Acknowledgments}
-		\@acknowledgments
-		\addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
-		\clearpage}
-} % end of \makeacknowledgepage
-%    \end{macrocode}
+% ^^A======================================================
+% ^^A                        CFT                             
+% ^^A======================================================
+% Next, the table of contents and lists. 
+% \begin{macro}{\makecft}
+% \cs{makecft} generates Table of Contents, List of Figures, and
+% List of Tables.
+% ^^A======================================================
+% ^^A                   Table of Contents                           
+% ^^A======================================================
+% \begin{macro}{\tableofcontents}
+% TABLE OF CONTENTS (Title) is centered horizontally, 
+% 1 keyboard return below 1 inch top margin and
+% in ALL UPPER CASE LETTERS.
+% Do not list the Table of Contents in the 
+% Table of Contents page, so \cs{tableofcontents*} is used.
 % \end{macro}
 %
-%
-%
-% \begin{environment}{dedication}
-%  We difine the |dedication| environment.
-%  First, we need to save the text
-%    \begin{macrocode}
-\newenvironment{dedication}{\Collect@Body\@savededication}{}
-%    \end{macrocode}
-% \end{environment}
-%
-% \begin{macro}{\@savededication}
-%   And saving the dedication
-%    \begin{macrocode}
-\newcommand{\@savededication}[1]{
-	\long\gdef\@dedication{#1}
-}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\makededicationpage}
-% ACKNOWLEDGMENTS (Title) is centered horizontally, 
-% 1 keyboard return below 1 inch top margin and in 
-% ALL UPPER CASE LETTERS.
-% Dedication Page: A dedication page is optional and 
-% not frequently included in a thesis. However, occasionally
-% the thesis writer wants to dedicate the document 
-% to a professional colleague, friend, or relative. 
-% A dedication typically expresses gratitude for 
-% someone's support. If a dedication page is included, 
-% it is placed at the end of the front matter section, 
-% following the acknowledgments. Typically, a dedication page 
-% has no title, it simply states, e.g., "For my father." 
-% Roman numeral page numbering continues on the dedication page.
+
 %
 %    \begin{macrocode}
-\newcommand{\makededicationpage}{
-	\@ifundefined{@dedication}{}{
-		\clearpage	
-		\@dedication
-		\clearpage
-	}
-}
+\renewcommand{\cftchapterdotsep}{\cftdotsep}	
+\renewcommand{\cftchapterfont}{\normalfont\MakeTextUppercase}
+\renewcommand{\cftchapterpagefont}{\normalfont}
+\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
+\renewcommand{\cftchaptername}{\chaptername\space}
+\renewcommand{\cftappendixname}{\appendixname\space}
+\renewcommand{\cftdotsep}{1}
+% ^^A no extra space before the entry, or in the lof/lot
+\setlength{\cftbeforechapterskip}{\z@ plus \z@}
+\renewcommand{\insertchapterspace}{}
+% ^^A \renewcommand{\insertchapterspace}{
+% ^^A 	\addtocontents{lof}{\protect\addvspace{5pt}} % previous default 10pt 
+% ^^A   \addtocontents{lot}{\protect\addvspace{5pt}}
+% ^^A }
 %    \end{macrocode}
-% \end{macro}
 %
 %
+
 % \begin{macro}{\l@chapapp}
-% Redefine the generic chapter/appendix ToC entry typesetting.
+% Redefine the generic chapter/appendix toc entry typesetting.
 %    \begin{macrocode}
 \renewcommand{\l@chapapp}[3]{%
 	\ifnum \c@tocdepth >\m@ne
@@ -700,69 +694,8 @@
 	\fi}
 %    \end{macrocode}
 % \end{macro}
-%
-%    \begin{macrocode}
-\renewcommand{\cftchapterdotsep}{\cftdotsep}	
-\renewcommand{\cftchapterfont}{\normalfont\MakeTextUppercase}
-\renewcommand{\cftchapterpagefont}{\normalfont}
-\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
-\renewcommand{\cftchaptername}{\chaptername\space}
-\renewcommand{\cftappendixname}{\appendixname\space}
-\renewcommand{\cftdotsep}{1}
-% ^^A no extra space before the entry, or in the LoF/LoT
-\setlength{\cftbeforechapterskip}{\z@ plus \z@}
-\renewcommand{\insertchapterspace}{}
-% ^^A \renewcommand{\insertchapterspace}{
-% ^^A 	\addtocontents{lof}{\protect\addvspace{5pt}} % previous default 10pt 
-% ^^A   \addtocontents{lot}{\protect\addvspace{5pt}}
-% ^^A }
-%    \end{macrocode}
-%
-%
-% \begin{macro}{\makecft}
-% \cs{makecft} generates Table of Contents, List of Figures, and
-% List of Tables.	
-% TABLE OF CONTENTS (Title) is centered horizontally, 
-% 1 keyboard return below 1 inch top margin and
-% in ALL UPPER CASE LETTERS
-%
-%    \begin{macrocode}
-\AtBeginDocument{
-	\@ifpackageloaded{hyperref}{
-		\settocpreprocessor{chapter}{%
-			\let\tempf@rtoc\f@rtoc%
-			\def\f@rtoc{%When hyperref is used,
-				\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
-		}
-		\renewcommand{\cftchapterfont}{\normalfont}
-		}{}		
-}
-\newcommand{\makecft}{	
-	\tableofcontents*
-	\clearpage	
-	\listoffigures
-	\clearpage
-	\listoftables
-	\clearpage
-} % end \makecft
-%    \end{macrocode}
-% \end{macro} 
 
-%
-%
-% We rename the headings for the toc, lof, lot, and the references.
-%
-%    \begin{macrocode}
-\renewcommand{\abstractname}{ABSTRACT}
-\renewcommand{\chaptername}{CHAPTER}
-\renewcommand{\appendixname}{APPENDIX}
-\renewcommand{\contentsname}{TABLE OF CONTENTS}
-\renewcommand{\listfigurename}{LIST OF FIGURES}
-\renewcommand{\listtablename}{LIST OF TABLES}
-%% for REFERENCE section
-\renewcommand{\bibname}{REFERENCES}
-%    \end{macrocode}
-%
+
 
 %
 % \begin{macro}{\@dottedtocline@sec}
@@ -791,9 +724,63 @@
 %    \end{macrocode}
 % \end{macro}
 %
+
+%
+%    \begin{macrocode}
+\renewcommand{\cftfigurename}{\figurename\space}
+\renewcommand{\cfttablename}{\tablename\space}
+%    \end{macrocode}
+%
+% \begin{macro}{\l@figure}
+% \cs{l@figure}\marg{title}\marg{page} typesets the lof entry for
+% a \cs{figure} caption heading. 
+% Multiple line figure captions are single spaced.
+%    \begin{macrocode}
+\let\oldl@figure=\l@figure
+\renewcommand{\l@figure}{\SingleSpacing\oldl@figure}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\l@table}
+% \cs{l@table}\marg{title}\marg{page} typesets the lof entry for
+% a \cs{table} caption heading. 
+% Multiple line table captions are single spaced.
+%    \begin{macrocode}
+\let\oldl@table=\l@table
+\renewcommand{\l@table}{\SingleSpacing\oldl@table}
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+\AtBeginDocument{
+	\@ifpackageloaded{hyperref}{
+		\settocpreprocessor{chapter}{%
+			\let\tempf@rtoc\f@rtoc%
+			\def\f@rtoc{%When hyperref is used,
+				\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+		}
+		\renewcommand{\cftchapterfont}{\normalfont}
+		}{}		
+}
+\newcommand{\makecft}{	
+	\tableofcontents*
+	\clearpage	
+	\listoffigures
+	\clearpage
+	\listoftables
+	\clearpage
+} % end of \makecft
+%    \end{macrocode}
+% \end{macro} 
+
+%
+%
+
+
+
 %
 % \begin{macro}{\l@section}
-% \cs{l@section}\marg{title}\marg{page} typesets the ToC entry for
+% \cs{l@section}\marg{title}\marg{page} typesets the toc entry for
 % a \cs{section} heading.
 %    \begin{macrocode}
 \renewcommand{\@dotsep}{1}
@@ -804,31 +791,73 @@
 % \end{macro}
 %
 %
-%
+% \begin{macro}{\makeacknowledgepage}
+% ACKNOWLEDGMENTS (Title) is centered horizontally, 
+% 1 keyboard return below 1 inch top margin and in 
+% ALL UPPER CASE LETTERS.
+% \begin{environment}{acknowledgment}
+%  We difine the |acknowledgment| environment.
+%  First, we need to save the text.
+% \begin{macro}{\@saveacknowledgments}
 %    \begin{macrocode}
-\renewcommand{\cftfigurename}{\figurename\space}
-\renewcommand{\cfttablename}{\tablename\space}
+\newcommand{\@saveacknowledgments}[1]{
+	\long\gdef\@acknowledgments{#1}}
 %    \end{macrocode}
-%
-% \begin{macro}{\l@figure}
-% \cs{l@figure}\marg{title}\marg{page} typesets the LoF entry for
-% a \cs{figure} caption heading. 
-% Multiple line figure captions are single spaced.
+% \end{macro}
 %    \begin{macrocode}
-\let\oldl@figure=\l@figure
-\renewcommand{\l@figure}{\SingleSpacing\oldl@figure}
+\newenvironment{acknowledgment}{\Collect@Body\@saveacknowledgments}{}
+%    \end{macrocode}
+% \end{environment}
+% Acknowledgment page is not required.
+%    \begin{macrocode}
+\newcommand{\makeacknowledgepage}{
+	\@ifundefined{@acknowledgments}{}{
+		\clearpage	
+		\chapter*{\acknowledgmentname}
+		\@acknowledgments
+		\addcontentsline{toc}{chapter}{\acknowledgmentname}
+		\clearpage}
+} % end of \makeacknowledgepage
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\l@table}
-% \cs{l@table}\marg{title}\marg{page} typesets the LoF entry for
-% a \cs{table} caption heading. 
-% Multiple line table captions are single spaced.
+% \begin{macro}{\makededicationpage}
+% Dedication Page: A dedication page is optional and 
+% not frequently included in a thesis. However, occasionally
+% the thesis writer wants to dedicate the document 
+% to a professional colleague, friend, or relative. 
+% A dedication typically expresses gratitude for 
+% someone's support. If a dedication page is included, 
+% it is placed at the end of the front matter section, 
+% following the acknowledgments. Typically, a dedication page 
+% has no title, it simply states, e.g., ``For my father.''
+% Roman numeral page numbering continues on the dedication page.
+%
+% \begin{environment}{dedication}
+%  We difine the |dedication| environment.
+%  First, we need to save the text.
+% \begin{macro}{\@savededication}
 %    \begin{macrocode}
-\let\oldl@table=\l@table
-\renewcommand{\l@table}{\SingleSpacing\oldl@table}
+\newcommand{\@savededication}[1]{
+	\long\gdef\@dedication{#1}}
 %    \end{macrocode}
 % \end{macro}
+%    \begin{macrocode}
+\newenvironment{dedication}{\Collect@Body\@savededication}{}
+%    \end{macrocode}
+% \end{environment}
+%    \begin{macrocode}
+\newcommand{\makededicationpage}{
+	\@ifundefined{@dedication}{}{
+		\clearpage	
+		\@dedication
+		\clearpage}
+} % end of \makededicationpage
+%    \end{macrocode}
+% \end{macro}
+%
+% Call single command \cs{makefrontmatter} to generate 
+% all front matters.
 %    \begin{macrocode}
 \newcommand{\makefrontmatter}{
 	\pagenumbering{roman}

@@ -8,7 +8,7 @@
 %========================================
 % Text will be double spaced or 1.5 spaced. 
 %\OnehalfSpacing 
-\DoubleSpacing
+%\DoubleSpacing
 % Set the indentation of each paragraph.
 \setlength{\parindent}{2em}
 
@@ -34,6 +34,10 @@
 % Or define several directories to be searched for figures.
 % \graphicspath{{Figures/}{../figures/}{C:/Users/me/Documents/project/figures/}}
 
+
+
+
+
 \begin{document}
 %========================================
 %                            Front Matter                              
@@ -44,7 +48,7 @@
 % For example,
 \title{
 	Thesis title centered on the page vertically and horizontally, \protect\\
-	in all upper case letters and in an inverted \protect\\	
+	in all upper case letters and in an inverted\protect\\
 	pyramid shape. 	Math mode: $\frac{2^{15}}{\pi}$
 }
 	
@@ -73,15 +77,15 @@
 
 %%============Acknowledgements==============
 % Comment the section out if you don't need it 
-\begin{acknowledgment}
-	This optional page includes a paragraph or two acknowledging and thanking your
-	advisor(s), committee members, funding sponsors, family members etc.
-			
-	Typically, if you acknowledge everyone here, you won’t have a dedication page.
-	
-	Below are dummy texts generated  by the \texttt{lipsum} package.
-	\lipsum[3]
-\end{acknowledgment}
+%\begin{acknowledgment}
+%	This optional page includes a paragraph or two acknowledging and thanking your
+%	advisor(s), committee members, funding sponsors, family members etc.
+%			
+%	Typically, if you acknowledge everyone here, you won’t have a dedication page.
+%	
+%	Below are dummy texts generated  by the \texttt{lipsum} package.
+%	\lipsum[3]
+%\end{acknowledgment}
 
 %%==================Dedication===============
 % Comment the section out if you don't need it 
@@ -92,7 +96,12 @@
 
 \makefrontmatter
 	
-	
+
+%\raggedright
+%\raggedyright[0pt] % typeset flushright 
+\raggedyright[.5fil] % same as \raggedright
+%\raggedyright[1fil] % same as \raggedright
+%\raggedyright[0.5em] % less ragged than \raggedright
 %========================================
 %                              Main Body                              
 %========================================

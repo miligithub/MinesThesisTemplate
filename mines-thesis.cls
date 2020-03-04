@@ -55,6 +55,14 @@
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
+\renewcommand{\abstractname}{ABSTRACT}
+\renewcommand{\chaptername}{CHAPTER}
+\renewcommand{\appendixname}{APPENDIX}
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\renewcommand{\listtablename}{LIST OF TABLES}
+\newcommand{\acknowledgmentname}{ACKNOWLEDGMENTS}
+\renewcommand{\bibname}{REFERENCES}
 \renewcommand{\year}[1]{\gdef\@year{#1}}
 \newcommand{\degree}[2]{\gdef\@degreelv{#1}\gdef\@degreename{#2}}
 \newcommand{\advisor}[1]{\gdef\@advisor{#1}}
@@ -164,33 +172,22 @@ Professor and Head\\
 \renewenvironment{abstract}{\Collect@Body\@saveabstract}{}
 \newcommand{\makeabstractpage}{
 \clearpage 
-\chapter*{Abstract}
+\chapter*{\abstractname}
 \@abstract
 \addcontentsline{toc}{chapter}{\abstractname}
 \clearpage
 } % end of \makeabstractpage
-\newcommand{\@saveacknowledgments}[1]{
-\long\gdef\@acknowledgments{#1}}
-\newenvironment{acknowledgment}{\Collect@Body\@saveacknowledgments}{}
-\newcommand{\makeacknowledgepage}{
-\@ifundefined{@acknowledgments}{}{
-\clearpage 
-\chapter*{Acknowledgments}
-\@acknowledgments
-\addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
-\clearpage}
-} % end of \makeacknowledgepage
-\newenvironment{dedication}{\Collect@Body\@savededication}{}
-\newcommand{\@savededication}[1]{
-\long\gdef\@dedication{#1}
-}
-\newcommand{\makededicationpage}{
-\@ifundefined{@dedication}{}{
-\clearpage 
-\@dedication
-\clearpage
-}
-}
+
+\renewcommand{\cftchapterdotsep}{\cftdotsep} 
+\renewcommand{\cftchapterfont}{\normalfont\MakeTextUppercase}
+\renewcommand{\cftchapterpagefont}{\normalfont}
+\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
+\renewcommand{\cftchaptername}{\chaptername\space}
+\renewcommand{\cftappendixname}{\appendixname\space}
+\renewcommand{\cftdotsep}{1}
+\setlength{\cftbeforechapterskip}{\z@ plus \z@}
+\renewcommand{\insertchapterspace}{}
+
 \renewcommand{\l@chapapp}[3]{%
 \ifnum \c@tocdepth >\m@ne
 \begin{SingleSpace}
@@ -219,42 +216,6 @@ Professor and Head\\
 \cftchapterfillnum{#2}}
 \end{SingleSpace} 
 \fi}
-\renewcommand{\cftchapterdotsep}{\cftdotsep} 
-\renewcommand{\cftchapterfont}{\normalfont\MakeTextUppercase}
-\renewcommand{\cftchapterpagefont}{\normalfont}
-\renewcommand{\cftchapterleader}{\cftdotfill{\cftchapterdotsep}}
-\renewcommand{\cftchaptername}{\chaptername\space}
-\renewcommand{\cftappendixname}{\appendixname\space}
-\renewcommand{\cftdotsep}{1}
-\setlength{\cftbeforechapterskip}{\z@ plus \z@}
-\renewcommand{\insertchapterspace}{}
-\AtBeginDocument{
-\@ifpackageloaded{hyperref}{
-\settocpreprocessor{chapter}{%
-\let\tempf@rtoc\f@rtoc%
-\def\f@rtoc{%When hyperref is used,
-\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
-}
-\renewcommand{\cftchapterfont}{\normalfont}
-}{} 
-}
-\newcommand{\makecft}{ 
-\tableofcontents*
-\clearpage 
-\listoffigures
-\clearpage
-\listoftables
-\clearpage
-} % end \makecft
-
-\renewcommand{\abstractname}{ABSTRACT}
-\renewcommand{\chaptername}{CHAPTER}
-\renewcommand{\appendixname}{APPENDIX}
-\renewcommand{\contentsname}{TABLE OF CONTENTS}
-\renewcommand{\listfigurename}{LIST OF FIGURES}
-\renewcommand{\listtablename}{LIST OF TABLES}
-%% for REFERENCE section
-\renewcommand{\bibname}{REFERENCES}
 
 \newcommand{\@dottedtocline@sec}[5]{%
 \ifnum #1>\c@tocdepth \else
@@ -275,16 +236,57 @@ mu$}\hfill
 \par}
 \end{SingleSpace}%
 \fi}
-\renewcommand{\@dotsep}{1}
-\renewcommand{\l@section}{
-\@dottedtocline@sec{1}{1.5em}{2.3em}
-}
+
 \renewcommand{\cftfigurename}{\figurename\space}
 \renewcommand{\cfttablename}{\tablename\space}
 \let\oldl@figure=\l@figure
 \renewcommand{\l@figure}{\SingleSpacing\oldl@figure}
 \let\oldl@table=\l@table
 \renewcommand{\l@table}{\SingleSpacing\oldl@table}
+\AtBeginDocument{
+\@ifpackageloaded{hyperref}{
+\settocpreprocessor{chapter}{%
+\let\tempf@rtoc\f@rtoc%
+\def\f@rtoc{%When hyperref is used,
+\texorpdfstring{\MakeTextUppercase{\tempf@rtoc}}{\tempf@rtoc}}%
+}
+\renewcommand{\cftchapterfont}{\normalfont}
+}{} 
+}
+\newcommand{\makecft}{ 
+\tableofcontents*
+\clearpage 
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
+} % end of \makecft
+
+
+\renewcommand{\@dotsep}{1}
+\renewcommand{\l@section}{
+\@dottedtocline@sec{1}{1.5em}{2.3em}
+}
+\newcommand{\@saveacknowledgments}[1]{
+\long\gdef\@acknowledgments{#1}}
+\newenvironment{acknowledgment}{\Collect@Body\@saveacknowledgments}{}
+\newcommand{\makeacknowledgepage}{
+\@ifundefined{@acknowledgments}{}{
+\clearpage 
+\chapter*{\acknowledgmentname}
+\@acknowledgments
+\addcontentsline{toc}{chapter}{\acknowledgmentname}
+\clearpage}
+} % end of \makeacknowledgepage
+\newcommand{\@savededication}[1]{
+\long\gdef\@dedication{#1}}
+\newenvironment{dedication}{\Collect@Body\@savededication}{}
+\newcommand{\makededicationpage}{
+\@ifundefined{@dedication}{}{
+\clearpage 
+\@dedication
+\clearpage}
+} % end of \makededicationpage
 \newcommand{\makefrontmatter}{
 \pagenumbering{roman}
 \pagestyle{empty}
