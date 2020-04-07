@@ -8,23 +8,26 @@
 %========================================
 % Text will be double spaced or 1.5 spaced. 
 %\OnehalfSpacing 
-%\DoubleSpacing
+\DoubleSpacing
 % Set the indentation of each paragraph.
 \setlength{\parindent}{2em}
-
+% Set the lowest level to show in the table of contents
+\maxtocdepth{subsubsection}
+% Set the fully-justified or left-justified text
+%\textalignment{fully-justified}
+%\textalignment{left-justified}
 
 %========================================
 %                           Packages                             
 %========================================
 \usepackage{lipsum} % dummy text
-\usepackage{graphicx} 
-\usepackage{natbib} % for Chicago style References
+\usepackage{graphicx} % for images
+\usepackage{natbib} % for Chicago style references
 % hyperref is a package that frequently requires compiling twice 
 \usepackage{hyperref} % for \url and links 
 \usepackage{pdflscape} % for landscape mode page
 \usepackage{everypage} % for landscape mode page numbering 
 \usepackage{longtable} % for really long tables
-
 
 % Place all chapter tex files in ``Chapters'' folder
 % Place all references bib files in ``References'' folder
@@ -34,9 +37,6 @@
 % Or define several directories to be searched for figures.
 % \graphicspath{{Figures/}{../figures/}{C:/Users/me/Documents/project/figures/}}
 
-
-
-\maxtocdepth{subsubsection}
 
 \begin{document}
 %========================================
@@ -95,19 +95,14 @@
 
 
 \makefrontmatter
-	
 
-%\raggedright
-%\raggedyright[0pt] % typeset flushright 
-\raggedyright[.5fil] % same as \raggedright
-%\raggedyright[1fil] % same as \raggedright
-%\raggedyright[0.5em] % less ragged than \raggedright
+
 %========================================
 %                              Main Body                              
 %========================================
 %TODO Main Body
 	
-% You can separate the chapters
+% You can separate the chapters to different files
 
 \include{Chapters/chapter1}
 \include{Chapters/chapter2}

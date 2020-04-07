@@ -260,6 +260,7 @@
 %    \begin{macrocode}
 \RequirePackage{ifthen} 
 \RequirePackage{environ}
+\RequirePackage{calc}
 %    \end{macrocode}
 % ^^A %    \begin{macrocode}
 % ^^A \RequirePackage{pdflscape,everypage}
@@ -873,6 +874,12 @@
 	\makededicationpage
 	\pagenumbering{arabic}
 	\setcounter{page}{1}
+
+	%\raggedright
+	%\raggedyright[0pt] % typeset flushright 
+	\raggedyright[.5fil] % same as \raggedright
+	%\raggedyright[1fil] % same as \raggedright
+	%\raggedyright[0.5em] % less ragged than \raggedright
 } % end of \makefrontmatter
 %    \end{macrocode}
 % \end{macro}
@@ -1000,7 +1007,11 @@
 \AtBeginDocument{
 	\@ifpackageloaded{natbib}{
 		\setlength{\bibhang}{\parindent}
-		\renewcommand{\bibpreamble}{\vspace{\parskip}}
+		\newlength{\bibskiplen}
+		\setlength{\bibskiplen}{\f@size pt}
+		\newlength{\bibskipscale}
+		\setlength{\bibskipscale}{\baselinestretch\bibskiplen}
+		\setlength{\bibsep}{\bibskipscale-.5\baselineskip}
 		}{}
 }
 %    \end{macrocode}

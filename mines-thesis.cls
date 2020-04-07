@@ -30,6 +30,7 @@
 
 \RequirePackage{ifthen}
 \RequirePackage{environ}
+\RequirePackage{calc}
 \newboolean{review}
 \DeclareOption{draft}{\setboolean{review}{true}}
 \DeclareOption{final}{\setboolean{review}{false}
@@ -301,6 +302,8 @@ mu$}\hfill
 \makededicationpage
 \pagenumbering{arabic}
 \setcounter{page}{1}
+
+\raggedyright[.5fil] % same as \raggedright
 } % end of \makefrontmatter
 \makechapterstyle{mineschapter}{%
 \setlength{\midchapskip}{.2\baselineskip}
@@ -366,7 +369,11 @@ mu$}\hfill
 \AtBeginDocument{
 \@ifpackageloaded{natbib}{
 \setlength{\bibhang}{\parindent}
-\renewcommand{\bibpreamble}{\vspace{\parskip}}
+\newlength{\bibskiplen}
+\setlength{\bibskiplen}{\f@size pt}
+\newlength{\bibskipscale}
+\setlength{\bibskipscale}{\baselinestretch\bibskiplen}
+\setlength{\bibsep}{\bibskipscale-.5\baselineskip}
 }{}
 }
 \let\oldbibliography=\bibliography
