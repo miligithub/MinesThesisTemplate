@@ -1,4 +1,4 @@
-# MinesThesisTemplate
+# Li-n-Tex: MinesThesisTemplate
 Welcome to the Li-n-Tex! A latex template for theses and dissertations at Colorado School of Mines.
 
 
