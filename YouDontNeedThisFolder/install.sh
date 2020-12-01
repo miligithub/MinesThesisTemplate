@@ -10,6 +10,8 @@ done
 latex lintex.ins
 pdflatex lintex.dtx
 pdflatex lintex.dtx
+# pdflatex -output-directory ../ lintex.dtx
+# pdflatex -output-directory ../ lintex.dtx
 
 for file in *; do
     if [[ ! $file =~ (sh|md|dtx|ins|tex|pdf|sty|bib|cls)$ &&  -f $file ]]; then 
@@ -17,4 +19,6 @@ for file in *; do
         rm $file
     fi
 done
+
+mv mines-thesis.cls ../mines-thesis.cls
 
