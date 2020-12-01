@@ -3,7 +3,7 @@ Welcome to the Li-n-Tex! A latex template for theses and dissertations at Colora
 
 See an example of the compiled result: [View PDF](https://docs.google.com/viewer?url=https://github.com/miligithub/MinesThesisTemplate/raw/master/mines-thesis-template.pdf)
 
-Or start use the template on Overleaf: [Mines Thesis Template on Overleaf (To be added soon))]
+Or start using the template on Overleaf: [Mines Thesis Template on Overleaf (To be added soon))]
 
 # Directory Structure
 ```
@@ -14,7 +14,7 @@ Or start use the template on Overleaf: [Mines Thesis Template on Overleaf (To be
 │   ├── chapter2.tex
 │   ├── appendixA.tex
 │   └── appendixB.tex
-├── Figures             
+├── Figures                      
 │   ├── fig1.pdf
 │   ├── fig2.png
 │   └── fig3.jpg
