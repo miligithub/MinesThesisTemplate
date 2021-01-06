@@ -46,11 +46,18 @@
 \setulmarginsandblock{1in}{*}{*}
 \setheadfoot{\onelineskip}{2\onelineskip}
 \setheaderspaces{*}{2\onelineskip}{*}
+
+
 \DoubleSpacing
+\@ifundefined{DoubleSpacing}{
+\newcommand{\linespace}{1.5}
+}{
+\newcommand{\linespace}{2}
+}
 \setlength{\parindent}{2em}
 \let\@afterindentfalse\@afterindenttrue
 \@afterindenttrue
-\checkandfixthelayout
+\checkandfixthelayout[nearest]
 \tightlists % use \firmlists if vertical gaps is wanted
 \tolerance=1
 \emergencystretch=\maxdimen
@@ -103,6 +110,7 @@
 \newcommand{\autotitle}{\setboolean{auto}{true}}
 \newcommand{\maketitlepage}{
 \clearpage
+\quad\\[\baselineskip]
 \begin{vplace}
 \centering
 \ifthenelse{\boolean{auto}}
@@ -366,22 +374,16 @@ mu$}\hfill
 
 }{}
 }
-\AtBeginDocument{
-\@ifpackageloaded{natbib}{
-\setlength{\bibhang}{\parindent}
-\newlength{\bibskiplen}
-\setlength{\bibskiplen}{\f@size pt}
-\newlength{\bibskipscale}
-\setlength{\bibskipscale}{\baselinestretch\bibskiplen}
-\setlength{\bibsep}{\bibskipscale-.5\baselineskip}
-}{}
+\setlength{\bibitemsep}{\baselineskip}
+\newlength{\bibparskip}\setlength{\bibparskip}{.5\baselineskip}
+\let\oldthebibliography\thebibliography
+\renewcommand\thebibliography[1]{%
+\SingleSpacing
+\oldthebibliography{#1}%
+\setlength{\parskip}{\bibitemsep}%
+\setlength{\itemsep}{\bibparskip}%
 }
-\let\oldbibliography=\bibliography
-\renewcommand{\bibliography}[1]{
-\begin{SingleSpace}
-\oldbibliography{#1}
-\end{SingleSpace}
-}
+
 
 \AtBeginDocument{
 \@ifpackageloaded{pdflscape}{

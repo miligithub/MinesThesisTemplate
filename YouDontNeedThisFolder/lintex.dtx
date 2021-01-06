@@ -350,9 +350,17 @@
 \setheadfoot{\onelineskip}{2\onelineskip}
 \setheaderspaces{*}{2\onelineskip}{*}
 %    \end{macrocode}
+
+
 % By default, we use double spacing for the thesis/dissertaion.
+
 %    \begin{macrocode}
 \DoubleSpacing
+\@ifundefined{DoubleSpacing}{
+	\newcommand{\linespace}{1.5}
+}{
+	\newcommand{\linespace}{2}
+}
 %    \end{macrocode}
 % The paragraph indentation is |2em|. |1em| is roughly the width 
 % of a capital ``M'' in the current font.
@@ -370,7 +378,7 @@
 % ^^A to check the page layout specification you have given, and 
 % ^^A then calls \cs{fixthelayout} to finally implement it.
 %    \begin{macrocode}
-\checkandfixthelayout
+\checkandfixthelayout[nearest]
 %    \end{macrocode}
 %
 % Moreover, we remove all interior spaces for list enviroments,
@@ -496,6 +504,7 @@
 \newcommand{\autotitle}{\setboolean{auto}{true}}
 \newcommand{\maketitlepage}{
 	\clearpage
+	\quad\\[\baselineskip]
 	\begin{vplace}
 		\centering
 		\ifthenelse{\boolean{auto}}
@@ -1002,27 +1011,23 @@
 % \subsubsection{Back Matter}
 % \label{sec:imp_code_back}
 %
-% Change the indent of References if |natbib| package is loaded.
+% Change the indent of References.
+% \begin{macro}{\thebibliography}
 %    \begin{macrocode}
-\AtBeginDocument{
-	\@ifpackageloaded{natbib}{
-		\setlength{\bibhang}{\parindent}
-		\newlength{\bibskiplen}
-		\setlength{\bibskiplen}{\f@size pt}
-		\newlength{\bibskipscale}
-		\setlength{\bibskipscale}{\baselinestretch\bibskiplen}
-		\setlength{\bibsep}{\bibskipscale-.5\baselineskip}
-		}{}
+\setlength{\bibitemsep}{\baselineskip}
+\newlength{\bibparskip}\setlength{\bibparskip}{.5\baselineskip}
+\let\oldthebibliography\thebibliography
+\renewcommand\thebibliography[1]{%
+	\SingleSpacing
+	\oldthebibliography{#1}%
+	\setlength{\parskip}{\bibitemsep}%
+	\setlength{\itemsep}{\bibparskip}%
 }
 %    \end{macrocode}
+% \end{macro}
 % \begin{macro}{\bibliography}
-%    \begin{macrocode}	
-\let\oldbibliography=\bibliography
-\renewcommand{\bibliography}[1]{
-	\begin{SingleSpace}
-		\oldbibliography{#1}
-	\end{SingleSpace}
-}
+%    \begin{macrocode}
+
 %    \end{macrocode}
 % \end{macro}
 %

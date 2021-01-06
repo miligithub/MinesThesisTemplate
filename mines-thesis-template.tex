@@ -7,8 +7,8 @@
 %                              Set-up                              
 %========================================
 % Text will be double spaced or 1.5 spaced. 
-%\OnehalfSpacing 
-\DoubleSpacing
+\OnehalfSpacing 
+%\DoubleSpacing
 % Set the indentation of each paragraph.
 \setlength{\parindent}{2em}
 % Set the lowest level to show in the table of contents
@@ -22,7 +22,6 @@
 %========================================
 \usepackage{lipsum} % dummy text
 \usepackage{graphicx} % for images
-\usepackage{natbib} % for Chicago style references
 % hyperref is a package that frequently requires compiling twice 
 \usepackage{hyperref} % for \url and links
 \urlstyle{same} % use same font of url
@@ -122,6 +121,8 @@
 \lipsum[4]
 \subsubsection{SubSubSection}
 \lipsum[4-5]
+
+\linespace
 	
 %========================================
 %                             Back Matter                               
@@ -132,12 +133,69 @@
 % or 
 % 2. Add a reference section at the end of each chapter
 % Set the NAME of your bibliography file
-\bibliography{References/referenceAll.bib} 
+%\bibliography{References/referenceAll.bib} 
 % Set the STYLE of your reference, you need to compile TWICE
 % entries are sorted alphabetically and labelled with numbers.
 %\bibliographystyle{plain}
-% Chicago style is an "author-date" style, so the citation in the text consists of the author(s) name and year of publication given wholly or partly in round brackets.
-\bibliographystyle{chicago}	 % Require natbib package
+\begin{thebibliography}{10}
+	
+	\bibitem{colu92}
+	Christopher Columbus.
+	\newblock {\em How {I} Discovered {America}}.
+	\newblock Hispanic Press, Barcelona, 1492.
+	
+	\bibitem{goossens1994latex}
+	Michel Goossens, Frank Mittelbach, and Alexander Samarin.
+	\newblock {\em The LATEX companion}.
+	\newblock Addison-Wesley Reading, 1994.
+	
+	\bibitem{gree00}
+	R.~J. Green, U.~P. Fred, and W.~P. Norbert.
+	\newblock Things that go bump in the night.
+	\newblock {\em Psych. Today}, 46:345--678, 1900.
+	
+	\bibitem{jame76}
+	Kelly James, George Harris, Jr., and Wilby Wollops.
+	\newblock {American} independence and magnetism.
+	\newblock {\em Revol. Tracts}, 32:34--55, 1776.
+	
+	\bibitem{lamport1994latex}
+	Leslie Lamport.
+	\newblock {\em LATEX: a document preparation system: user's guide and reference
+		manual}.
+	\newblock Addison-wesley, 1994.
+	
+	\bibitem{onlineWindows}
+	MultiMedia LLC.
+	\newblock {MS Windows NT} kernel description.
+	\newblock
+	\url{http://web.archive.org/web/20080207010024/http://www.808multimedia.com/winnt/kernel.htm},
+	1999.
+	\newblock Accessed: 2010-09-30.
+	
+	\bibitem{makuuchi2000progress}
+	Keizo Makuuchi.
+	\newblock Progress in radiation vulcanization of natural rubber latex.
+	\newblock Technical report, 2000.
+	
+	\bibitem{phil99}
+	T.~P. Phillips.
+	\newblock Possible influence of the magnetosphere on {American} history.
+	\newblock {\em J. Oddball Res.}, 98:1000--1003, 1999.
+	
+	\bibitem{smit54}
+	J.~G. Smith and H.~K. Weston.
+	\newblock Nothing particular in this year's history.
+	\newblock {\em J. Geophys. Res.}, 2:14--15, 1954.
+	
+	\bibitem{yassin1994latex}
+	Mohamed~S Yassin, Michelle~B Lierl, Thomas~J Fischer, Kevin O'Brien, Jennifer
+	Cross, and Christine Steinmetz.
+	\newblock Latex allergy in hospital employees.
+	\newblock {\em Annals of allergy}, 72(3):245--249, 1994.
+	
+\end{thebibliography}
+
 
 %%=================Appendix===============
 % The \appendix declaration changes the numbering of chapters 
