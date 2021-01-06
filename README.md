@@ -1,9 +1,9 @@
 # Mines Thesis Template
-#### A latex template for theses and dissertations at _Colorado School of Mines_. This template was placed second in the LaTeX template competition in 2019-2020.
+A latex template for theses and dissertations at _Colorado School of Mines_. This template was placed second in the LaTeX template competition in 2019-2020.
 
-#### See an _example_ of the compiled result: <a href="mines-thesis-template.pdf" download>Click to Download the PDF</a>
+#### See an _example_ of the compiled result: <a href="https://github.com/miligithub/MinesThesisTemplate/raw/release/mines-thesis-template.pdf" download>Click to Download the PDF</a>
 
-#### Or start using the template on Overleaf: [Mines Thesis Template on Overleaf (To be added soon))]
+Or start using the template on Overleaf: [Mines Thesis Template on Overleaf (To be added soon))]
 
 # Directory Structure
 ```
