@@ -38,6 +38,9 @@
 % Or define several directories to be searched for figures.
 % \graphicspath{{Figures/}{../figures/}{C:/Users/me/Documents/project/figures/}}
 
+\usepackage{enumitem}
+\newlist{abbrv}{itemize}{1}
+\setlist[abbrv,1]{label=,labelwidth=1in,align=parleft,itemsep=0.1\baselineskip,leftmargin=!}
 
 \begin{document}
 %========================================
@@ -94,6 +97,56 @@
 	Dedication Page: A dedication page is optional and not frequently included in a thesis. However, occasionally the thesis writer wants to dedicate the document to a professional colleague, friend, or relative. A dedication typically expresses gratitude for someone's support. If a dedication page is included, it is placed at the end of the front matter section, following the acknowledgments. Typically, a dedication page has no title, it simply states, e.g., "For my father." Roman numeral page numbering continues on the dedication page.
 \end{dedication}	
 
+
+\renewcommand{\makecft}{	
+	\tableofcontents*
+	\clearpage	
+	\listoffigures
+	\clearpage
+	\listoftables
+	\clearpage
+	\listofsymbols
+	\clearpage
+	\clearpage
+}
+
+\newcommand{\listofsymbols}{
+\chapter*{List of Abbreviations}
+\chaptermark{List of Abbreviations}
+
+\begin{abbrv}
+	\item[ADL]                   Activities of Daily Life
+	\item[AST]                   Alternate Step Test
+	\item[BMI]                   Body Mass Index
+	\item[CSFT]                  Cross Step moving on Four Stops
+	\item[DBN]                   Dynamic Bayesian Networks
+	\item[DFRAC]                 Demura's Fall Risk Assessment Chart
+	\item[EMG]                   Electromyography
+	\item[FEUP]                  Faculdade de Engenharia da Universidade do Porto
+	\item[FPRI]                  Fall Prediction and Risk Index
+	\item[FR]                    Fall Probability
+	\item[FRI]                   Fall Risk Index
+	\item[GDP]                   Gross Domestic Product
+	\item[GUGT]                  Get-Up-ang-Go Test
+	\item[LABIOMEP]              Laboratório de Biomecânica do Porto
+	\item[MEMs]                  Micro-Electromechanics
+	\item[MTC]                   Minimum Toe Clearance
+	\item[PCA]                   Principal Components Analysis
+	\item[PPA]                   Physiological Profile Assessment
+	\item[PPP]                   Purchasing Power Parities
+	\item[SMWT]                  Six Meter Walking Test
+	\item[STRATIFY]              Saint Thomas's Risk Assessment Tool in Falling Elderly Inpatients
+	\item[STST]                  Sit-To-Stand Test
+	\item[STST5]                 Sit-To-Stand Test with 5 repetitions
+	\item[SVM]                   State Vector Machine
+	\item[SWHSA]                 Smart Wearable Health Systems and Applications
+	\item[TUGT]                  Timed Up-and-Go Test
+	\item[USB]                   Universal Serial Bus
+	\item[USUST]                 Unstructured and Unsupervised Test
+	\item[WEFAPS]                Wearable Fall Assessment \& Prediction System
+	\item[WHO]                   World Health Organization
+\end{abbrv}
+}
 
 \makefrontmatter
 
