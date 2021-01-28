@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "This bash file will remove all files except sh|md|dtx|ins|tex|pdf|sty|bib"
 for file in *; do
-    if [[ ! $file =~ (sh|md|dtx|ins|tex|pdf|sty|bib)$ &&  -f $file ]]; then 
+    if [[ ! $file =~ (sh|md|dtx|ins|tex|pdf|sty|bib|txt)$ &&  -f $file ]]; then 
         # echo "remove $file"
         rm $file
     fi
@@ -14,7 +14,7 @@ pdflatex lintex.dtx
 # pdflatex -output-directory ../ lintex.dtx
 
 for file in *; do
-    if [[ ! $file =~ (sh|md|dtx|ins|tex|pdf|sty|bib|cls)$ &&  -f $file ]]; then 
+    if [[ ! $file =~ (sh|md|dtx|ins|tex|pdf|sty|bib|cls|txt)$ &&  -f $file ]]; then 
         # echo "remove $file"
         rm $file
     fi
